@@ -1,0 +1,17 @@
+{
+  "name": "ecommerceshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:fe": "nx run frontend:dev",
+    "start:be": "nx run backend:dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nx": "^19.0.2"
+  }
+}

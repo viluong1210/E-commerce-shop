@@ -1,0 +1,133 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id        String   @id @default(uuid())
+  isDeleted Boolean  @default(false)
+  isAdmin   Boolean  @default(false)
+  passWord  String
+  name      String
+  email     String   @unique
+  phone     String
+  birthday  String
+  sex       Sex
+  regionId  Int
+  cityId    Int
+  vnwardId  Int
+  address   String
+  createdAt DateTime @default(now())
+  Orders    Orders[]
+  Carts     Carts[]
+}
+
+model Orders {
+  id          String       @id @default(uuid())
+  userId      String
+  totalAmount Float
+  isDeleted   Boolean      @default(false)
+  status      OrderStatus  @default(Pending)
+  createdAt   DateTime     @default(now())
+  user        Users        @relation(fields: [userId], references: [id])
+  orderItems  OrderItems[]
+}
+
+model OrderItems {
+  id        String   @id @default(uuid())
+  orderId   String
+  productId String
+  quantity  Int
+  price     Float
+  isDeleted Boolean  @default(false)
+  createdAt DateTime @default(now())
+  order     Orders   @relation(fields: [orderId], references: [id])
+  product   Products @relation(fields: [productId], references: [id])
+}
+
+model Products {
+  id          String       @id @default(uuid())
+  name        String
+  price       Float
+  description String
+  isDeleted   Boolean      @default(false)
+  category    String
+  createdAt   DateTime     @default(now())
+  categorys   Categorys    @relation(fields: [category], references: [id])
+  images      Images[]
+  cartItems   CartItems[]
+  OrderItems  OrderItems[]
+}
+
+model Categorys {
+  id        String     @id @default(uuid())
+  name      String     @unique
+  isDeleted Boolean    @default(false)
+  createdAt DateTime   @default(now())
+  products  Products[]
+}
+
+model Images {
+  id        String    @id @default(uuid())
+  url       String
+  parentId  String
+  isDeleted Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  product   Products? @relation(fields: [parentId], references: [id])
+}
+
+model Carts {
+  id        String      @id @default(uuid())
+  userId    String
+  isDeleted Boolean     @default(false)
+  createdAt DateTime    @default(now())
+  user      Users       @relation(fields: [userId], references: [id])
+  cartItems CartItems[]
+}
+
+model CartItems {
+  id        String   @id @default(uuid())
+  cartId    String
+  productId String
+  isDeleted Boolean  @default(false)
+  quantity  Int
+  createdAt DateTime @default(now())
+  cart      Carts    @relation(fields: [cartId], references: [id])
+  product   Products @relation(fields: [productId], references: [id])
+}
+
+enum OrderStatus {
+  Pending
+  Confirmed
+  Processing
+  Shipped
+  Delivered
+  Cancelled
+  Refunded
+  Failed
+}
+
+enum Sex {
+  Man
+  Woman
+  Other
+}
+
+// model UserInformation {
+//   id           Int    @id @default(autoincrement())
+//   firstname    String
+//   display_name String
+//   email        String @unique
+//   phone        String
+//   birthday     String
+//   sex          String
+//   regionId     Int
+//   cityId       Int
+//   vnwardId     Int
+//   address      String
+//   password     String
+// }
