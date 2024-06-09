@@ -1,0 +1,29 @@
+.container:hover .overlay {
+  opacity: 1;
+}
+.cart-btn .ant-btn {
+  border-radius: 8px 0px;
+}
+
+.cart-btn .ant-btn:hover {
+  border: 1px solid #000 !important;
+}
+.cart-btn .ant-btn:hover .icon-cart {
+  color: #221f20;
+}
+.product-item  {
+  cursor: pointer;
+}
+
+.product-item .promotion span {
+  color: white;
+}
+.list-product .view-more .ant-btn span {
+  color: #221f20;
+}
+.list-product .view-more .ant-btn:hover span {
+  color: #fff;
+}
+.list-product .view-more .ant-btn:hover {
+  border-color: #221f20;
+}

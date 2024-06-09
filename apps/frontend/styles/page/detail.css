@@ -1,0 +1,31 @@
+.swiper-pagination .swiper-wrapper {
+  display: flex;
+  flex-direction: column !important;
+}
+.detail-product .ant-tabs-tab {
+  color: #6c6d70;
+  font-size: 12px;
+  line-height: 16px;
+  display: inline-block;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.detail-product .ant-tabs-tab:hover {
+  color: #221f20 !important;
+}
+.detail-product .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #221f20 !important;
+}
+.detail-product .ant-tabs-ink-bar {
+  border-bottom: 2px solid #221f20;
+}
+.detail-product .ant-tabs-content {
+  color: #3e3e3f;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+body {
+  overflow: auto;
+}
