@@ -1,0 +1,24 @@
+.product-list .ant-tabs-tab {
+  color: #6c6d70;
+  font-size: 20px;
+  line-height: 30px;
+  margin-right: 56px;
+  display: inline-block;
+  cursor: pointer;
+}
+.product-list .ant-tabs-tab:hover {
+  color: #221f20 !important;
+}
+.product-list .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #221f20 !important;
+  border-bottom: 2px solid #221f20;
+}
+.product-list .ant-tabs-ink-bar {
+  display: none;
+}
+.product-list .ant-tabs-top .ant-tabs-nav::before {
+  border-bottom: none;
+}
+body {
+  overflow: auto;
+}
