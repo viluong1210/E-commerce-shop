@@ -14,32 +14,36 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "nx.json",
-        "hash": "12879606518836231623"
-      },
-      {
-        "file": "pnpm-lock.yaml",
-        "hash": "16690430264623510848"
-      },
-      {
-        "file": "package.json",
-        "hash": "9877590155631189063"
-      },
-      {
-        "file": "pnpm-workspace.yaml",
-        "hash": "8491828452469826992"
+        "file": "docker-compose.yaml",
+        "hash": "4327007306913248687"
       },
       {
         "file": ".gitignore",
         "hash": "10725328954387926024"
       },
       {
-        "file": "docker-compose.yaml",
-        "hash": "1818046469299533626"
+        "file": "package.json",
+        "hash": "9877590155631189063"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "1962900817702812078"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "8491828452469826992"
+      },
+      {
+        "file": "nx.json",
+        "hash": "12879606518836231623"
       }
     ],
     "projectFileMap": {
       "backend": [
+        {
+          "file": "apps/backend/.dockerignore",
+          "hash": "9499185811043884643"
+        },
         {
           "file": "apps/backend/.eslintrc.js",
           "hash": "16098845464314108517"
@@ -51,6 +55,10 @@
         {
           "file": "apps/backend/.prettierrc",
           "hash": "8923471166049547660"
+        },
+        {
+          "file": "apps/backend/Dockerfile",
+          "hash": "4921107968401245884"
         },
         {
           "file": "apps/backend/README.md",
@@ -102,7 +110,7 @@
         },
         {
           "file": "apps/backend/src/main.ts",
-          "hash": "7718558585556347681"
+          "hash": "17238595319517283530"
         },
         {
           "file": "apps/backend/src/prisma.service.ts",
@@ -219,6 +227,10 @@
       ],
       "frontend": [
         {
+          "file": "apps/frontend/.dockerignore",
+          "hash": "9499185811043884643"
+        },
+        {
           "file": "apps/frontend/.eslintrc.json",
           "hash": "1995446860550205288"
         },
@@ -235,12 +247,12 @@
           "hash": "10863070501363831851"
         },
         {
-          "file": "apps/frontend/LICENSE",
-          "hash": "16507203156501298169"
+          "file": "apps/frontend/Dockerfile",
+          "hash": "10351103891879209544"
         },
         {
-          "file": "apps/frontend/app/(auth)/(signin)/page.tsx",
-          "hash": "7931573454497213232"
+          "file": "apps/frontend/LICENSE",
+          "hash": "16507203156501298169"
         },
         {
           "file": "apps/frontend/app/(dashboard)/dashboard/employee/[employeeId]/page.tsx",
@@ -275,6 +287,14 @@
           "hash": "3536929782372281939"
         },
         {
+          "file": "apps/frontend/app/(home)/page.tsx",
+          "hash": "8066149691725108715"
+        },
+        {
+          "file": "apps/frontend/app/(home)/products/page.tsx",
+          "hash": "16091758963072088270"
+        },
+        {
           "file": "apps/frontend/app/api/auth/[...nextauth]/route.ts",
           "hash": "1381883787769364124"
         },
@@ -285,6 +305,14 @@
         {
           "file": "apps/frontend/app/api/uploadthing/route.ts",
           "hash": "5604658636113068690"
+        },
+        {
+          "file": "apps/frontend/app/auth/(signin)/page.tsx",
+          "hash": "7931573454497213232"
+        },
+        {
+          "file": "apps/frontend/app/detail/components/ImageDetailSlider.tsx",
+          "hash": "6982476008418501640"
         },
         {
           "file": "apps/frontend/app/favicon.ico",
@@ -627,8 +655,12 @@
           "hash": "7469308495762635372"
         },
         {
-          "file": "apps/frontend/app/(home)/index.tsx",
-          "hash": "3244421341483603138"
+          "file": "apps/frontend/app/(home)/products/component/component.tsx",
+          "hash": "7861252592399117633"
+        },
+        {
+          "file": "apps/frontend/app/(home)/products/[id]/page.tsx",
+          "hash": "18185602985187633713"
         }
       ]
     }

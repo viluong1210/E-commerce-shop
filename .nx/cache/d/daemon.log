@@ -8051,3 +8051,255 @@
 [NX Daemon Server] - 2024-05-11T17:10:55.152Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2024-05-11T17:11:03.069Z - Closed a connection. Number of open connections: 0
 [NX Daemon Server] - 2024-05-11T17:11:03.135Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:38:52.597Z - Started listening on: \\.\pipe\nx\C:\Users\Admin\AppData\Local\Temp\8a069b991b912667102a\d.sock
+[NX Daemon Server] - 2024-06-12T16:38:52.603Z - [WATCHER]: Subscribed to changes within: C:\Users\Admin\Desktop\E-commerce-shop (native)
+[NX Daemon Server] - 2024-06-12T16:38:52.613Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-06-12T16:38:52.616Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-06-12T16:38:52.616Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-06-12T16:38:52.618Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-06-12T16:38:52.657Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-12T16:38:52.657Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-12T16:38:52.657Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-12T16:38:52.764Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-06-12T16:38:52.765Z - Time taken for 'total for creating and serializing project graph' 145.2203ms
+[NX Daemon Server] - 2024-06-12T16:38:52.766Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-06-12T16:38:52.766Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 146. Response time: 2.
+[NX Daemon Server] - 2024-06-12T16:38:52.831Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-06-12T16:38:52.831Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 1.4394999999999527ms
+[NX Daemon Server] - 2024-06-12T16:38:52.831Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-06-12T16:38:52.831Z - Handled HASH_TASKS. Handling time: 11. Response time: 0.
+[NX Daemon Server] - 2024-06-12T16:38:57.462Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:01.404Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:01.470Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:01.770Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:01.935Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:05.612Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:05.670Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:06.988Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:07.661Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:10.528Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:10.604Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:11.211Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:11.292Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:11.405Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:11.630Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:11.796Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:12.020Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:12.213Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:28.560Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:30.526Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-06-12T16:39:30.582Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:30.696Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:31.649Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:36.656Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:36.657Z - [WATCHER]: _tmp_14220_034413eefe6f2b90267ddbf7619a481c was modified
+[NX Daemon Server] - 2024-06-12T16:39:36.714Z - [WATCHER]: _tmp_14220_034413eefe6f2b90267ddbf7619a481c was deleted
+[NX Daemon Server] - 2024-06-12T16:39:36.714Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:36.763Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-12T16:39:36.763Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-12T16:39:36.763Z - [REQUEST]: _tmp_14220_034413eefe6f2b90267ddbf7619a481c
+[NX Daemon Server] - 2024-06-12T16:39:36.803Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 1.6195000000006985ms
+[NX Daemon Server] - 2024-06-12T16:39:59.023Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:39:59.028Z - [WATCHER]: Stopping the watcher for C:\Users\Admin\Desktop\E-commerce-shop (sources)
+[NX Daemon Server] - 2024-06-12T16:39:59.028Z - [WATCHER]: Stopping the watcher for C:\Users\Admin\Desktop\E-commerce-shop (outputs)
+[NX Daemon Server] - 2024-06-12T16:39:59.028Z - Server stopped because: "Lock file changed"
+[NX Daemon Server] - 2024-06-12T16:41:04.614Z - Started listening on: \\.\pipe\nx\C:\Users\Admin\AppData\Local\Temp\8a069b991b912667102a\d.sock
+[NX Daemon Server] - 2024-06-12T16:41:04.619Z - [WATCHER]: Subscribed to changes within: C:\Users\Admin\Desktop\E-commerce-shop (native)
+[NX Daemon Server] - 2024-06-12T16:41:04.640Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-06-12T16:41:04.643Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-06-12T16:41:04.643Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-06-12T16:41:04.645Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-06-12T16:41:04.670Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-12T16:41:04.670Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-12T16:41:04.670Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-12T16:41:04.827Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-06-12T16:41:04.828Z - Time taken for 'total for creating and serializing project graph' 182.1352ms
+[NX Daemon Server] - 2024-06-12T16:41:04.829Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-06-12T16:41:04.829Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 183. Response time: 2.
+[NX Daemon Server] - 2024-06-12T16:41:04.874Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-06-12T16:41:04.875Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 1.4604999999999677ms
+[NX Daemon Server] - 2024-06-12T16:41:04.875Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-06-12T16:41:04.875Z - Handled HASH_TASKS. Handling time: 9. Response time: 1.
+[NX Daemon Server] - 2024-06-12T16:41:09.117Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:09.668Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:09.720Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:09.984Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:10.135Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:16.954Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:17.008Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:17.064Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:17.122Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:17.239Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:22.432Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:22.526Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:23.875Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:26.498Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:26.568Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:26.700Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:26.766Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:27.731Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:28.438Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:41:38.874Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:42:26.579Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:42:26.664Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:42:26.797Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:42:27.655Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:42:39.040Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:42:39.250Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:42:40.120Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:42:40.185Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:42:40.428Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-12T16:42:40.741Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:19.187Z - Started listening on: \\.\pipe\nx\C:\Users\Admin\AppData\Local\Temp\8a069b991b912667102a\d.sock
+[NX Daemon Server] - 2024-06-14T15:44:19.194Z - [WATCHER]: Subscribed to changes within: C:\Users\Admin\Desktop\E-commerce-shop (native)
+[NX Daemon Server] - 2024-06-14T15:44:19.197Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-06-14T15:44:19.203Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-06-14T15:44:19.203Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-06-14T15:44:19.206Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-06-14T15:44:19.253Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-14T15:44:19.253Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-14T15:44:19.253Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-14T15:44:19.366Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-06-14T15:44:19.369Z - Time taken for 'total for creating and serializing project graph' 160.66290000000004ms
+[NX Daemon Server] - 2024-06-14T15:44:19.370Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-06-14T15:44:19.370Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 161. Response time: 4.
+[NX Daemon Server] - 2024-06-14T15:44:19.462Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-06-14T15:44:19.463Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 1.8266999999999598ms
+[NX Daemon Server] - 2024-06-14T15:44:19.463Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-06-14T15:44:19.463Z - Handled HASH_TASKS. Handling time: 13. Response time: 1.
+[NX Daemon Server] - 2024-06-14T15:44:25.717Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:28.070Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:28.140Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:28.210Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:28.558Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:28.781Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:31.086Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:36.493Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:36.551Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:39.364Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:39.420Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:40.391Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:40.460Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:45.230Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:45.430Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:45.610Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:45.802Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:46.230Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:46.612Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:47.380Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:51.745Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:51.749Z - [WATCHER]: apps/frontend/app/(home)/page.tsx was modified
+[NX Daemon Server] - 2024-06-14T15:44:51.866Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-14T15:44:51.866Z - [REQUEST]: apps/frontend/app/(home)/page.tsx
+[NX Daemon Server] - 2024-06-14T15:44:51.866Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-14T15:44:51.910Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:44:51.910Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 3.343700000004901ms
+[NX Daemon Server] - 2024-06-14T15:44:52.280Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:45:28.311Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:45:28.406Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:09.846Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:09.848Z - [WATCHER]: apps/frontend/app/(home)/products/component.tsx was modified
+[NX Daemon Server] - 2024-06-14T15:46:10.055Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-14T15:46:10.056Z - [REQUEST]: apps/frontend/app/(home)/products/component.tsx
+[NX Daemon Server] - 2024-06-14T15:46:10.056Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-14T15:46:10.122Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 2.2324999999982538ms
+[NX Daemon Server] - 2024-06-14T15:46:10.404Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:16.688Z - [WATCHER]: apps/frontend/app/(home)/products/component.tsx was modified
+[NX Daemon Server] - 2024-06-14T15:46:16.688Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:17.007Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:17.104Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-14T15:46:17.105Z - [REQUEST]: apps/frontend/app/(home)/products/component.tsx
+[NX Daemon Server] - 2024-06-14T15:46:17.105Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-14T15:46:17.155Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 4.145400000008522ms
+[NX Daemon Server] - 2024-06-14T15:46:24.426Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:24.428Z - [WATCHER]: apps/frontend/app/(home)/products/component.tsx was modified
+[NX Daemon Server] - 2024-06-14T15:46:24.746Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:25.239Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-14T15:46:25.239Z - [REQUEST]: apps/frontend/app/(home)/products/component.tsx
+[NX Daemon Server] - 2024-06-14T15:46:25.239Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-14T15:46:25.279Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 1.9474999999947613ms
+[NX Daemon Server] - 2024-06-14T15:46:28.461Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:28.656Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:28.901Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:29.137Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:29.234Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:36.315Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:36.316Z - [WATCHER]: apps/frontend/app/(home)/products/page.tsx was modified
+[NX Daemon Server] - 2024-06-14T15:46:36.610Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:36.846Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:46:37.926Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-14T15:46:37.926Z - [REQUEST]: apps/frontend/app/(home)/products/page.tsx
+[NX Daemon Server] - 2024-06-14T15:46:37.926Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-14T15:46:37.973Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 2.3954000000085216ms
+[NX Daemon Server] - 2024-06-14T15:46:57.727Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:01.640Z - [WATCHER]: 0 file(s) created or restored, 1 file(s) modified, 1 file(s) deleted
+[NX Daemon Server] - 2024-06-14T15:47:01.642Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:02.569Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:04.774Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:04.851Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-14T15:47:04.852Z - [REQUEST]: apps/frontend/app/(home)/products/component/component.tsx
+[NX Daemon Server] - 2024-06-14T15:47:04.852Z - [REQUEST]: apps/frontend/app/(home)/products/component.tsx
+[NX Daemon Server] - 2024-06-14T15:47:04.931Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 2.6938999999838416ms
+[NX Daemon Server] - 2024-06-14T15:47:06.696Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:10.283Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:10.631Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:10.996Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:12.169Z - [WATCHER]: apps/frontend/app/(home)/products/page.tsx was modified
+[NX Daemon Server] - 2024-06-14T15:47:12.171Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:12.582Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:12.816Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:12.922Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:14.914Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:15.121Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:47:18.575Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-14T15:47:18.575Z - [REQUEST]: apps/frontend/app/(home)/products/page.tsx
+[NX Daemon Server] - 2024-06-14T15:47:18.575Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-14T15:47:18.618Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 1.7987000000139233ms
+[NX Daemon Server] - 2024-06-14T15:47:46.753Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:48:11.246Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:48:15.716Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:48:15.767Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:48:16.013Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:49:11.556Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:49:11.863Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:49:11.933Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:49:12.209Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:49:12.450Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:49:40.835Z - [WATCHER]: apps/frontend/app/(home)/products/[id]/page.tsx was modified
+[NX Daemon Server] - 2024-06-14T15:49:40.835Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:49:41.626Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:49:42.026Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:49:42.576Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:49:42.658Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:49:47.241Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-14T15:49:47.241Z - [REQUEST]: apps/frontend/app/(home)/products/[id]/page.tsx
+[NX Daemon Server] - 2024-06-14T15:49:47.241Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-14T15:49:47.291Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 3.0874000000185333ms
+[NX Daemon Server] - 2024-06-14T15:49:48.231Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:49:48.233Z - [WATCHER]: apps/frontend/app/(home)/products/[id]/page.tsx was modified
+[NX Daemon Server] - 2024-06-14T15:49:48.616Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:49:54.650Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-14T15:49:54.650Z - [REQUEST]: apps/frontend/app/(home)/products/[id]/page.tsx
+[NX Daemon Server] - 2024-06-14T15:49:54.650Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-14T15:49:54.693Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 2.3095000000321306ms
+[NX Daemon Server] - 2024-06-14T15:50:25.536Z - [WATCHER]: apps/frontend/app/(home)/products/[id]/page.tsx was modified
+[NX Daemon Server] - 2024-06-14T15:50:25.537Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:50:25.923Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:50:27.151Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:50:31.443Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:50:31.584Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:50:31.952Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-14T15:50:31.952Z - [REQUEST]: apps/frontend/app/(home)/products/[id]/page.tsx
+[NX Daemon Server] - 2024-06-14T15:50:31.952Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-14T15:50:32.003Z - Time taken for 'Load Nx Plugin: C:\Users\Admin\Desktop\E-commerce-shop\node_modules\.pnpm\nx@19.0.2_@swc+core@1.5.5_@swc+helpers@0.5.5_\node_modules\nx\src\plugins\project-json\build-nodes\package-json-next-to-project-json' 1.8843999999808148ms
+[NX Daemon Server] - 2024-06-14T15:51:31.755Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:51:31.876Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:51:31.936Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:51:32.001Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:51:32.063Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:51:32.179Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:51:32.256Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:55:01.056Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-06-14T15:55:01.105Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:55:01.185Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-14T15:55:02.224Z - [WATCHER]: Processing file changes in outputs
