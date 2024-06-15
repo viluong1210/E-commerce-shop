@@ -14,6 +14,18 @@
   "fileMap": {
     "nonProjectFiles": [
       {
+        "file": "pnpm-lock.yaml",
+        "hash": "1962900817702812078"
+      },
+      {
+        "file": "nx.json",
+        "hash": "12879606518836231623"
+      },
+      {
+        "file": "package.json",
+        "hash": "9877590155631189063"
+      },
+      {
         "file": "docker-compose.yaml",
         "hash": "4327007306913248687"
       },
@@ -22,23 +34,473 @@
         "hash": "10725328954387926024"
       },
       {
-        "file": "package.json",
-        "hash": "9877590155631189063"
-      },
-      {
-        "file": "pnpm-lock.yaml",
-        "hash": "1962900817702812078"
-      },
-      {
         "file": "pnpm-workspace.yaml",
         "hash": "8491828452469826992"
-      },
-      {
-        "file": "nx.json",
-        "hash": "12879606518836231623"
       }
     ],
     "projectFileMap": {
+      "frontend": [
+        {
+          "file": "apps/frontend/.dockerignore",
+          "hash": "9499185811043884643"
+        },
+        {
+          "file": "apps/frontend/.eslintrc.json",
+          "hash": "1995446860550205288"
+        },
+        {
+          "file": "apps/frontend/.github/FUNDING.yml",
+          "hash": "17919935951102286491"
+        },
+        {
+          "file": "apps/frontend/.gitignore",
+          "hash": "13062604579352737511"
+        },
+        {
+          "file": "apps/frontend/.prettierrc",
+          "hash": "10863070501363831851"
+        },
+        {
+          "file": "apps/frontend/Dockerfile",
+          "hash": "10351103891879209544"
+        },
+        {
+          "file": "apps/frontend/LICENSE",
+          "hash": "16507203156501298169"
+        },
+        {
+          "file": "apps/frontend/app/(dashboard)/dashboard/employee/[employeeId]/page.tsx",
+          "hash": "5974851186419244347"
+        },
+        {
+          "file": "apps/frontend/app/(dashboard)/dashboard/employee/page.tsx",
+          "hash": "14555159605100407972"
+        },
+        {
+          "file": "apps/frontend/app/(dashboard)/dashboard/kanban/page.tsx",
+          "hash": "11225869072380018611"
+        },
+        {
+          "file": "apps/frontend/app/(dashboard)/dashboard/layout.tsx",
+          "hash": "7624533361140232038"
+        },
+        {
+          "file": "apps/frontend/app/(dashboard)/dashboard/page.tsx",
+          "hash": "15814099341196686892"
+        },
+        {
+          "file": "apps/frontend/app/(dashboard)/dashboard/profile/page.tsx",
+          "hash": "434621718353855123"
+        },
+        {
+          "file": "apps/frontend/app/(dashboard)/dashboard/user/[userId]/page.tsx",
+          "hash": "6778554223215140476"
+        },
+        {
+          "file": "apps/frontend/app/(dashboard)/dashboard/user/page.tsx",
+          "hash": "3536929782372281939"
+        },
+        {
+          "file": "apps/frontend/app/(home)/page.tsx",
+          "hash": "8066149691725108715"
+        },
+        {
+          "file": "apps/frontend/app/(home)/products/[id]/page.tsx",
+          "hash": "18185602985187633713"
+        },
+        {
+          "file": "apps/frontend/app/(home)/products/component/component.tsx",
+          "hash": "7861252592399117633"
+        },
+        {
+          "file": "apps/frontend/app/(home)/products/page.tsx",
+          "hash": "16091758963072088270"
+        },
+        {
+          "file": "apps/frontend/app/api/auth/[...nextauth]/route.ts",
+          "hash": "1381883787769364124"
+        },
+        {
+          "file": "apps/frontend/app/api/uploadthing/core.ts",
+          "hash": "12811316703866456025"
+        },
+        {
+          "file": "apps/frontend/app/api/uploadthing/route.ts",
+          "hash": "5604658636113068690"
+        },
+        {
+          "file": "apps/frontend/app/auth/(signin)/page.tsx",
+          "hash": "7931573454497213232"
+        },
+        {
+          "file": "apps/frontend/app/detail/components/ImageDetailSlider.tsx",
+          "hash": "6982476008418501640"
+        },
+        {
+          "file": "apps/frontend/app/favicon.ico",
+          "hash": "9157999678830540297"
+        },
+        {
+          "file": "apps/frontend/app/globals.css",
+          "hash": "5322835672848711200"
+        },
+        {
+          "file": "apps/frontend/app/layout.tsx",
+          "hash": "17952240413730587483"
+        },
+        {
+          "file": "apps/frontend/app/not-found.tsx",
+          "hash": "327514569259864430"
+        },
+        {
+          "file": "apps/frontend/components.json",
+          "hash": "1604019320570579321"
+        },
+        {
+          "file": "apps/frontend/components/breadcrumb.tsx",
+          "hash": "10335431918998009142"
+        },
+        {
+          "file": "apps/frontend/components/dashboard-nav.tsx",
+          "hash": "3076095910003319008"
+        },
+        {
+          "file": "apps/frontend/components/date-range-picker.tsx",
+          "hash": "5743442185845115648"
+        },
+        {
+          "file": "apps/frontend/components/file-upload.tsx",
+          "hash": "1731271275384149817"
+        },
+        {
+          "file": "apps/frontend/components/forms/employee-form.tsx",
+          "hash": "2622260535534015294"
+        },
+        {
+          "file": "apps/frontend/components/forms/product-form.tsx",
+          "hash": "3862624652218877859"
+        },
+        {
+          "file": "apps/frontend/components/forms/user-auth-form.tsx",
+          "hash": "5270907525366379579"
+        },
+        {
+          "file": "apps/frontend/components/forms/user-profile-stepper/create-profile.tsx",
+          "hash": "11930984596741707027"
+        },
+        {
+          "file": "apps/frontend/components/github-auth-button.tsx",
+          "hash": "8373450751022465596"
+        },
+        {
+          "file": "apps/frontend/components/icons.tsx",
+          "hash": "6352906841177336355"
+        },
+        {
+          "file": "apps/frontend/components/kanban/board-column.tsx",
+          "hash": "4659049034164082632"
+        },
+        {
+          "file": "apps/frontend/components/kanban/column-action.tsx",
+          "hash": "5922675590789101433"
+        },
+        {
+          "file": "apps/frontend/components/kanban/kanban-board.tsx",
+          "hash": "252057792327499417"
+        },
+        {
+          "file": "apps/frontend/components/kanban/new-section-dialog.tsx",
+          "hash": "10610897889562970976"
+        },
+        {
+          "file": "apps/frontend/components/kanban/new-task-dialog.tsx",
+          "hash": "13611370865575708986"
+        },
+        {
+          "file": "apps/frontend/components/kanban/task-card.tsx",
+          "hash": "3048119018685237514"
+        },
+        {
+          "file": "apps/frontend/components/layout/ThemeToggle/theme-provider.tsx",
+          "hash": "3325798505546189574"
+        },
+        {
+          "file": "apps/frontend/components/layout/ThemeToggle/theme-toggle.tsx",
+          "hash": "13471285117435826925"
+        },
+        {
+          "file": "apps/frontend/components/layout/header.tsx",
+          "hash": "8237671831975916461"
+        },
+        {
+          "file": "apps/frontend/components/layout/mobile-sidebar.tsx",
+          "hash": "7693221294089981663"
+        },
+        {
+          "file": "apps/frontend/components/layout/providers.tsx",
+          "hash": "6381617231846027479"
+        },
+        {
+          "file": "apps/frontend/components/layout/sidebar.tsx",
+          "hash": "15978402413983657779"
+        },
+        {
+          "file": "apps/frontend/components/layout/user-nav.tsx",
+          "hash": "3593614908011168808"
+        },
+        {
+          "file": "apps/frontend/components/modal/alert-modal.tsx",
+          "hash": "16987706946998816116"
+        },
+        {
+          "file": "apps/frontend/components/overview.tsx",
+          "hash": "12083684338473218805"
+        },
+        {
+          "file": "apps/frontend/components/recent-sales.tsx",
+          "hash": "10133460828805617893"
+        },
+        {
+          "file": "apps/frontend/components/tables/employee-tables/cell-action.tsx",
+          "hash": "5795694395750090695"
+        },
+        {
+          "file": "apps/frontend/components/tables/employee-tables/columns.tsx",
+          "hash": "12214439929419637127"
+        },
+        {
+          "file": "apps/frontend/components/tables/employee-tables/employee-table.tsx",
+          "hash": "9050940251730906545"
+        },
+        {
+          "file": "apps/frontend/components/tables/user-tables/cell-action.tsx",
+          "hash": "9570860454662376421"
+        },
+        {
+          "file": "apps/frontend/components/tables/user-tables/client.tsx",
+          "hash": "2785615717839101406"
+        },
+        {
+          "file": "apps/frontend/components/tables/user-tables/columns.tsx",
+          "hash": "6536380056632618299"
+        },
+        {
+          "file": "apps/frontend/components/ui/accordion.tsx",
+          "hash": "15259599128671661231"
+        },
+        {
+          "file": "apps/frontend/components/ui/alert-dialog.tsx",
+          "hash": "829076168219970859"
+        },
+        {
+          "file": "apps/frontend/components/ui/alert.tsx",
+          "hash": "16783638579479513410"
+        },
+        {
+          "file": "apps/frontend/components/ui/avatar.tsx",
+          "hash": "5843262617670654664"
+        },
+        {
+          "file": "apps/frontend/components/ui/badge.tsx",
+          "hash": "10881796528669953767"
+        },
+        {
+          "file": "apps/frontend/components/ui/button.tsx",
+          "hash": "16665118271344689498"
+        },
+        {
+          "file": "apps/frontend/components/ui/calendar.tsx",
+          "hash": "8458634060574862343"
+        },
+        {
+          "file": "apps/frontend/components/ui/card.tsx",
+          "hash": "7624651454532070604"
+        },
+        {
+          "file": "apps/frontend/components/ui/checkbox.tsx",
+          "hash": "14439870754761477751"
+        },
+        {
+          "file": "apps/frontend/components/ui/data-table.tsx",
+          "hash": "3520896849172312800"
+        },
+        {
+          "file": "apps/frontend/components/ui/dialog.tsx",
+          "hash": "17790923474223303139"
+        },
+        {
+          "file": "apps/frontend/components/ui/dropdown-menu.tsx",
+          "hash": "10793325475031436544"
+        },
+        {
+          "file": "apps/frontend/components/ui/form.tsx",
+          "hash": "2799225819408606671"
+        },
+        {
+          "file": "apps/frontend/components/ui/heading.tsx",
+          "hash": "4734770944863557956"
+        },
+        {
+          "file": "apps/frontend/components/ui/input.tsx",
+          "hash": "17884862306134790472"
+        },
+        {
+          "file": "apps/frontend/components/ui/label.tsx",
+          "hash": "4904664111934024461"
+        },
+        {
+          "file": "apps/frontend/components/ui/modal.tsx",
+          "hash": "4983770491245905721"
+        },
+        {
+          "file": "apps/frontend/components/ui/popover.tsx",
+          "hash": "9621091078546143710"
+        },
+        {
+          "file": "apps/frontend/components/ui/scroll-area.tsx",
+          "hash": "5545493480818966475"
+        },
+        {
+          "file": "apps/frontend/components/ui/select.tsx",
+          "hash": "16294419396628355216"
+        },
+        {
+          "file": "apps/frontend/components/ui/separator.tsx",
+          "hash": "12637653533840341714"
+        },
+        {
+          "file": "apps/frontend/components/ui/sheet.tsx",
+          "hash": "3069788137695704580"
+        },
+        {
+          "file": "apps/frontend/components/ui/skeleton.tsx",
+          "hash": "934871379290717217"
+        },
+        {
+          "file": "apps/frontend/components/ui/slider.tsx",
+          "hash": "15355702552201999433"
+        },
+        {
+          "file": "apps/frontend/components/ui/switch.tsx",
+          "hash": "11554221907959240330"
+        },
+        {
+          "file": "apps/frontend/components/ui/table.tsx",
+          "hash": "12716988758210230914"
+        },
+        {
+          "file": "apps/frontend/components/ui/tabs.tsx",
+          "hash": "6281328141944597998"
+        },
+        {
+          "file": "apps/frontend/components/ui/textarea.tsx",
+          "hash": "6986030213907573563"
+        },
+        {
+          "file": "apps/frontend/components/ui/toast.tsx",
+          "hash": "3206488971834643100"
+        },
+        {
+          "file": "apps/frontend/components/ui/toaster.tsx",
+          "hash": "15284820324398303392"
+        },
+        {
+          "file": "apps/frontend/components/ui/use-toast.ts",
+          "hash": "5634232030243407458"
+        },
+        {
+          "file": "apps/frontend/constants/data.ts",
+          "hash": "732164221364753796"
+        },
+        {
+          "file": "apps/frontend/env.example.txt",
+          "hash": "3323925353653795291"
+        },
+        {
+          "file": "apps/frontend/hooks/useMultistepForm.tsx",
+          "hash": "1339500092445304096"
+        },
+        {
+          "file": "apps/frontend/lib/auth-options.ts",
+          "hash": "6813783540658839590"
+        },
+        {
+          "file": "apps/frontend/lib/form-schema.ts",
+          "hash": "18249057913400507006"
+        },
+        {
+          "file": "apps/frontend/lib/store.ts",
+          "hash": "7410328300150895664"
+        },
+        {
+          "file": "apps/frontend/lib/utils.ts",
+          "hash": "12820458695036989675"
+        },
+        {
+          "file": "apps/frontend/middleware.ts",
+          "hash": "1313546973713317838"
+        },
+        {
+          "file": "apps/frontend/next.config.js",
+          "hash": "12917604048958672732"
+        },
+        {
+          "file": "apps/frontend/package-lock.json",
+          "hash": "15913971901988777409"
+        },
+        {
+          "file": "apps/frontend/package.json",
+          "hash": "18245975892750968920"
+        },
+        {
+          "file": "apps/frontend/postcss.config.js",
+          "hash": "16750483254333733706"
+        },
+        {
+          "file": "apps/frontend/public/next.svg",
+          "hash": "8300767200008744458"
+        },
+        {
+          "file": "apps/frontend/public/vercel.svg",
+          "hash": "2376673330454856631"
+        },
+        {
+          "file": "apps/frontend/tailwind.config.js",
+          "hash": "14699866093239972138"
+        },
+        {
+          "file": "apps/frontend/tsconfig.json",
+          "hash": "3237043090185244180"
+        },
+        {
+          "file": "apps/frontend/types/index.ts",
+          "hash": "7469308495762635372"
+        },
+        {
+          "file": "apps/frontend/app/admin/dashboard/employee/page.tsx",
+          "hash": "11885106398688341684"
+        },
+        {
+          "file": "apps/frontend/app/admin/dashboard/employee/[employeeId]/page.tsx",
+          "hash": "13772627526673561123"
+        },
+        {
+          "file": "apps/frontend/app/admin/dashboard/kanban/page.tsx",
+          "hash": "5734157911015803260"
+        },
+        {
+          "file": "apps/frontend/app/admin/dashboard/profile/page.tsx",
+          "hash": "7290869832500062522"
+        },
+        {
+          "file": "apps/frontend/app/admin/dashboard/user/page.tsx",
+          "hash": "15398832362869292189"
+        },
+        {
+          "file": "apps/frontend/app/admin/dashboard/user/[userId]/page.tsx",
+          "hash": "15654793752576166818"
+        }
+      ],
       "backend": [
         {
           "file": "apps/backend/.dockerignore",
@@ -223,444 +685,6 @@
         {
           "file": "apps/backend/tsconfig.json",
           "hash": "18350776183187009582"
-        }
-      ],
-      "frontend": [
-        {
-          "file": "apps/frontend/.dockerignore",
-          "hash": "9499185811043884643"
-        },
-        {
-          "file": "apps/frontend/.eslintrc.json",
-          "hash": "1995446860550205288"
-        },
-        {
-          "file": "apps/frontend/.github/FUNDING.yml",
-          "hash": "17919935951102286491"
-        },
-        {
-          "file": "apps/frontend/.gitignore",
-          "hash": "13062604579352737511"
-        },
-        {
-          "file": "apps/frontend/.prettierrc",
-          "hash": "10863070501363831851"
-        },
-        {
-          "file": "apps/frontend/Dockerfile",
-          "hash": "10351103891879209544"
-        },
-        {
-          "file": "apps/frontend/LICENSE",
-          "hash": "16507203156501298169"
-        },
-        {
-          "file": "apps/frontend/app/(dashboard)/dashboard/employee/[employeeId]/page.tsx",
-          "hash": "5974851186419244347"
-        },
-        {
-          "file": "apps/frontend/app/(dashboard)/dashboard/employee/page.tsx",
-          "hash": "14555159605100407972"
-        },
-        {
-          "file": "apps/frontend/app/(dashboard)/dashboard/kanban/page.tsx",
-          "hash": "11225869072380018611"
-        },
-        {
-          "file": "apps/frontend/app/(dashboard)/dashboard/layout.tsx",
-          "hash": "7624533361140232038"
-        },
-        {
-          "file": "apps/frontend/app/(dashboard)/dashboard/page.tsx",
-          "hash": "15814099341196686892"
-        },
-        {
-          "file": "apps/frontend/app/(dashboard)/dashboard/profile/page.tsx",
-          "hash": "434621718353855123"
-        },
-        {
-          "file": "apps/frontend/app/(dashboard)/dashboard/user/[userId]/page.tsx",
-          "hash": "6778554223215140476"
-        },
-        {
-          "file": "apps/frontend/app/(dashboard)/dashboard/user/page.tsx",
-          "hash": "3536929782372281939"
-        },
-        {
-          "file": "apps/frontend/app/(home)/page.tsx",
-          "hash": "8066149691725108715"
-        },
-        {
-          "file": "apps/frontend/app/(home)/products/page.tsx",
-          "hash": "16091758963072088270"
-        },
-        {
-          "file": "apps/frontend/app/api/auth/[...nextauth]/route.ts",
-          "hash": "1381883787769364124"
-        },
-        {
-          "file": "apps/frontend/app/api/uploadthing/core.ts",
-          "hash": "12811316703866456025"
-        },
-        {
-          "file": "apps/frontend/app/api/uploadthing/route.ts",
-          "hash": "5604658636113068690"
-        },
-        {
-          "file": "apps/frontend/app/auth/(signin)/page.tsx",
-          "hash": "7931573454497213232"
-        },
-        {
-          "file": "apps/frontend/app/detail/components/ImageDetailSlider.tsx",
-          "hash": "6982476008418501640"
-        },
-        {
-          "file": "apps/frontend/app/favicon.ico",
-          "hash": "9157999678830540297"
-        },
-        {
-          "file": "apps/frontend/app/globals.css",
-          "hash": "5322835672848711200"
-        },
-        {
-          "file": "apps/frontend/app/layout.tsx",
-          "hash": "17952240413730587483"
-        },
-        {
-          "file": "apps/frontend/app/not-found.tsx",
-          "hash": "3249192984509582139"
-        },
-        {
-          "file": "apps/frontend/components.json",
-          "hash": "1604019320570579321"
-        },
-        {
-          "file": "apps/frontend/components/breadcrumb.tsx",
-          "hash": "13213332060924900924"
-        },
-        {
-          "file": "apps/frontend/components/dashboard-nav.tsx",
-          "hash": "3076095910003319008"
-        },
-        {
-          "file": "apps/frontend/components/date-range-picker.tsx",
-          "hash": "5743442185845115648"
-        },
-        {
-          "file": "apps/frontend/components/file-upload.tsx",
-          "hash": "1731271275384149817"
-        },
-        {
-          "file": "apps/frontend/components/forms/employee-form.tsx",
-          "hash": "15533031895247305483"
-        },
-        {
-          "file": "apps/frontend/components/forms/product-form.tsx",
-          "hash": "3862624652218877859"
-        },
-        {
-          "file": "apps/frontend/components/forms/user-auth-form.tsx",
-          "hash": "5270907525366379579"
-        },
-        {
-          "file": "apps/frontend/components/forms/user-profile-stepper/create-profile.tsx",
-          "hash": "11930984596741707027"
-        },
-        {
-          "file": "apps/frontend/components/github-auth-button.tsx",
-          "hash": "4636115616139575010"
-        },
-        {
-          "file": "apps/frontend/components/icons.tsx",
-          "hash": "6352906841177336355"
-        },
-        {
-          "file": "apps/frontend/components/kanban/board-column.tsx",
-          "hash": "4659049034164082632"
-        },
-        {
-          "file": "apps/frontend/components/kanban/column-action.tsx",
-          "hash": "5922675590789101433"
-        },
-        {
-          "file": "apps/frontend/components/kanban/kanban-board.tsx",
-          "hash": "252057792327499417"
-        },
-        {
-          "file": "apps/frontend/components/kanban/new-section-dialog.tsx",
-          "hash": "10610897889562970976"
-        },
-        {
-          "file": "apps/frontend/components/kanban/new-task-dialog.tsx",
-          "hash": "13611370865575708986"
-        },
-        {
-          "file": "apps/frontend/components/kanban/task-card.tsx",
-          "hash": "3048119018685237514"
-        },
-        {
-          "file": "apps/frontend/components/layout/ThemeToggle/theme-provider.tsx",
-          "hash": "3325798505546189574"
-        },
-        {
-          "file": "apps/frontend/components/layout/ThemeToggle/theme-toggle.tsx",
-          "hash": "13471285117435826925"
-        },
-        {
-          "file": "apps/frontend/components/layout/header.tsx",
-          "hash": "8237671831975916461"
-        },
-        {
-          "file": "apps/frontend/components/layout/mobile-sidebar.tsx",
-          "hash": "7693221294089981663"
-        },
-        {
-          "file": "apps/frontend/components/layout/providers.tsx",
-          "hash": "6381617231846027479"
-        },
-        {
-          "file": "apps/frontend/components/layout/sidebar.tsx",
-          "hash": "15978402413983657779"
-        },
-        {
-          "file": "apps/frontend/components/layout/user-nav.tsx",
-          "hash": "3593614908011168808"
-        },
-        {
-          "file": "apps/frontend/components/modal/alert-modal.tsx",
-          "hash": "16987706946998816116"
-        },
-        {
-          "file": "apps/frontend/components/overview.tsx",
-          "hash": "12083684338473218805"
-        },
-        {
-          "file": "apps/frontend/components/recent-sales.tsx",
-          "hash": "10133460828805617893"
-        },
-        {
-          "file": "apps/frontend/components/tables/employee-tables/cell-action.tsx",
-          "hash": "5795694395750090695"
-        },
-        {
-          "file": "apps/frontend/components/tables/employee-tables/columns.tsx",
-          "hash": "12214439929419637127"
-        },
-        {
-          "file": "apps/frontend/components/tables/employee-tables/employee-table.tsx",
-          "hash": "4734811012697121136"
-        },
-        {
-          "file": "apps/frontend/components/tables/user-tables/cell-action.tsx",
-          "hash": "9570860454662376421"
-        },
-        {
-          "file": "apps/frontend/components/tables/user-tables/client.tsx",
-          "hash": "2785615717839101406"
-        },
-        {
-          "file": "apps/frontend/components/tables/user-tables/columns.tsx",
-          "hash": "6536380056632618299"
-        },
-        {
-          "file": "apps/frontend/components/ui/accordion.tsx",
-          "hash": "15259599128671661231"
-        },
-        {
-          "file": "apps/frontend/components/ui/alert-dialog.tsx",
-          "hash": "829076168219970859"
-        },
-        {
-          "file": "apps/frontend/components/ui/alert.tsx",
-          "hash": "16783638579479513410"
-        },
-        {
-          "file": "apps/frontend/components/ui/avatar.tsx",
-          "hash": "5843262617670654664"
-        },
-        {
-          "file": "apps/frontend/components/ui/badge.tsx",
-          "hash": "10881796528669953767"
-        },
-        {
-          "file": "apps/frontend/components/ui/button.tsx",
-          "hash": "16665118271344689498"
-        },
-        {
-          "file": "apps/frontend/components/ui/calendar.tsx",
-          "hash": "8458634060574862343"
-        },
-        {
-          "file": "apps/frontend/components/ui/card.tsx",
-          "hash": "7624651454532070604"
-        },
-        {
-          "file": "apps/frontend/components/ui/checkbox.tsx",
-          "hash": "14439870754761477751"
-        },
-        {
-          "file": "apps/frontend/components/ui/data-table.tsx",
-          "hash": "3520896849172312800"
-        },
-        {
-          "file": "apps/frontend/components/ui/dialog.tsx",
-          "hash": "17790923474223303139"
-        },
-        {
-          "file": "apps/frontend/components/ui/dropdown-menu.tsx",
-          "hash": "10793325475031436544"
-        },
-        {
-          "file": "apps/frontend/components/ui/form.tsx",
-          "hash": "2799225819408606671"
-        },
-        {
-          "file": "apps/frontend/components/ui/heading.tsx",
-          "hash": "4734770944863557956"
-        },
-        {
-          "file": "apps/frontend/components/ui/input.tsx",
-          "hash": "17884862306134790472"
-        },
-        {
-          "file": "apps/frontend/components/ui/label.tsx",
-          "hash": "4904664111934024461"
-        },
-        {
-          "file": "apps/frontend/components/ui/modal.tsx",
-          "hash": "4983770491245905721"
-        },
-        {
-          "file": "apps/frontend/components/ui/popover.tsx",
-          "hash": "9621091078546143710"
-        },
-        {
-          "file": "apps/frontend/components/ui/scroll-area.tsx",
-          "hash": "5545493480818966475"
-        },
-        {
-          "file": "apps/frontend/components/ui/select.tsx",
-          "hash": "16294419396628355216"
-        },
-        {
-          "file": "apps/frontend/components/ui/separator.tsx",
-          "hash": "12637653533840341714"
-        },
-        {
-          "file": "apps/frontend/components/ui/sheet.tsx",
-          "hash": "3069788137695704580"
-        },
-        {
-          "file": "apps/frontend/components/ui/skeleton.tsx",
-          "hash": "934871379290717217"
-        },
-        {
-          "file": "apps/frontend/components/ui/slider.tsx",
-          "hash": "15355702552201999433"
-        },
-        {
-          "file": "apps/frontend/components/ui/switch.tsx",
-          "hash": "11554221907959240330"
-        },
-        {
-          "file": "apps/frontend/components/ui/table.tsx",
-          "hash": "12716988758210230914"
-        },
-        {
-          "file": "apps/frontend/components/ui/tabs.tsx",
-          "hash": "6281328141944597998"
-        },
-        {
-          "file": "apps/frontend/components/ui/textarea.tsx",
-          "hash": "6986030213907573563"
-        },
-        {
-          "file": "apps/frontend/components/ui/toast.tsx",
-          "hash": "3206488971834643100"
-        },
-        {
-          "file": "apps/frontend/components/ui/toaster.tsx",
-          "hash": "15284820324398303392"
-        },
-        {
-          "file": "apps/frontend/components/ui/use-toast.ts",
-          "hash": "5634232030243407458"
-        },
-        {
-          "file": "apps/frontend/constants/data.ts",
-          "hash": "4610558343677208147"
-        },
-        {
-          "file": "apps/frontend/env.example.txt",
-          "hash": "3323925353653795291"
-        },
-        {
-          "file": "apps/frontend/hooks/useMultistepForm.tsx",
-          "hash": "1339500092445304096"
-        },
-        {
-          "file": "apps/frontend/lib/auth-options.ts",
-          "hash": "6813783540658839590"
-        },
-        {
-          "file": "apps/frontend/lib/form-schema.ts",
-          "hash": "18249057913400507006"
-        },
-        {
-          "file": "apps/frontend/lib/store.ts",
-          "hash": "7410328300150895664"
-        },
-        {
-          "file": "apps/frontend/lib/utils.ts",
-          "hash": "12820458695036989675"
-        },
-        {
-          "file": "apps/frontend/middleware.ts",
-          "hash": "3172063328424655973"
-        },
-        {
-          "file": "apps/frontend/next.config.js",
-          "hash": "12917604048958672732"
-        },
-        {
-          "file": "apps/frontend/package-lock.json",
-          "hash": "15913971901988777409"
-        },
-        {
-          "file": "apps/frontend/package.json",
-          "hash": "18245975892750968920"
-        },
-        {
-          "file": "apps/frontend/postcss.config.js",
-          "hash": "16750483254333733706"
-        },
-        {
-          "file": "apps/frontend/public/next.svg",
-          "hash": "8300767200008744458"
-        },
-        {
-          "file": "apps/frontend/public/vercel.svg",
-          "hash": "2376673330454856631"
-        },
-        {
-          "file": "apps/frontend/tailwind.config.js",
-          "hash": "14699866093239972138"
-        },
-        {
-          "file": "apps/frontend/tsconfig.json",
-          "hash": "3237043090185244180"
-        },
-        {
-          "file": "apps/frontend/types/index.ts",
-          "hash": "7469308495762635372"
-        },
-        {
-          "file": "apps/frontend/app/(home)/products/component/component.tsx",
-          "hash": "7861252592399117633"
-        },
-        {
-          "file": "apps/frontend/app/(home)/products/[id]/page.tsx",
-          "hash": "18185602985187633713"
         }
       ]
     }
