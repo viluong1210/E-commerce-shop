@@ -1,0 +1,11 @@
+.regis-button .ant-btn {
+  border-radius: 16px 0px;
+  font-family: "Montserrat", sans-serif !important;
+}
+.regis-button .ant-btn:hover {
+  border-color: #221f20 !important;
+}
+
+.regis-button .ant-btn:hover span {
+  color: #221f20 !important;
+}

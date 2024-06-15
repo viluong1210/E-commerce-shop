@@ -1,0 +1,25 @@
+.ant-select-selector {
+  width: 100%;
+  height: 40px !important;
+  background: #fff;
+  border: 1px solid #e7e8e9 !important;
+  border-radius: 4px !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  padding-left: 40px;
+  font-family: "Montserrat", sans-serif !important;
+}
+:where(.css-dev-only-do-not-override-2q8sxy).ant-select:not(
+    .ant-select-disabled
+  ):not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover
+  .ant-select-selector {
+  border: 1px solid #e7e8e9;
+}
+.ant-select .ant-select-arrow {
+  font-size: 20px;
+  top: 65%;
+  color: #6c6d70 !important;
+}
+.ant-select-selection-placeholder {
+  color: #6c6d70 !important;
+}
