@@ -1,0 +1,38 @@
+.pagination-product .ant-pagination .ant-btn {
+  background: #fff;
+  border: 1px solid #e7e8e9;
+  border-radius: 8px 0px !important;
+  height: 32px;
+  font-size: 7px;
+  color: #6c6d70;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-product .ant-pagination {
+  display: flex;
+}
+.pagination-product .ant-pagination .ant-pagination-item {
+  background: #fff;
+  border: 1px solid #e7e8e9;
+  border-radius: 8px 0px !important;
+  height: 32px;
+  font-size: 12px;
+  color: #6c6d70;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination-product .ant-pagination .ant-pagination-item-active {
+  background: #221f20;
+}
+.pagination-product .ant-pagination .ant-pagination-item-active a {
+  color: #fff !important;
+}
