@@ -1,4 +1,4 @@
-import { ProductDetail, Products } from 'types/productType'
+import { ProductDetail, Products } from '@/types/productType'
 
 export const productImage = [
   'https://pubcdn.ivymoda.com/files/news/2024/01/23/7e59f562c131e3a94f8e30b665a14266.jpg',

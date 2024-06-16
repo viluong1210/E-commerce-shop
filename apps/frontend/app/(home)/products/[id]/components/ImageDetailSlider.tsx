@@ -1,4 +1,6 @@
-import  { useState } from 'react'
+"use client"
+
+import { useState } from 'react'
 import ImageZoom  from 'react-image-zooom'
 // Import Swiper React components
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'

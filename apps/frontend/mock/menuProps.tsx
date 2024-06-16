@@ -3,26 +3,12 @@ import { NavbarMenu } from '@/types/productType'
 
 export const navbarMenu: NavbarMenu[] = [
   {
-    label: 'Nữ',
-    key: 'nu',
+    label: 'Sản Phẩm',
+    key: 'product',
     children: [
       {
         type: 'group',
         label: 'Item 1',
-        children: [
-          {
-            label: 'Option 1',
-            key: 'setting:1',
-          },
-          {
-            label: 'Option 2',
-            key: 'setting:2',
-          },
-          {
-            label: 'Option 3',
-            key: 'setting:3',
-          },
-        ],
       },
       {
         type: 'group',
@@ -41,10 +27,6 @@ export const navbarMenu: NavbarMenu[] = [
         label: 'Year end sale',
       },
     ],
-  },
-  {
-    label: 'Nam',
-    key: 'nam',
   },
   {
     label: 'Giỏ Hàng',

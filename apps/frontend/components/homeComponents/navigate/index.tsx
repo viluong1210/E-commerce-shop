@@ -1,9 +1,9 @@
 "use client"
 
 import React, { useState } from 'react'
-import '../../../styles/component/navbar.css'
+import '@/styles/component/navbar.css'
 import { Badge, Collapse, Drawer, Space } from 'antd'
-import { collapseItems, navbarMenu } from '@/mock/menuProps'
+import { collapseItems } from '@/mock/menuProps'
 import SearchInput from '@/components/homeComponents/SearchInput'
 import {
   CloseOutlined,
@@ -16,11 +16,12 @@ import {
 import RegisterButton from '@/components/homeComponents/RegisterButton'
 import { ChildrenMenu, MenuItem, NavbarMenu } from '@/types/productType'
 import ListCart from '@/components/homeComponents/ListCart'
-// import { useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 
-const App: React.FC = () => {
+const Navigate: React.FC = () => {
   const [open, setOpen] = useState(false)
   const [openNavbarMenu, setOpenNavbarMenu] = useState(false)
+  const router = useRouter()
   // const navigate = useNavigate()
 
   const showDrawer = () => {
@@ -48,11 +49,47 @@ const App: React.FC = () => {
     // navigate(url)
   }
 
+   const navbarMenu: NavbarMenu[] = [
+    {
+      label: 'Sản Phẩm',
+      key: 'product',
+      children: [
+        {
+          key: 'group',
+          label: 'Item 1',
+        },
+        {
+          key: 'group',
+          label: 'Year end sale',
+        },
+        {
+          key: 'group',
+          label: 'Year end sale',
+        },
+        {
+          key: 'group',
+          label: 'Year end sale',
+        },
+        {
+          key: 'group',
+          label: 'Year end sale',
+        },
+      ],
+    },
+    {
+      label: 'Giỏ Hàng',
+      key: 'tre em',
+    },
+    {
+      label: 'Về chúng tôi',
+      key: 'alipay',
+    },
+  ]
+
   const renderLogo = () => {
     return (
-      <div onClick={()=> {console.log("render router");
-      }}>
-        {' '}
+      <div style={{cursor : 'pointer'}} onClick={()=> router.push('/')}>
+       
         <img
           src="https://pubcdn.ivymoda.com/ivy2/images/logo.png"
           className="w-[140px] h-auto"
@@ -156,4 +193,4 @@ const App: React.FC = () => {
   )
 }
 
-export default App
+export default Navigate

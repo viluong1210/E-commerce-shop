@@ -19,7 +19,6 @@ type paramsProps = {
 
 export default async function Page({ searchParams }: paramsProps) {
   
-
   const page = Number(searchParams.page) || 1;
   const pageLimit = Number(searchParams.limit) || 10;
   const name = searchParams.search || null;
@@ -27,6 +26,7 @@ export default async function Page({ searchParams }: paramsProps) {
   const products = await getAllProducts({
     limit: pageLimit,
     page,
+    name
   })
 
   const totalProducts = products?.count || 0

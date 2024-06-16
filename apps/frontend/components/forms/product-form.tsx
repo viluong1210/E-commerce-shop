@@ -111,8 +111,13 @@ export const ProductForm: React.FC<ProductFormProps> = ({
         
         await createProducts(dataForPayLoad)
           .then(() => {
+            toast({
+              variant: "destructive",
+              title: "Uh oh! Something went wrong.",
+              description: "There was a problem with your request.",
+            });
             router.refresh();
-            router.push(`/admin/dashboard/products`);
+            router.push(`/admin/dashboard/employee`);
            
         })
           .catch((err) => {
