@@ -1,3 +1,4 @@
+"use client"
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
 import type { CSSProperties } from 'react'
 import React, { useState } from 'react'

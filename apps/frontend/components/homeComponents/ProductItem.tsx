@@ -1,44 +1,46 @@
-import { Products } from '@/types/productType'
-import '../../styles/component/productItem.css'
-import { useState } from 'react'
+import '@/styles/component/productItem.css'
+import {  useState } from 'react'
 import { HeartOutlined, ShoppingOutlined } from '@ant-design/icons'
 import { Button, Rate } from 'antd'
 import { ColorDot } from './ColorDot'
-// import { useNavigate } from 'react-router-dom'
+import { ProductType } from '@/types'
+import { listColor,  } from '@/containts'
+
 type IProps = {
-  itemProduct: Products
+  itemProduct: ProductType
 }
 export const ProductItem = ({ itemProduct }: IProps) => {
   const [colorActive, setColorActive] = useState<string>('')
 
-  // const navigate = useNavigate()
 
   const handleCheckColor = (color: string) => {
     setColorActive(color)
-  }
+  } 
+ 
   return (
+    
     <div onClick={() => {console.log("render router");
     }} className="product-item relative">
       <div className="container">
         <img
-          src={itemProduct.mainImage}
-          alt={itemProduct.infoProduct.titleProduct}
+          src={itemProduct?.images?.[0]?.url}
+          alt={itemProduct.name}
           className="w-full h-auto block"
         />
         <div className="overlay absolute top-0 bottom-0 right-0 left-0 h-full w-full opacity-0 duration-700">
           <img
-            src={itemProduct.hoverImage}
-            alt={itemProduct.infoProduct.titleProduct}
+            src={itemProduct?.images?.[1]?.url}
+            alt={itemProduct.name}
             className="w-full h-auto block"
           />
         </div>
       </div>
       <Button className="bg-[#DC633A] promotion h-9 font-semibold text-sm rounded-tl-full rounded-bl-full rounded-tr-xl rounded-br-full  text-white absolute top-2 right-2 border-0">
-        -{itemProduct.infoProduct.voucher}
+        {/* -{itemProduct.infoProduct.voucher} */}
       </Button>
       <div className="flex justify-between mt-5">
         <ColorDot
-          listColor={itemProduct.infoProduct.listColor}
+          listColor={listColor}
           colorActive={colorActive}
           handleCheckColor={handleCheckColor}
         />
@@ -46,16 +48,16 @@ export const ProductItem = ({ itemProduct }: IProps) => {
       </div>
       <div className="block text-left mt-5">
         <h3 className="text-[#57585A] text-base font-normal mb-2 hover:text-[#AC2F33] font-montserrat">
-          {itemProduct.infoProduct.titleProduct}
+          {itemProduct.name}
         </h3>
       </div>
       <div className="flex justify-between cart-btn">
         <div className="flex gap-3 items-center">
           <span className="text-[#3E3E3F] font-semibold font-montserrat text-base">
-            {itemProduct.infoProduct.priceProduct.sale}
+            {itemProduct.price}
           </span>
           <span className="text-[#A8A9AD] font-semibold font-montserrat text-xs line-through">
-            {itemProduct.infoProduct.priceProduct.sale}
+            {itemProduct.price}
           </span>
         </div>
         <Button

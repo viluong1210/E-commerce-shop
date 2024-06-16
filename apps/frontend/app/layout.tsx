@@ -5,6 +5,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { getServerSession } from "next-auth";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryClientProvider } from "@/queryClient";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,13 +23,17 @@ export default async function RootLayout({
 }) {
   const session = await getServerSession();
   return (
+    <ReactQueryClientProvider>
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} overflow-auto`}>
+      
         <Providers session={session}>
           <Toaster />
           {children}
-        </Providers>
+          </Providers>
+         
       </body>
-    </html>
+      </html>
+      </ReactQueryClientProvider>
   );
 }

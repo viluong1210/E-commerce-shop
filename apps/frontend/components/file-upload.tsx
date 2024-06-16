@@ -1,101 +1,76 @@
 "use client";
-import { OurFileRouter } from "@/app/api/uploadthing/core";
-import { UploadDropzone } from "@uploadthing/react";
-import { Trash } from "lucide-react";
-import Image from "next/image";
-import { UploadFileResponse } from "uploadthing/client";
-import { IMG_MAX_LIMIT } from "./forms/product-form";
-import { Button } from "./ui/button";
-import { useToast } from "./ui/use-toast";
 
-interface ImageUploadProps {
-  onChange?: any;
-  onRemove: (value: UploadFileResponse[]) => void;
-  value: UploadFileResponse[];
-}
+import { Modal, Upload, UploadFile } from "antd";
+import { useState } from "react";
+import { RcFile, UploadProps } from "antd/es/upload";
+import { PlusOutlined } from "@ant-design/icons";
 
-export default function FileUpload({
-  onChange,
-  onRemove,
-  value,
-}: ImageUploadProps) {
-  const { toast } = useToast();
-  const onDeleteFile = (key: string) => {
-    const files = value;
-    let filteredFiles = files.filter((item) => item.key !== key);
-    onRemove(filteredFiles);
+type Props = {
+  fileList: UploadFile[];
+  setFileList: (data: UploadFile[]) => void;
+};
+
+const getBase64 = (file: RcFile): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = (error) => reject(error);
+  });
+
+export default function FileUpload({ setFileList, fileList }: Props) {
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [previewImage, setPreviewImage] = useState("");
+  const [previewTitle, setPreviewTitle] = useState("");
+
+  const handleCancel = () => setPreviewOpen(false);
+
+  const handlePreview = async (file: UploadFile) => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj as RcFile);
+    }
+
+    setPreviewImage(file.url || (file.preview as string));
+    setPreviewOpen(true);
+    setPreviewTitle(
+      file.name || file.url!.substring(file.url!.lastIndexOf("/") + 1)
+    );
   };
-  const onUpdateFile = (newFiles: UploadFileResponse[]) => {
-    onChange([...value, ...newFiles]);
-  };
+
+  const handleChange: UploadProps["onChange"] = ({ fileList: newFileList }) => {
+    
+     setFileList(newFileList);
+  }
+    
+
+  const uploadButton = (
+    <div>
+      <PlusOutlined />
+      <div style={{ marginTop: 8 }}>Upload</div>
+    </div>
+  );
   return (
     <div>
-      <div className="mb-4 flex items-center gap-4">
-        {!!value.length &&
-          value?.map((item) => (
-            <div
-              key={item.key}
-              className="relative w-[200px] h-[200px] rounded-md overflow-hidden"
-            >
-              <div className="z-10 absolute top-2 right-2">
-                <Button
-                  type="button"
-                  onClick={() => onDeleteFile(item.key)}
-                  variant="destructive"
-                  size="sm"
-                >
-                  <Trash className="h-4 w-4" />
-                </Button>
-              </div>
-              <div>
-                <Image
-                  fill
-                  className="object-cover"
-                  alt="Image"
-                  src={item.fileUrl || ""}
-                />
-              </div>
-            </div>
-          ))}
-      </div>
-      <div>
-        {value.length < IMG_MAX_LIMIT && (
-          <UploadDropzone<OurFileRouter>
-            className="dark:bg-zinc-800 py-2 ut-label:text-sm ut-allowed-content:ut-uploading:text-red-300"
-            endpoint="imageUploader"
-            config={{ mode: "auto" }}
-            content={{
-              allowedContent({ isUploading }) {
-                if (isUploading)
-                  return (
-                    <>
-                      <p className="mt-2 text-sm text-slate-400 animate-pulse">
-                        Img Uploading...
-                      </p>
-                    </>
-                  );
-              },
-            }}
-            onClientUploadComplete={(res) => {
-              // Do something with the response
-              const data: UploadFileResponse[] | undefined = res;
-              if (data) {
-                onUpdateFile(data);
-              }
-            }}
-            onUploadError={(error: Error) => {
-              toast({
-                title: "Error",
-                variant: "destructive",
-                description: error.message,
-              });
-            }}
-            onUploadBegin={() => {
-              // Do something once upload begins
-            }}
-          />
-        )}
-      </div>
+      
+
+      <Upload
+        listType="picture-card"
+        fileList={fileList}
+        onPreview={handlePreview}
+        onChange={handleChange}
+      >
+        {fileList?.length >= 8 ? null : uploadButton}
+      </Upload>
+
+      <Modal
+        open={previewOpen}
+        title={previewTitle}
+        footer={null}
+        onCancel={handleCancel}
+      >
+        <img alt="example" style={{ width: "100%" }} src={previewImage} />
+      </Modal>
+      
     </div>
   );
 }

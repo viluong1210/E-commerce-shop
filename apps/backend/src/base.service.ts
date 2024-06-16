@@ -9,7 +9,7 @@ export class BaseService<T> {
   protected model: string;
   protected prisma = new PrismaService();
 
-  async findAll(paging: Paging): Promise<RespondsType<T>> {
+  async findAll(paging: Paging, include?): Promise<RespondsType<T>> {
     const { skip, take, where } = createPaging(paging);
 
     const [data, count] = await Promise.all([
@@ -20,6 +20,7 @@ export class BaseService<T> {
         },
         skip,
         take,
+        include,
       }),
       this.prisma[this.model].count({
         where: {

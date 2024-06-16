@@ -4,12 +4,15 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import 'swiper/css/effect-fade'
 import { ProductItem } from './ProductItem'
-import { Products } from '@/types/productType'
+
 import { Button } from 'antd'
+import { ProductType } from '@/types'
 type IProps = {
-  products: Products[]
+  products: ProductType[]
 }
 export const ListProductCarousel = ({ products }: IProps) => {
+  console.log('productsproducts',products);
+  
   return (
     <div className="list-product w-full mb-7 slider-app">
       <Swiper
@@ -54,7 +57,7 @@ export const ListProductCarousel = ({ products }: IProps) => {
         className="mySwiper"
       >
         {products?.length &&
-          products?.map((item: Products) => (
+          products?.map((item: ProductType) => (
             <SwiperSlide key={item.id}>
               <ProductItem itemProduct={item} />
             </SwiperSlide>

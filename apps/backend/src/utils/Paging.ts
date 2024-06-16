@@ -4,9 +4,22 @@ export const createPaging = (paging: Paging) => {
   const { page = 1, limit = 10 } = paging;
 
   const where: any = {};
+  const orderBy: any = {};
 
   if (paging.category) {
     where.category = paging.category;
+  }
+
+  if (paging.priceSort) {
+    orderBy.price = {
+      price: paging.priceSort,
+    };
+  }
+
+  if (paging.dateSort) {
+    orderBy.price = {
+      createdAt: paging.dateSort,
+    };
   }
 
   if (paging.name) {
@@ -19,5 +32,5 @@ export const createPaging = (paging: Paging) => {
 
   const skip = (page - 1) * limit;
 
-  return { skip, take: limit, where };
+  return { skip, take: limit, where, orderBy };
 };

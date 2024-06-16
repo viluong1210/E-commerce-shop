@@ -29,6 +29,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 // import FileUpload from "@/components/FileUpload";
 import { useToast } from "../ui/use-toast";
 import FileUpload from "../file-upload";
+import { UploadFile } from "antd";
+import { createProducts, editProducts } from "@/services/productsService";
 const ImgSchema = z.object({
   fileName: z.string(),
   name: z.string(),
@@ -39,15 +41,15 @@ const ImgSchema = z.object({
   fileUrl: z.string(),
   url: z.string(),
 });
-export const IMG_MAX_LIMIT = 3;
+export const IMG_MAX_LIMIT = 4;
 const formSchema = z.object({
   name: z
     .string()
     .min(3, { message: "Product Name must be at least 3 characters" }),
-  imgUrl: z
-    .array(ImgSchema)
-    .max(IMG_MAX_LIMIT, { message: "You can only add up to 3 images" })
-    .min(1, { message: "At least one image must be added." }),
+  // imgUrl: z
+  //   .array(ImgSchema)
+  //   .max(IMG_MAX_LIMIT, { message: "You can only add up to 4 images" })
+  //   .min(1, { message: "At least one image must be added." }),
   description: z
     .string()
     .min(3, { message: "Product description must be at least 3 characters" }),
@@ -71,6 +73,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   const { toast } = useToast();
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [imgLoading, setImgLoading] = useState(false);
   const title = initialData ? "Edit product" : "Create product";
   const description = initialData ? "Edit a product." : "Add a new product";
@@ -97,17 +100,33 @@ export const ProductForm: React.FC<ProductFormProps> = ({
       setLoading(true);
       if (initialData) {
         // await axios.post(`/api/products/edit-product/${initialData._id}`, data);
+        await editProducts({params :  data, id : initialData._id})
       } else {
-        // const res = await axios.post(`/api/products/create-product`, data);
-        // console.log("product", res);
+
+       const dataForPayLoad = {
+          ...data,
+         category: "47488634-281e-4d5a-9aeb-25d7252e6b68",
+          images : ["https://pubcdn.ivymoda.com/files/product/thumab/1400/2024/03/05/fd3fa04879b6fa22744a140da7f6dba4.webp","https://cotton4u.vn/files/product/thumab/1400/2024/03/05/f87147ec64cc08b81155c9f374097e59.webp","https://cotton4u.vn/files/product/thumab/1400/2024/03/22/93d934182b837d2031ae9bb1555158e6.webp","https://cotton4u.vn/files/product/thumab/1400/2024/03/22/99b3cd3604d99116331169e3cab36616.webp"]
       }
-      router.refresh();
-      router.push(`/dashboard/products`);
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Something went wrong.",
-        description: "There was a problem with your request.",
-      });
+        
+        await createProducts(dataForPayLoad)
+          .then(() => {
+            router.refresh();
+            router.push(`/admin/dashboard/products`);
+           
+        })
+          .catch((err) => {
+            console.log('errerrerrerr',err);
+            
+            toast({
+              variant: "destructive",
+              title: "Uh oh! Something went wrong.",
+              description: "There was a problem with your request.",
+            });
+        })
+       
+      }
+     
     } catch (error: any) {
       toast({
         variant: "destructive",
@@ -132,7 +151,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     }
   };
 
-  const triggerImgUrlValidation = () => form.trigger("imgUrl");
+  // const triggerImgUrlValidation = () => form.trigger("imgUrl");
 
   return (
     <>
@@ -161,7 +180,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 w-full"
         >
-          <FormField
+          {/* <FormField
             control={form.control}
             name="imgUrl"
             render={({ field }) => (
@@ -169,15 +188,14 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 <FormLabel>Images</FormLabel>
                 <FormControl>
                   <FileUpload
-                    onChange={field.onChange}
-                    value={field.value}
-                    onRemove={field.onChange}
+                    setFileList={setFileList}
+                    fileList={fileList}
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
-          />
+          /> */}
           <div className="md:grid md:grid-cols-3 gap-8">
             <FormField
               control={form.control}

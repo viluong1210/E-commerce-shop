@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from 'react'
 import '../../../styles/component/navbar.css'
 import { Badge, Collapse, Drawer, Space } from 'antd'

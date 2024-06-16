@@ -22,7 +22,9 @@ export class ProductsController {
   @Get()
   @Public()
   async findAll(@Query() paging: Paging) {
-    const res = await this.productService.getAll(paging);
+    const res = await this.productService.findAll(paging, {
+      images: true,
+    });
     if (res instanceof ErrorException) {
       throw res;
     }
@@ -43,6 +45,7 @@ export class ProductsController {
   }
 
   @Post()
+  @Public()
   async create(@Body() createProductDto: CreateProductDto) {
     const { images, ...other } = createProductDto;
     const res = await this.productService.create(other);
@@ -65,6 +68,7 @@ export class ProductsController {
   }
 
   @Put(':id')
+  @Public()
   async update(
     @Param('id') id: string,
     @Body() updateProductDto: UpdateProductDto,

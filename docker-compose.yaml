@@ -14,27 +14,27 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
 
-  backend:
-    build: 
-      context: ./apps/backend
-    container_name: backend
-    ports:
-      - "3001:3001"
-    volumes:
-      - ./apps/backend:/usr/src/app
-    depends_on:
-      - mysql
+  # backend:
+  #   build: 
+  #     context: ./apps/backend
+  #   container_name: backend
+  #   ports:
+  #     - "3001:3001"
+  #   volumes:
+  #     - ./apps/backend:/usr/src/app
+  #   depends_on:
+  #     - mysql
 
-  frontend:
-    build: 
-      context: ./apps/frontend
-    container_name: frontend
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./apps/frontend:/usr/src/app
-    depends_on:
-      - backend
+  # frontend:
+  #   build: 
+  #     context: ./apps/frontend
+  #   container_name: frontend
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./apps/frontend:/usr/src/app
+  #   depends_on:
+  #     - backend
 
 volumes:
   mysql-data:

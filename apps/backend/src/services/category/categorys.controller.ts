@@ -16,7 +16,7 @@ import {
 } from './categorys.dto';
 import { Public } from 'src/contans';
 import { ErrorException } from 'src/exceptions/error-exception';
-import { Paging } from 'src/dto/paging.dto';
+import { Paging, RespondsType } from 'src/dto/paging.dto';
 
 @Controller('categorys')
 export class CategorysController {
@@ -46,6 +46,7 @@ export class CategorysController {
   }
 
   @Post()
+  @Public()
   async create(@Body() createCategorysDto: CreateCategorysDto) {
     const res = await this.service.create(createCategorysDto);
 
@@ -57,6 +58,7 @@ export class CategorysController {
   }
 
   @Put(':id')
+  @Public()
   async update(
     @Param('id') id: string,
     @Body() updateCategorysDto: UpdateCategorysDto,
@@ -71,6 +73,7 @@ export class CategorysController {
   }
 
   @Post('/delete')
+  @Public()
   async remove(@Body() { ids }: DeleteCategorysDto) {
     const res = await this.service.delete(ids);
 

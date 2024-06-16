@@ -1,5 +1,5 @@
 import { CollapseProps } from 'antd'
-import { NavbarMenu } from 'types/productType'
+import { NavbarMenu } from '@/types/productType'
 
 export const navbarMenu: NavbarMenu[] = [
   {

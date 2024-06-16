@@ -26,6 +26,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import FileUpload from "../file-upload";
 import { useToast } from "../ui/use-toast";
+import { UploadFile } from "antd";
 const ImgSchema = z.object({
   fileName: z.string(),
   name: z.string(),
@@ -67,6 +68,7 @@ export const EmployeeForm: React.FC<ProductFormProps> = ({
   const router = useRouter();
   const { toast } = useToast();
   const [open, setOpen] = useState(false);
+  const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [loading, setLoading] = useState(false);
   const title = initialData ? "Edit product" : "Create product";
   const description = initialData ? "Edit a product." : "Add a new product";
@@ -130,6 +132,11 @@ export const EmployeeForm: React.FC<ProductFormProps> = ({
 
   const triggerImgUrlValidation = () => form.trigger("imgUrl");
 
+  const handleTest = () => {
+    console.log('hahaha');
+    
+  }
+
   return (
     <>
       {/* <AlertModal
@@ -165,9 +172,7 @@ export const EmployeeForm: React.FC<ProductFormProps> = ({
                 <FormLabel>Images</FormLabel>
                 <FormControl>
                   <FileUpload
-                    onChange={field.onChange}
-                    value={field.value}
-                    onRemove={field.onChange}
+                   setFileList={handleTest} fileList={fileList}
                   />
                 </FormControl>
                 <FormMessage />

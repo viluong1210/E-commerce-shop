@@ -48,7 +48,7 @@ interface DataTableProps<TData, TValue> {
   };
 }
 
-export function EmployeeTable<TData, TValue>({
+export function CommonTable<TData, TValue>({
   columns,
   data,
   pageNo,
@@ -106,11 +106,10 @@ export function EmployeeTable<TData, TValue>({
         scroll: false,
       },
     );
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageIndex, pageSize]);
 
-  console.log('datadatadata',data);
+ 
   
 
   const table = useReactTable({

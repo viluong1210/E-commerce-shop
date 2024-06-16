@@ -1,13 +1,28 @@
+"use client"
+
 import { Select, SelectProps } from 'antd'
 import { CategoryLabel } from '@/components/homeComponents/CategoryLabel'
 import { ProductItem } from '@/components/homeComponents/ProductItem'
-import { listProduct } from '@/mock/productProps'
-import { Products } from '@/types/productType'
-import "../../../../styles/page/product.css"
+import "@/styles/page/product.css"
 import PaginationProduct from '@/components/homeComponents/PaginationProduct'
 import { DownOutlined } from '@ant-design/icons'
 import { useState } from 'react'
-export const ListProduct = () => {
+import { Paging, ProductType, ResponseType } from '@/types'
+import { usePathname, useRouter } from 'next/navigation'
+import useCreateQueryString from '@/hooks/useCreateQueryString'
+
+
+type Props = {
+  
+  data : ResponseType<ProductType>
+}
+
+export const ListProduct = ({ data }: Props) => {
+  const [isActiveFilter, setIsActiveFilter] = useState(false)
+
+  const createQueryString = useCreateQueryString()
+  const router = useRouter();
+  const pathname = usePathname();
   const options: SelectProps['options'] = [
     {
       value: 1,
@@ -19,25 +34,49 @@ export const ListProduct = () => {
     },
     {
       value: 3,
-      label: 'Được mua nhiều nhất',
+      label: 'Cũ nhất',
     },
     {
       value: 4,
-      label: 'Được yêu thích nhất',
-    },
-    {
-      value: 5,
       label: 'Giá: cao đến thấp',
     },
     {
-      value: 6,
+      value: 5,
       label: 'Giá: thấp đến cao',
     },
   ]
-  const handleChange = (value: string) => {
-    console.log(`selected ${value}`)
+
+  const handleChange = (value: number) => {
+
+    let param  ={}
+
+    switch (value) {
+      case 2:
+        param = {dateSort : 'esc'} 
+        break;
+      case 3:
+        param = {dateSort : 'desc'} 
+        break;
+      case 4:
+        param = {priceSort : 'esc'} 
+        break;
+      case 5:
+        param = {priceSort : 'desc'} 
+        break;
+      default:
+        param = {}
+        break;
+    }
+
+
+    router.push(
+      `${pathname}?${createQueryString({...param})}`,
+      {
+        scroll: false,
+      },
+    );
   }
-  const [isActiveFilter, setIsActiveFilter] = useState(false)
+  
   return (
     <div className="text-center product-list flex flex-col">
       <div className="flex justify-between">
@@ -57,11 +96,11 @@ export const ListProduct = () => {
         />
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4 mt-4">
-        {listProduct.map((item: Products) => {
+        {data.data.map((item: ProductType) => {
           return <ProductItem itemProduct={item} key={item.id} />
         })}
       </div>
-      <PaginationProduct />
+      <PaginationProduct count={data.count} page={data.page} limit={data.limit}/>
     </div>
   )
 }

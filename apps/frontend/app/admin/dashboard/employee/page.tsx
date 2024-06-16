@@ -1,11 +1,11 @@
 import BreadCrumb from "@/components/breadcrumb";
 import { columns } from "@/components/tables/employee-tables/columns";
-import { EmployeeTable } from "@/components/tables/employee-tables/employee-table";
+import { CommonTable } from "@/components/tables/employee-tables/commonTable";
 import { buttonVariants } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
-import { Employee } from "@/constants/data";
 import { cn } from "@/lib/utils";
+import { getAllProducts } from "@/services/productsService";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 
@@ -17,29 +17,31 @@ type paramsProps = {
   };
 };
 
-export default async function page({ searchParams }: paramsProps) {
+export default async function Page({ searchParams }: paramsProps) {
+  
+
   const page = Number(searchParams.page) || 1;
   const pageLimit = Number(searchParams.limit) || 10;
-  const country = searchParams.search || null;
-  const offset = (page - 1) * pageLimit;
+  const name = searchParams.search || null;
+  
+  const products = await getAllProducts({
+    limit: pageLimit,
+    page,
+  })
 
-  const res = await fetch(
-    `https://api.slingacademy.com/v1/sample-data/users?offset=${offset}&limit=${pageLimit}` +
-      (country ? `&search=${country}` : ""),
-  );
-  const employeeRes = await res.json();
-  const totalUsers = employeeRes.total_users; //1000
-  const pageCount = Math.ceil(totalUsers / pageLimit);
-  const employee: Employee[] = employeeRes.users;
+  const totalProducts = products?.count || 0
+  const pageCount = Math.ceil(totalProducts / pageLimit);
+
+ 
   return (
     <>
+     
       <div className="flex-1 space-y-4  p-4 md:p-8 pt-6">
         <BreadCrumb items={breadcrumbItems} />
 
         <div className="flex items-start justify-between">
           <Heading
-            title={`Employee (${totalUsers})`}
-            description="Manage employees (Server side table functionalities.)"
+            title={`Products (${totalProducts})`}
           />
 
           <Link
@@ -51,12 +53,12 @@ export default async function page({ searchParams }: paramsProps) {
         </div>
         <Separator />
 
-        <EmployeeTable
-          searchKey="country"
+        <CommonTable
+          searchKey="name"
           pageNo={page}
           columns={columns}
-          totalUsers={totalUsers}
-          data={employee}
+          totalUsers={totalProducts}
+          data={products?.data || []}
           pageCount={pageCount}
         />
       </div>
