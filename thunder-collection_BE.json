@@ -1,0 +1,103 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "BE",
+    "collectionId": "d0d4ac24-3384-4f4a-8307-46f69214f88a",
+    "dateExported": "2024-06-17T15:50:59.876Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "3fd162ad-5e97-4404-960e-bb226ca2a0f2",
+            "name": "Products",
+            "containerId": "",
+            "created": "2024-06-15T06:02:50.892Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "69c1d275-a9f0-4d39-a18f-87ec4f988d73",
+            "name": "Category",
+            "containerId": "",
+            "created": "2024-06-15T06:06:16.197Z",
+            "sortNum": 15000
+        },
+        {
+            "_id": "251309d0-1335-404b-b005-6926aacbc963",
+            "name": "Auth",
+            "containerId": "",
+            "created": "2024-06-15T06:04:36.872Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "4ddd9441-0d32-421f-8b46-2bd162f1e664",
+            "colId": "d0d4ac24-3384-4f4a-8307-46f69214f88a",
+            "containerId": "251309d0-1335-404b-b005-6926aacbc963",
+            "name": "login",
+            "url": "http://localhost:3001/products",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-06-15T06:05:00.237Z",
+            "modified": "2024-06-15T06:05:00.237Z",
+            "headers": []
+        },
+        {
+            "_id": "7356c261-859e-4ca5-8093-33a78fdb24ac",
+            "colId": "d0d4ac24-3384-4f4a-8307-46f69214f88a",
+            "containerId": "3fd162ad-5e97-4404-960e-bb226ca2a0f2",
+            "name": "get All",
+            "url": "http://localhost:3001/products",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-06-15T06:03:05.682Z",
+            "modified": "2024-06-15T06:04:01.753Z",
+            "headers": []
+        },
+        {
+            "_id": "4ec3835e-9411-4c73-9aec-db4035cd63a6",
+            "colId": "d0d4ac24-3384-4f4a-8307-46f69214f88a",
+            "containerId": "69c1d275-a9f0-4d39-a18f-87ec4f988d73",
+            "name": "get All",
+            "url": "http://localhost:3001/categorys",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-06-15T06:06:16.197Z",
+            "modified": "2024-06-15T06:06:43.508Z",
+            "headers": []
+        },
+        {
+            "_id": "e8d20fbe-a6fb-4564-815b-36e5a8a20497",
+            "colId": "d0d4ac24-3384-4f4a-8307-46f69214f88a",
+            "containerId": "3fd162ad-5e97-4404-960e-bb226ca2a0f2",
+            "name": "create",
+            "url": "http://localhost:3001/products/",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-06-15T06:04:12.929Z",
+            "modified": "2024-06-15T11:43:12.412Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Lương Văn Vĩ\",\n  \"description\": \"aaa\",\n  \"price\": 3,\n  \"category\": \"47488634-281e-4d5a-9aeb-25d7252e6b68\",\n  \"images\": [\n    \"https://pubcdn.ivymoda.com/files/product/thumab/1400/2024/03/05/fd3fa04879b6fa22744a140da7f6dba4.webp\",\n    \"https://cotton4u.vn/files/product/thumab/1400/2024/03/05/f87147ec64cc08b81155c9f374097e59.webp\",\n    \"https://cotton4u.vn/files/product/thumab/1400/2024/03/22/93d934182b837d2031ae9bb1555158e6.webp\",\n    \"https://cotton4u.vn/files/product/thumab/1400/2024/03/22/99b3cd3604d99116331169e3cab36616.webp\"\n  ]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "db5ab42d-3de9-4ac1-8503-7bd08bd318a0",
+            "colId": "d0d4ac24-3384-4f4a-8307-46f69214f88a",
+            "containerId": "69c1d275-a9f0-4d39-a18f-87ec4f988d73",
+            "name": "create",
+            "url": "http://localhost:3001/categorys",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-06-15T06:06:16.198Z",
+            "modified": "2024-06-15T06:07:39.985Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\" : \"mail\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "BtTIl-QJcToGos7bZVAfS0PdNCouDpNF1wJYtMfN5L-Ya-7rRfUzWqz5GNlLkLmpnb4yJ-sVW5zsVpIQ6ZuplA"
+}
