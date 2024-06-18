@@ -1,79 +1,101 @@
 {
     "clientName": "Thunder Client",
     "collectionName": "BE",
-    "collectionId": "d0d4ac24-3384-4f4a-8307-46f69214f88a",
-    "dateExported": "2024-06-17T15:50:59.876Z",
+    "collectionId": "ccfbed73-4f98-4285-9894-56c118153e6c",
+    "dateExported": "2024-06-18T16:27:05.912Z",
     "version": "1.2",
     "folders": [
         {
-            "_id": "3fd162ad-5e97-4404-960e-bb226ca2a0f2",
+            "_id": "9740b0ea-0841-47d6-a720-4f285cd0a28d",
             "name": "Products",
             "containerId": "",
-            "created": "2024-06-15T06:02:50.892Z",
+            "created": "2024-06-17T15:52:16.036Z",
             "sortNum": 10000
         },
         {
-            "_id": "69c1d275-a9f0-4d39-a18f-87ec4f988d73",
+            "_id": "6e4b78b9-9bdf-45d1-a47a-8fd7af3ca0ea",
             "name": "Category",
             "containerId": "",
-            "created": "2024-06-15T06:06:16.197Z",
+            "created": "2024-06-17T15:52:16.039Z",
             "sortNum": 15000
         },
         {
-            "_id": "251309d0-1335-404b-b005-6926aacbc963",
+            "_id": "d6d0d113-a29e-44c6-bd05-873bf45daa99",
             "name": "Auth",
             "containerId": "",
-            "created": "2024-06-15T06:04:36.872Z",
+            "created": "2024-06-17T15:52:16.038Z",
             "sortNum": 20000
         }
     ],
     "requests": [
         {
-            "_id": "4ddd9441-0d32-421f-8b46-2bd162f1e664",
-            "colId": "d0d4ac24-3384-4f4a-8307-46f69214f88a",
-            "containerId": "251309d0-1335-404b-b005-6926aacbc963",
+            "_id": "9896739a-1205-4e40-9f35-679f2bb5b52a",
+            "colId": "ccfbed73-4f98-4285-9894-56c118153e6c",
+            "containerId": "d6d0d113-a29e-44c6-bd05-873bf45daa99",
             "name": "login",
-            "url": "http://localhost:3001/products",
+            "url": "http://localhost:3001/auth/login",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-06-15T06:05:00.237Z",
-            "modified": "2024-06-15T06:05:00.237Z",
-            "headers": []
+            "created": "2024-06-17T15:52:16.039Z",
+            "modified": "2024-06-18T14:37:41.084Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userName\" : \"john.doe@example.com\",\n  \"password\" : \"P@ssw0rd123\"\n}",
+                "form": []
+            }
         },
         {
-            "_id": "7356c261-859e-4ca5-8093-33a78fdb24ac",
-            "colId": "d0d4ac24-3384-4f4a-8307-46f69214f88a",
-            "containerId": "3fd162ad-5e97-4404-960e-bb226ca2a0f2",
+            "_id": "d18330cc-1c7f-42fc-8f8d-ce61d9d3a213",
+            "colId": "ccfbed73-4f98-4285-9894-56c118153e6c",
+            "containerId": "9740b0ea-0841-47d6-a720-4f285cd0a28d",
             "name": "get All",
             "url": "http://localhost:3001/products",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2024-06-15T06:03:05.682Z",
-            "modified": "2024-06-15T06:04:01.753Z",
+            "created": "2024-06-17T15:52:16.037Z",
+            "modified": "2024-06-17T15:52:16.037Z",
             "headers": []
         },
         {
-            "_id": "4ec3835e-9411-4c73-9aec-db4035cd63a6",
-            "colId": "d0d4ac24-3384-4f4a-8307-46f69214f88a",
-            "containerId": "69c1d275-a9f0-4d39-a18f-87ec4f988d73",
+            "_id": "c4d6e62b-c208-49aa-a157-434a2a617c92",
+            "colId": "ccfbed73-4f98-4285-9894-56c118153e6c",
+            "containerId": "6e4b78b9-9bdf-45d1-a47a-8fd7af3ca0ea",
             "name": "get All",
             "url": "http://localhost:3001/categorys",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2024-06-15T06:06:16.197Z",
-            "modified": "2024-06-15T06:06:43.508Z",
+            "created": "2024-06-17T15:52:16.040Z",
+            "modified": "2024-06-17T15:52:16.040Z",
             "headers": []
         },
         {
-            "_id": "e8d20fbe-a6fb-4564-815b-36e5a8a20497",
-            "colId": "d0d4ac24-3384-4f4a-8307-46f69214f88a",
-            "containerId": "3fd162ad-5e97-4404-960e-bb226ca2a0f2",
+            "_id": "41ef66a1-9ab0-41f7-a51b-cfab4d40bdcf",
+            "colId": "ccfbed73-4f98-4285-9894-56c118153e6c",
+            "containerId": "d6d0d113-a29e-44c6-bd05-873bf45daa99",
+            "name": "register",
+            "url": "http://localhost:3001/users/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-06-18T14:10:57.888Z",
+            "modified": "2024-06-18T14:31:25.660Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"passWord\": \"P@ssw0rd123\",\r\n  \"phone\": \"123-456-7890\",\r\n  \"sex\": \"male\",\r\n  \"regionId\": 1,\r\n  \"cityId\": 10,\r\n  \"vnwardId\": 100,\r\n  \"address\": \"123 Main St, Anytown, USA\",\r\n  \"birthday\": \"1990-01-01\"\r\n}\r\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "057340f5-6a47-44f7-ba5a-137413d14798",
+            "colId": "ccfbed73-4f98-4285-9894-56c118153e6c",
+            "containerId": "9740b0ea-0841-47d6-a720-4f285cd0a28d",
             "name": "create",
             "url": "http://localhost:3001/products/",
             "method": "POST",
             "sortNum": 30000,
-            "created": "2024-06-15T06:04:12.929Z",
-            "modified": "2024-06-15T11:43:12.412Z",
+            "created": "2024-06-17T15:52:16.038Z",
+            "modified": "2024-06-17T15:52:16.038Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -82,15 +104,15 @@
             }
         },
         {
-            "_id": "db5ab42d-3de9-4ac1-8503-7bd08bd318a0",
-            "colId": "d0d4ac24-3384-4f4a-8307-46f69214f88a",
-            "containerId": "69c1d275-a9f0-4d39-a18f-87ec4f988d73",
+            "_id": "6d763a42-5357-45ef-8aec-0f2fcb1e33fb",
+            "colId": "ccfbed73-4f98-4285-9894-56c118153e6c",
+            "containerId": "6e4b78b9-9bdf-45d1-a47a-8fd7af3ca0ea",
             "name": "create",
             "url": "http://localhost:3001/categorys",
             "method": "POST",
             "sortNum": 30000,
-            "created": "2024-06-15T06:06:16.198Z",
-            "modified": "2024-06-15T06:07:39.985Z",
+            "created": "2024-06-17T15:52:16.041Z",
+            "modified": "2024-06-17T15:52:16.041Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -99,5 +121,5 @@
             }
         }
     ],
-    "ref": "BtTIl-QJcToGos7bZVAfS0PdNCouDpNF1wJYtMfN5L-Ya-7rRfUzWqz5GNlLkLmpnb4yJ-sVW5zsVpIQ6ZuplA"
+    "ref": "wa5VBZh-QqknczibO9qleYIwZDR48_ufOw9QzuTIUsCdGykscdT1ckxiYp2QqTOKk22UNpt88f00j1ltmjYUkw"
 }
