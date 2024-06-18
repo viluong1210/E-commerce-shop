@@ -7,12 +7,9 @@ import { InputBox } from '@/components/homeComponents/InputBox'
 import RegisterButton from '@/components/homeComponents/RegisterButton'
 import { FormDatePicker } from '@/components/homeComponents/FormDatePicker'
 import { FormSelect } from '@/components/homeComponents/FormSelect'
-type FieldType = {
-  username?: string
-  password?: string
-  remember?: string
-}
+
 export default function Register() {
+  
   const onFinish = (values: any) => {
     console.log('Success:', values)
   }
@@ -45,8 +42,8 @@ export default function Register() {
                   autoComplete="off"
                 >
                   <div className="gap-5 flex">
-                    <Form.Item<FieldType>
-                      name="username"
+                    <Form.Item
+                      name="firstName"
                       className="justify-center flex  flex-col items-center"
                       label={
                         <span className="text-[#6C6D70] font-montserrat text-base">
@@ -62,8 +59,8 @@ export default function Register() {
                     >
                       <InputBox placeholder={'Họ...'} type="text" />
                     </Form.Item>
-                    <Form.Item<FieldType>
-                      name="username"
+                    <Form.Item
+                      name="lastName"
                       className="justify-center flex  flex-col items-center"
                       label={
                         <span className="text-[#6C6D70] font-montserrat text-base">
@@ -81,8 +78,8 @@ export default function Register() {
                     </Form.Item>
                   </div>
                   <div className="gap-5 flex">
-                    <Form.Item<FieldType>
-                      name="username"
+                    <Form.Item
+                      name="mail"
                       className="justify-center flex  flex-col items-center"
                       label={
                         <span className="text-[#6C6D70] font-montserrat text-base">
@@ -98,8 +95,8 @@ export default function Register() {
                     >
                       <InputBox placeholder={'Email...'} type="email" />
                     </Form.Item>
-                    <Form.Item<FieldType>
-                      name="username"
+                    <Form.Item
+                      name="phone"
                       className="justify-center flex  flex-col items-center"
                       label={
                         <span className="text-[#6C6D70] font-montserrat text-base">
@@ -109,7 +106,7 @@ export default function Register() {
                       rules={[
                         {
                           required: true,
-                          message: 'Please input your username!',
+                          message: 'Please input your phone!',
                         },
                       ]}
                     >
@@ -117,8 +114,8 @@ export default function Register() {
                     </Form.Item>
                   </div>
                   <div className="gap-5 flex">
-                    <Form.Item<FieldType>
-                      name="username"
+                    <Form.Item
+                      name="birthday"
                       className="justify-center flex  flex-col items-center"
                       label={
                         <span className="text-[#6C6D70] font-montserrat text-base">
@@ -128,14 +125,14 @@ export default function Register() {
                       rules={[
                         {
                           required: true,
-                          message: 'Please input your username!',
+                          message: 'Please input your birthday!',
                         },
                       ]}
                     >
                       <FormDatePicker placeholder={'Ngày sinh...'} />
                     </Form.Item>
-                    <Form.Item<FieldType>
-                      name="username"
+                    <Form.Item
+                      name="sex"
                       className="justify-center flex  flex-col items-center"
                       label={
                         <span className="text-[#6C6D70] font-montserrat text-base">
@@ -145,7 +142,7 @@ export default function Register() {
                       rules={[
                         {
                           required: true,
-                          message: 'Please input your username!',
+                          message: 'Please input your sex!',
                         },
                       ]}
                     >
@@ -155,84 +152,24 @@ export default function Register() {
                       />
                     </Form.Item>
                   </div>
-                  <div className="gap-5 flex">
-                    <Form.Item<FieldType>
-                      name="username"
-                      className="justify-center flex  flex-col items-center"
-                      label={
-                        <span className="text-[#6C6D70] font-montserrat text-base">
-                          Ngày sinh
-                        </span>
-                      }
-                      rules={[
-                        {
-                          required: true,
-                          message: 'Please input your username!',
-                        },
-                      ]}
-                    >
-                      <FormDatePicker placeholder={'Ngày sinh...'} />
-                    </Form.Item>
-                    <Form.Item<FieldType>
-                      name="username"
-                      className="justify-center flex  flex-col items-center"
-                      label={
-                        <span className="text-[#6C6D70] font-montserrat text-base">
-                          Giới tính
-                        </span>
-                      }
-                      rules={[
-                        {
-                          required: true,
-                          message: 'Please input your username!',
-                        },
-                      ]}
-                    >
-                      <FormSelect
-                        placeholder={'Giới tính...'}
-                        sizes={'360px'}
-                      />
-                    </Form.Item>
-                  </div>
+                  
                   <div className="gap-5 flex w-full">
-                    <Form.Item<FieldType>
-                      name="username"
-                      className="justify-center flex w-full  flex-col items-center"
-                      label={
-                        <span className="text-[#6C6D70] font-montserrat text-base">
-                          Giới tính
-                        </span>
-                      }
-                      rules={[
-                        {
-                          required: true,
-                          message: 'Please input your username!',
-                        },
-                      ]}
-                    >
-                      <FormSelect
-                        placeholder={'Giới tính...'}
-                        sizes={'750px'}
-                      />
-                    </Form.Item>
-                  </div>
-                  <div className="gap-5 flex w-full">
-                    <Form.Item<FieldType>
-                      name="username"
+                    <Form.Item
+                      name="address"
                       className=" w-full"
                       label={
                         <span className="text-[#6C6D70] font-montserrat text-base">
-                          Giới tính
+                          Địa chỉ
                         </span>
                       }
                       rules={[
                         {
                           required: true,
-                          message: 'Please input your username!',
+                          message: 'Please input your address!',
                         },
                       ]}
                     >
-                      <InputBox placeholder={'Email...'} type="email" />
+                      <InputBox placeholder={'địa chỉ...'} />
                     </Form.Item>
                   </div>
                 </Form>
@@ -254,7 +191,7 @@ export default function Register() {
                   autoComplete="off"
                 >
                   <div className="w-full">
-                    <Form.Item<FieldType>
+                    <Form.Item
                       name="username"
                       className="justify-center w-full flex  flex-col items-center"
                       label={
@@ -275,7 +212,7 @@ export default function Register() {
                         type="password"
                       />
                     </Form.Item>
-                    <Form.Item<FieldType>
+                    <Form.Item
                       name="username"
                       className="justify-center w-full flex  flex-col items-center"
                       label={
@@ -296,7 +233,7 @@ export default function Register() {
                         type="password"
                       />
                     </Form.Item>
-                    <Form.Item<FieldType>
+                    {/* <Form.Item
                       name="username"
                       className="justify-center w-full flex  flex-col items-center"
                       label={
@@ -318,7 +255,7 @@ export default function Register() {
                         }
                         type="password"
                       />
-                    </Form.Item>
+                    </Form.Item> */}
                   </div>
                   <div className="flex flex-col gap-5 justify-center">
                     <Checkbox className="border flex items-center border-[#faf9f9] h-[18px] text-base font-montserrat w-max">
@@ -328,6 +265,7 @@ export default function Register() {
                       Đăng ký nhận bản tin
                     </Checkbox>
                   </div>
+                  <RegisterButton >Đăng Ký </RegisterButton>
                 </Form>
               </div>
             </div>

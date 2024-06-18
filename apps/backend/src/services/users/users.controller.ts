@@ -38,6 +38,7 @@ export class UsersController {
     return res;
   }
 
+  @Public()
   @Post('/register')
   async create(@Body() createUserDto: CreateUserDto) {
     const res = await this.userService.create(createUserDto);

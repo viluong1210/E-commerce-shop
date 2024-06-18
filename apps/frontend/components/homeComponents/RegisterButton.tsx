@@ -8,7 +8,7 @@ interface Props extends ButtonProps{
 const RegisterButton = ({ children ,onClick}: Props) => {
   return (
     <div className="regis-button">
-      <Button onClick={onClick}  className="h-max py-3 bg-[#221F20] border border-[#221F20] hover:bg-white text-[#F7F8F9] mb-[20px] w-full font-semibold lg:text-base text-xs">
+      <Button htmlType="submit"  onClick={onClick}  className="h-max py-3 bg-[#221F20] border border-[#221F20] hover:bg-white text-[#F7F8F9] mb-[20px] w-full font-semibold lg:text-base text-xs">
         {children}
       </Button>
     </div>

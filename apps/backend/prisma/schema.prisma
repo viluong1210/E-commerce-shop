@@ -112,9 +112,9 @@ enum OrderStatus {
 }
 
 enum Sex {
-  Man
-  Woman
-  Other
+  male
+  female
+  other
 }
 
 // model UserInformation {

@@ -1,5 +1,6 @@
-const API_ENDPOINT = "http://localhost:3000";
+const API_ENDPOINT = "http://localhost:3001";
 
+import { CreateUserType } from "@/types/authType";
 import httpRequest from "./httpRequest";
 
 const login = (params: any) => {
@@ -11,7 +12,7 @@ const login = (params: any) => {
   return httpRequest.post(obj);
 };
 
-const register = (params: any) => {
+const register = (params: CreateUserType) => {
   const obj = {
     url: `${API_ENDPOINT}/auth/register`,
     options: params,

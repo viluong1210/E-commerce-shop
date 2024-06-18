@@ -150,11 +150,9 @@ const Navigate: React.FC = () => {
           <div>{renderLogo()}</div>
           <div className="search-component w-1/4 flex flex-row items-center h-full gap-5">
             <SearchInput />
-            <a onClick={(e) => e.preventDefault()}>
               <Space>
-                <UserOutlined className="text-xl" />
+                <UserOutlined onClick={()=> router.push('/login')} className="text-xl" />
               </Space>
-            </a>
             <div className="w-1/3">{renderShoppingCard()}</div>
           </div>
         </div>
