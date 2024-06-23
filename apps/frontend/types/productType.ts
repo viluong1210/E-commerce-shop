@@ -33,7 +33,6 @@ export type ProductDetail = {
   listColor: string[];
 };
 export type ChildrenMenu = {
-  key: string;
   label: string;
   url?: string;
   children?: MenuItem[];
@@ -45,4 +44,21 @@ export type MenuItem = {
 };
 export type NavbarMenu = MenuItem & {
   children?: ChildrenMenu[];
+};
+
+export type Province = {
+  Id: string;
+  Name: string;
+  Districts?: Districts[];
+};
+
+export type Districts = {
+  Id: string;
+  Name: string;
+  Wards: Wards[];
+};
+export type Wards = {
+  Id?: string;
+  Name?: string;
+  Level: string;
 };
