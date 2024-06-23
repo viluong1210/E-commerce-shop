@@ -7,8 +7,10 @@ import TimeLine from "./components/TimeLine";
 import TableListProduct from "./components/TableListProduct";
 import { ArrowLeftOutlined, WarningOutlined } from "@ant-design/icons";
 import RegisterButton from "@/components/homeComponents/RegisterButton";
+import { useRouter } from "next/navigation";
 
 export default function Cart() {
+  const router = useRouter();
   const totalCart = [
     { title: "Tổng sản phẩm", count: "3" },
     { title: "Tổng tiền hàng", count: "5.570.000đ" },
@@ -28,7 +30,7 @@ export default function Cart() {
               <div className=" h-[1px] bg-[#E7E8E9] my-6"></div>
 
               <div className="xl:w-1/3 w-2/3 mt-4">
-                <RegisterButton>
+                <RegisterButton onClick={() => router.push("/products")}>
                   <ArrowLeftOutlined className="mr-3" />{" "}
                   <span className="uppercase">Tiếp tục mua hàng</span>
                 </RegisterButton>

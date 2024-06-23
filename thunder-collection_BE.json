@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "BE",
     "collectionId": "ccfbed73-4f98-4285-9894-56c118153e6c",
-    "dateExported": "2024-06-18T16:27:05.912Z",
+    "dateExported": "2024-06-23T16:23:38.060Z",
     "version": "1.2",
     "folders": [
         {
@@ -11,6 +11,13 @@
             "containerId": "",
             "created": "2024-06-17T15:52:16.036Z",
             "sortNum": 10000
+        },
+        {
+            "_id": "3b92d9ba-98e7-4f13-9f73-3a06a766c410",
+            "name": "Orders",
+            "containerId": "",
+            "created": "2024-06-23T06:14:59.362Z",
+            "sortNum": 12500
         },
         {
             "_id": "6e4b78b9-9bdf-45d1-a47a-8fd7af3ca0ea",
@@ -50,12 +57,29 @@
             "colId": "ccfbed73-4f98-4285-9894-56c118153e6c",
             "containerId": "9740b0ea-0841-47d6-a720-4f285cd0a28d",
             "name": "get All",
-            "url": "http://localhost:3001/products",
+            "url": "http://localhost:3001/products?page=1&dateSort=desc&category=c2e6f83d-9a0c-41d8-814f-fd00126ba8a3",
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-06-17T15:52:16.037Z",
-            "modified": "2024-06-17T15:52:16.037Z",
-            "headers": []
+            "modified": "2024-06-23T05:22:46.394Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "dateSort",
+                    "value": "desc",
+                    "isPath": false
+                },
+                {
+                    "name": "category",
+                    "value": "c2e6f83d-9a0c-41d8-814f-fd00126ba8a3",
+                    "isPath": false
+                }
+            ]
         },
         {
             "_id": "c4d6e62b-c208-49aa-a157-434a2a617c92",
@@ -78,13 +102,25 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2024-06-18T14:10:57.888Z",
-            "modified": "2024-06-18T14:31:25.660Z",
+            "modified": "2024-06-22T07:35:54.357Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"passWord\": \"P@ssw0rd123\",\r\n  \"phone\": \"123-456-7890\",\r\n  \"sex\": \"male\",\r\n  \"regionId\": 1,\r\n  \"cityId\": 10,\r\n  \"vnwardId\": 100,\r\n  \"address\": \"123 Main St, Anytown, USA\",\r\n  \"birthday\": \"1990-01-01\"\r\n}\r\n",
+                "raw": "{\n  \"name\": \"viluong\",\n  \"email\": \"viluong@gmail.com\",\n  \"passWord\": \"12345678\",\n  \"phone\": \"123-456-7890\",\n  \"sex\": \"male\",\n  \"regionId\": 1,\n  \"cityId\": 10,\n  \"vnwardId\": 100,\n  \"address\": \"123 Main St, Anytown, USA\",\n  \"birthday\": \"1990-01-01\"\n}\n",
                 "form": []
             }
+        },
+        {
+            "_id": "64724433-0c08-4111-a701-80616b3e3602",
+            "colId": "ccfbed73-4f98-4285-9894-56c118153e6c",
+            "containerId": "3b92d9ba-98e7-4f13-9f73-3a06a766c410",
+            "name": "get All",
+            "url": "http://localhost:3001/orders",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-06-23T06:14:59.362Z",
+            "modified": "2024-06-23T06:28:36.944Z",
+            "headers": []
         },
         {
             "_id": "057340f5-6a47-44f7-ba5a-137413d14798",
@@ -95,11 +131,11 @@
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-06-17T15:52:16.038Z",
-            "modified": "2024-06-17T15:52:16.038Z",
+            "modified": "2024-06-23T07:52:25.333Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\": \"Lương Văn Vĩ\",\n  \"description\": \"aaa\",\n  \"price\": 3,\n  \"category\": \"47488634-281e-4d5a-9aeb-25d7252e6b68\",\n  \"images\": [\n    \"https://pubcdn.ivymoda.com/files/product/thumab/1400/2024/03/05/fd3fa04879b6fa22744a140da7f6dba4.webp\",\n    \"https://cotton4u.vn/files/product/thumab/1400/2024/03/05/f87147ec64cc08b81155c9f374097e59.webp\",\n    \"https://cotton4u.vn/files/product/thumab/1400/2024/03/22/93d934182b837d2031ae9bb1555158e6.webp\",\n    \"https://cotton4u.vn/files/product/thumab/1400/2024/03/22/99b3cd3604d99116331169e3cab36616.webp\"\n  ]\n}",
+                "raw": "{\n  \"name\": \"Lương Văn Vĩ\",\n  \"description\": \"aaa\",\n  \"price\": 3,\n  \"category\": \"2f1318f6-9df8-40b0-8678-1599943c071d\",\n  \"images\": [\n    \"https://pubcdn.ivymoda.com/files/product/thumab/1400/2024/03/05/fd3fa04879b6fa22744a140da7f6dba4.webp\",\n    \"https://cotton4u.vn/files/product/thumab/1400/2024/03/05/f87147ec64cc08b81155c9f374097e59.webp\",\n    \"https://cotton4u.vn/files/product/thumab/1400/2024/03/22/93d934182b837d2031ae9bb1555158e6.webp\",\n    \"https://cotton4u.vn/files/product/thumab/1400/2024/03/22/99b3cd3604d99116331169e3cab36616.webp\"\n  ]\n}",
                 "form": []
             }
         },
@@ -119,7 +155,53 @@
                 "raw": "{\n  \"name\" : \"mail\"\n}",
                 "form": []
             }
+        },
+        {
+            "_id": "ec52b64a-9342-4009-bcb6-abaa13d742f0",
+            "colId": "ccfbed73-4f98-4285-9894-56c118153e6c",
+            "containerId": "3b92d9ba-98e7-4f13-9f73-3a06a766c410",
+            "name": "create",
+            "url": "http://localhost:3001/orders",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-06-23T06:14:59.363Z",
+            "modified": "2024-06-23T08:26:05.304Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Lương Văn Vĩ\",\n  \"phone\": \"0123456789\",\n  \"regionId\": 3,\n  \"cityId\": 1,\n  \"vnwardId\" : 1,\n  \"address\" : \"253 hoang van thu\",\n  \"orderItems\" : [\n    {\n      \"productId\" : \"1eecf396-a1e2-4e71-9c5d-61dcfc1f8c46\",\n      \"quantity\" : 10,\n      \"price\" : 12000\n    }\n    ]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "71598fdc-8aaa-49fb-915e-2f6527112309",
+            "colId": "ccfbed73-4f98-4285-9894-56c118153e6c",
+            "containerId": "3b92d9ba-98e7-4f13-9f73-3a06a766c410",
+            "name": "get detail order",
+            "url": "http://localhost:3001/orders/27111d49-31aa-467d-b494-fbca369ae421",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-06-23T08:15:21.273Z",
+            "modified": "2024-06-23T08:15:48.017Z",
+            "headers": []
+        },
+        {
+            "_id": "aab386eb-1a08-457e-b59b-5221ede377ea",
+            "colId": "ccfbed73-4f98-4285-9894-56c118153e6c",
+            "containerId": "3b92d9ba-98e7-4f13-9f73-3a06a766c410",
+            "name": "confirm order",
+            "url": "http://localhost:3001/orders/27111d49-31aa-467d-b494-fbca369ae421",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-06-23T08:11:56.488Z",
+            "modified": "2024-06-23T08:26:11.523Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"status\" : \"Shipped\"\n}",
+                "form": []
+            }
         }
     ],
-    "ref": "wa5VBZh-QqknczibO9qleYIwZDR48_ufOw9QzuTIUsCdGykscdT1ckxiYp2QqTOKk22UNpt88f00j1ltmjYUkw"
+    "ref": "wa5VBZh-QqknczibO9qleelBZzrwAc25Uq1PxtNtHKlkR5veM2ecHLfm74frWTr3eYPs9AlY5AqTd3LukWi0UA"
 }

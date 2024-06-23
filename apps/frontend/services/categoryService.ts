@@ -1,4 +1,4 @@
-const API_ENDPOINT = "http://localhost:3000/categorys";
+const API_ENDPOINT = "http://localhost:3001/categorys";
 
 import httpRequest from "./httpRequest";
 
@@ -11,7 +11,7 @@ const getAllCategorys = () => {
   return httpRequest.get(obj);
 };
 
-const createCategorys = (params: any) => {
+const createCategorys = (params: { name: string }) => {
   const obj = {
     url: `${API_ENDPOINT}/`,
     options: params,

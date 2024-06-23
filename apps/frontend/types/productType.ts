@@ -34,12 +34,13 @@ export type ProductDetail = {
 };
 export type ChildrenMenu = {
   label: string;
-  key: string;
+  url?: string;
   children?: MenuItem[];
 };
 export type MenuItem = {
   label: string;
   key: string;
+  url?: string;
 };
 export type NavbarMenu = MenuItem & {
   children?: ChildrenMenu[];
@@ -48,7 +49,7 @@ export type NavbarMenu = MenuItem & {
 export type Province = {
   Id: string;
   Name: string;
-  Districts?: Districts[]
+  Districts?: Districts[];
 };
 
 export type Districts = {
@@ -57,11 +58,7 @@ export type Districts = {
   Wards: Wards[];
 };
 export type Wards = {
-  Id?: string,
-  Name?: string,
-  Level: string
-}
-
-
-
-
+  Id?: string;
+  Name?: string;
+  Level: string;
+};

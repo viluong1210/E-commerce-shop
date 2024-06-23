@@ -3,23 +3,29 @@ import { InputBox } from "@/components/homeComponents/InputBox";
 import RegisterButton from "@/components/homeComponents/RegisterButton";
 import { login } from "@/services/authService";
 import { Checkbox, Form } from "antd";
+import { useRouter } from "next/navigation";
 import React from "react";
+import { toast } from "react-toastify";
+
 
 export default function FormLogin() {
+
+  const router = useRouter()
   const onFinish = (values: any) => {
-    console.log("Success:Success", values);
     login(values)
       .then((res) => {
-        console.log("resresresres", res);
+        const { access_token } = res?.data;
+
+        toast.success("Đăng nhập thành công");
+        router.push('/')
+        localStorage.setItem("access_token", access_token);
       })
       .catch((err) => {
-        console.log("errerrerrerr", err);
+       
+        toast.error(err?.message)
       });
   };
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
-  };
   return (
     <>
       <Form
@@ -29,7 +35,6 @@ export default function FormLogin() {
         style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <Form.Item

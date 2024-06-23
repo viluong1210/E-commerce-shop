@@ -38,11 +38,12 @@ export class BaseService<T> {
     };
   }
 
-  async findOne(id: string): Promise<T> {
+  async findOne(id: string, include?): Promise<T> {
     return this.prisma[this.model].findFirst({
       where: {
         id,
       },
+      include,
     });
   }
 
