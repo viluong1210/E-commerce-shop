@@ -1,9 +1,10 @@
 .cart-product .timeline-component .ant-slider-mark .ant-slider-mark-text {
   width: max-content !important;
   color: #221f20;
-  font-size: 12px;
+  font-size: 13px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   margin-top: 10px;
+  margin-left: -5px;
 }
 body {
   overflow: auto;

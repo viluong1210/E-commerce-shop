@@ -1,29 +1,30 @@
-import { SelectProps, Select } from 'antd'
+import { SelectProps, Select } from "antd";
+import "../../styles/component/selectInput.css";
 
 type IProps = SelectProps & {
-  sizes: string
-}
-export const FormSelect = ({ placeholder, sizes }: IProps) => {
-  const options: SelectProps['options'] = []
-  for (let i = 10; i < 36; i++) {
-    options.push({
-      value: i.toString(36) + i,
-      label: i.toString(36) + i,
-    })
-  }
-
-  const handleChange = (value: string) => {
-    console.log(`selected ${value}`)
-  }
+  sizes: string;
+};
+export const FormSelect = ({
+  placeholder,
+  sizes,
+  options,
+  onChange,
+  value,
+}: IProps) => {
   return (
     <Select
-      className="rounded text-sm w-[358px] text-[#57585A]  font-montserrat"
+      className="rounded select-search text-sm w-[358px] text-[#57585A]  font-montserrat"
       placeholder={placeholder}
-      mode="tags"
-      size="large"
-      onChange={handleChange}
+      showSearch
+      optionFilterProp="label"
+      filterSort={(optionA, optionB) =>
+        (String(optionA?.labe) ?? "")
+          ?.toLowerCase()
+          .localeCompare((String(optionB?.label) ?? "")?.toLowerCase())
+      }
+      onChange={onChange}
       options={options}
       style={{ width: sizes }}
     />
-  )
-}
+  );
+};
