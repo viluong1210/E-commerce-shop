@@ -22,19 +22,29 @@ model Users {
   vnwardId  Int
   address   String
   createdAt DateTime @default(now())
-  Orders    Orders[]
+  // Orders    Orders[]
   Carts     Carts[]
 }
 
+model UserInformation {
+  id       Int      @id @default(autoincrement())
+  name     String
+  phone    String
+  regionId Int
+  cityId   Int
+  vnwardId Int
+  address  String
+  Orders   Orders[]
+}
+
 model Orders {
-  id          String       @id @default(uuid())
-  userId      String
-  totalAmount Float
-  isDeleted   Boolean      @default(false)
-  status      OrderStatus  @default(Pending)
-  createdAt   DateTime     @default(now())
-  user        Users        @relation(fields: [userId], references: [id])
-  orderItems  OrderItems[]
+  id                String          @id @default(uuid())
+  isDeleted         Boolean         @default(false)
+  status            OrderStatus     @default(Pending)
+  createdAt         DateTime        @default(now())
+  UserInformation   UserInformation @relation(fields: [userInformationId], references: [id])
+  orderItems        OrderItems[]
+  userInformationId Int
 }
 
 model OrderItems {
@@ -102,13 +112,10 @@ model CartItems {
 
 enum OrderStatus {
   Pending
-  Confirmed
-  Processing
+  Confirm
+  Completed
   Shipped
-  Delivered
   Cancelled
-  Refunded
-  Failed
 }
 
 enum Sex {
@@ -116,18 +123,3 @@ enum Sex {
   female
   other
 }
-
-// model UserInformation {
-//   id           Int    @id @default(autoincrement())
-//   firstname    String
-//   display_name String
-//   email        String @unique
-//   phone        String
-//   birthday     String
-//   sex          String
-//   regionId     Int
-//   cityId       Int
-//   vnwardId     Int
-//   address      String
-//   password     String
-// }

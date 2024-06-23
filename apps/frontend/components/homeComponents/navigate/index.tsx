@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react'
-import '@/styles/component/navbar.css'
-import { Badge, Collapse, Drawer, Space } from 'antd'
-import { collapseItems } from '@/mock/menuProps'
-import SearchInput from '@/components/homeComponents/SearchInput'
+import React, { useState } from "react";
+import "@/styles/component/navbar.css";
+import { Badge, Collapse, Drawer, Space } from "antd";
+import { collapseItems, navbarMenu } from "@/mock/menuProps";
+import SearchInput from "@/components/homeComponents/SearchInput";
 import {
   CloseOutlined,
   MenuOutlined,
@@ -12,91 +12,53 @@ import {
   PlusOutlined,
   ShoppingOutlined,
   UserOutlined,
-} from '@ant-design/icons'
-import RegisterButton from '@/components/homeComponents/RegisterButton'
-import { ChildrenMenu, MenuItem, NavbarMenu } from '@/types/productType'
-import ListCart from '@/components/homeComponents/ListCart'
-import { useRouter } from 'next/navigation'
+} from "@ant-design/icons";
+import RegisterButton from "@/components/homeComponents/RegisterButton";
+import { ChildrenMenu, MenuItem, NavbarMenu } from "@/types/productType";
+import ListCart from "@/components/homeComponents/ListCart";
+import { useRouter } from "next/navigation";
 
 const Navigate: React.FC = () => {
-  const [open, setOpen] = useState(false)
-  const [openNavbarMenu, setOpenNavbarMenu] = useState(false)
-  const router = useRouter()
+  const [open, setOpen] = useState(false);
+  const [openNavbarMenu, setOpenNavbarMenu] = useState(false);
+  const router = useRouter();
   // const navigate = useNavigate()
 
   const showDrawer = () => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   const onClose = () => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
-  const changePage = (key : number )=> {
-    let url ;
+  const changePage = (key: number) => {
+    let url;
     switch (key) {
       case 2:
-        url = "/cart"
+        url = "/cart";
         break;
       case 3:
-        url = '/contact'
+        url = "/contact";
         break;
       default:
-        url = "/product"
+        url = "/product";
         break;
     }
 
     // navigate(url)
-  }
-
-   const navbarMenu: NavbarMenu[] = [
-    {
-      label: 'Sản Phẩm',
-      key: 'product',
-      children: [
-        {
-          key: 'group',
-          label: 'Item 1',
-        },
-        {
-          key: 'group',
-          label: 'Year end sale',
-        },
-        {
-          key: 'group',
-          label: 'Year end sale',
-        },
-        {
-          key: 'group',
-          label: 'Year end sale',
-        },
-        {
-          key: 'group',
-          label: 'Year end sale',
-        },
-      ],
-    },
-    {
-      label: 'Giỏ Hàng',
-      key: 'tre em',
-    },
-    {
-      label: 'Về chúng tôi',
-      key: 'alipay',
-    },
-  ]
+  };
 
   const renderLogo = () => {
     return (
-      <div style={{cursor : 'pointer'}} onClick={()=> router.push('/')}>
-       
+      <div style={{ cursor: "pointer" }} onClick={() => router.push("/")}>
         <img
           src="https://pubcdn.ivymoda.com/ivy2/images/logo.png"
           className="w-[140px] h-auto"
         />
       </div>
-    )
-  }
+    );
+  };
   const renderShoppingCard = () => {
     return (
       <>
@@ -109,8 +71,8 @@ const Navigate: React.FC = () => {
           <ListCart />
         </Drawer>
       </>
-    )
-  }
+    );
+  };
   return (
     <div className="w-full navbar relative">
       <div className="w-11/12 bg-white fixed z-50 top-0 xl:left-20 left-5 responsive-screen-laptop hidden lg:flex flex-col justify-between items-center h-max pt-4">
@@ -118,9 +80,13 @@ const Navigate: React.FC = () => {
           <div className="flex gap-5 justify-start">
             {navbarMenu?.map((item: NavbarMenu, index: number) => {
               return (
-                <div onClick={()=> changePage(index)} key={index} className="navbar-menu">
+                <div
+                  onClick={() => router.push(item.url)}
+                  key={index}
+                  className="navbar-menu"
+                >
                   <span className="text-xs text-[#221F20] font-semibold uppercase">
-                    {' '}
+                    {" "}
                     {item.label}
                   </span>
                   {item?.children && (
@@ -144,15 +110,18 @@ const Navigate: React.FC = () => {
                     </div>
                   )}
                 </div>
-              )
+              );
             })}
           </div>
           <div>{renderLogo()}</div>
           <div className="search-component w-1/4 flex flex-row items-center h-full gap-5">
             <SearchInput />
-              <Space>
-                <UserOutlined onClick={()=> router.push('/login')} className="text-xl" />
-              </Space>
+            <Space>
+              <UserOutlined
+                onClick={() => router.push("/login")}
+                className="text-xl"
+              />
+            </Space>
             <div className="w-1/3">{renderShoppingCard()}</div>
           </div>
         </div>
@@ -165,19 +134,19 @@ const Navigate: React.FC = () => {
           </div>
           <Drawer
             title={<CloseOutlined onClick={() => setOpenNavbarMenu(false)} />}
-            placement={'left'}
+            placement={"left"}
             closable={false}
-            size={'large'}
+            size={"large"}
             onClose={() => setOpenNavbarMenu(false)}
             open={openNavbarMenu}
           >
             <div className="w-full">
-              <RegisterButton children={'Đăng nhập'} />
+              <RegisterButton children={"Đăng nhập"} />
               <Collapse
                 expandIcon={({ isActive }) =>
                   isActive ? <MinusOutlined /> : <PlusOutlined />
                 }
-                defaultActiveKey={['1']}
+                defaultActiveKey={["1"]}
                 ghost
                 items={collapseItems}
               />
@@ -188,7 +157,7 @@ const Navigate: React.FC = () => {
         {renderShoppingCard()}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navigate
+export default Navigate;

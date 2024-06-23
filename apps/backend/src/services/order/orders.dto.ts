@@ -1,9 +1,33 @@
+import { OrderStatus } from '@prisma/client';
 import { IsArray, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateOrderDto {
+  // @IsString()
+  // userId: string;
+
   @IsString()
   @IsNotEmpty()
-  userId: string;
+  name: string;
+
+  @IsString()
+  @IsNotEmpty()
+  phone: string;
+
+  @IsNumber()
+  @IsNotEmpty()
+  regionId: number;
+
+  @IsNumber()
+  @IsNotEmpty()
+  cityId: number;
+
+  @IsNumber()
+  @IsNotEmpty()
+  vnwardId: number;
+
+  @IsString()
+  @IsNotEmpty()
+  address: string;
 
   @IsArray()
   orderItems: OrderItems[];
@@ -37,6 +61,12 @@ export class UpdateOrderDto {
 
   @IsString()
   category?: string;
+}
+
+export class ChangeStatusDto {
+  @IsString()
+  @IsNotEmpty()
+  status: OrderStatus;
 }
 
 export class DeleteOrderDto {

@@ -1,6 +1,11 @@
 import { Controller, Get, Param, Post, Put, Body, Query } from '@nestjs/common';
 import { OrdersService } from './orders.service';
-import { CreateOrderDto, DeleteOrderDto, UpdateOrderDto } from './orders.dto';
+import {
+  ChangeStatusDto,
+  CreateOrderDto,
+  DeleteOrderDto,
+  UpdateOrderDto,
+} from './orders.dto';
 import { Public } from 'src/contans';
 import { ErrorException } from 'src/exceptions/error-exception';
 import { Paging } from 'src/dto/paging.dto';
@@ -18,7 +23,10 @@ export class OrdersController {
   @Get()
   @Public()
   async findAll(@Query() paging: Paging) {
-    const res = await this.orderService.getAll(paging);
+    const res = await this.orderService.findAll(paging, {
+      orderItems: true,
+      UserInformation: true,
+    });
     if (res instanceof ErrorException) {
       throw res;
     }
@@ -29,7 +37,10 @@ export class OrdersController {
   @Public()
   @Get(':id')
   async findOne(@Param('id') id: string) {
-    const res = await this.orderService.getDetail(id);
+    const res = await this.orderService.findOne(id, {
+      orderItems: true,
+      UserInformation: true,
+    });
 
     if (res instanceof ErrorException) {
       throw res;
@@ -39,16 +50,18 @@ export class OrdersController {
   }
 
   @Post()
+  @Public()
   async create(@Body() createOrderDto: CreateOrderDto) {
-    const { orderItems, userId } = createOrderDto;
+    const { orderItems, ...userInfo } = createOrderDto;
 
-    const totalAmount = orderItems?.reduce((initValue, item) => {
-      return initValue + item.quantity * item.price;
-    }, 0);
+    const inforMation = await this.prisma.userInformation.create({
+      data: userInfo,
+    });
+
+    if (!inforMation) throw new ErrorException('apibad gateway');
 
     const data = {
-      userId,
-      totalAmount,
+      userInformationId: inforMation.id,
     };
 
     const res = await this.orderService.create(data);
@@ -74,11 +87,29 @@ export class OrdersController {
   }
 
   @Put(':id')
+  @Public()
   async update(
     @Param('id') id: string,
     @Body() updateOrderDto: UpdateOrderDto,
   ) {
     const res = await this.orderService.update(id, updateOrderDto);
+
+    if (res instanceof ErrorException) {
+      throw res;
+    }
+
+    return res;
+  }
+
+  @Post(':id')
+  @Public()
+  async changeOrderStatus(
+    @Param('id') id: string,
+    @Body() { status }: ChangeStatusDto,
+  ) {
+    const res = await this.orderService.update(id, {
+      status: status,
+    });
 
     if (res instanceof ErrorException) {
       throw res;

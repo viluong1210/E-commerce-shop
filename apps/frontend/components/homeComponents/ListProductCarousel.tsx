@@ -11,7 +11,7 @@ type IProps = {
   products: ProductType[]
 }
 export const ListProductCarousel = ({ products }: IProps) => {
-  console.log('productsproducts',products);
+ 
   
   return (
     <div className="list-product w-full mb-7 slider-app">

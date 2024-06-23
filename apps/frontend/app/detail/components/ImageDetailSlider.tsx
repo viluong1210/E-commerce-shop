@@ -1,19 +1,19 @@
-import  { useState } from 'react'
-import ImageZoom  from 'react-image-zooom'
+import { useState } from "react";
+import ImageZoom from "react-image-zooom";
 // Import Swiper React components
-import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 // Import Swiper styles
-import 'swiper/css'
-import 'swiper/css/free-mode'
-import 'swiper/css/navigation'
-import 'swiper/css/thumbs'
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 // import required modules
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 type IProps = {
-  listImage: string[]
-}
+  listImage: string[];
+};
 export default function ImageDetailSlider({ listImage }: IProps) {
-  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null)
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
 
   return (
     <div className="flex w-full relative">
@@ -28,7 +28,7 @@ export default function ImageDetailSlider({ listImage }: IProps) {
           modules={[FreeMode, Navigation, Thumbs]}
           className="text-left"
         >
-          {listImage.length &&
+          {listImage?.length &&
             listImage.map((product: string, index: number) => (
               <SwiperSlide key={index}>
                 <div className="w-full overflow-hidden shadow-2xl border rounded-md">
@@ -57,7 +57,7 @@ export default function ImageDetailSlider({ listImage }: IProps) {
               spaceBetween: 5,
             },
           }}
-          direction={'vertical'}
+          direction={"vertical"}
           className="w-3/12 lg:h-[500px] h-[400px] swiper-pagination right-0"
         >
           {listImage &&
@@ -66,7 +66,7 @@ export default function ImageDetailSlider({ listImage }: IProps) {
                 <div className="w-7/12 h-max overflow-hidden shadow-2xl border rounded-md">
                   <img
                     src={product}
-                    alt={'ivy-moda'}
+                    alt={"ivy-moda"}
                     className="h-5/6 w-full"
                   />
                 </div>
@@ -75,5 +75,5 @@ export default function ImageDetailSlider({ listImage }: IProps) {
         </Swiper>
       </div>
     </div>
-  )
+  );
 }

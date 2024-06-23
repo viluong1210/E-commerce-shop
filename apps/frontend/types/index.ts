@@ -1,3 +1,4 @@
+import CategogyForm from "@/components/categorys/CategogyForm";
 import { Icons } from "@/components/icons";
 
 export interface NavItem {
@@ -69,6 +70,11 @@ interface ProductType {
   images: Image[];
 }
 
+interface CategogyType {
+  id: string;
+  name: string;
+}
+
 interface ResponseType<T> {
   data: T[];
   page: number;
@@ -76,4 +82,4 @@ interface ResponseType<T> {
   limit: number;
 }
 
-export type { ProductType, Image, ResponseType };
+export type { CategogyType, ProductType, Image, ResponseType };

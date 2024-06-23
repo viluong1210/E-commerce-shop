@@ -35,11 +35,13 @@ export type ProductDetail = {
 export type ChildrenMenu = {
   key: string;
   label: string;
+  url?: string;
   children?: MenuItem[];
 };
 export type MenuItem = {
   label: string;
   key: string;
+  url?: string;
 };
 export type NavbarMenu = MenuItem & {
   children?: ChildrenMenu[];

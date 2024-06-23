@@ -1,59 +1,58 @@
-"use client"
+"use client";
 
-import { CategoryLabel } from '@/components/homeComponents/CategoryLabel'
-import { ColorDot } from '@/components/homeComponents/ColorDot'
-import RegisterButton from '@/components/homeComponents/RegisterButton'
-import { productDetail } from '@/mock/productProps'
-import { ProductType } from '@/types'
-import { HeartOutlined } from '@ant-design/icons'
-import { Rate, Tabs, TabsProps } from 'antd'
-import React, { useState } from 'react'
+import { CategoryLabel } from "@/components/homeComponents/CategoryLabel";
+import { ColorDot } from "@/components/homeComponents/ColorDot";
+import RegisterButton from "@/components/homeComponents/RegisterButton";
+import { productDetail } from "@/mock/productProps";
+import { ProductType } from "@/types";
+import { HeartOutlined } from "@ant-design/icons";
+import { Rate, Tabs, TabsProps } from "antd";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
-const items: TabsProps['items'] = [
+const items: TabsProps["items"] = [
   {
-    key: '1',
-    label: 'GIỚI THIỆU',
-
+    key: "1",
+    label: "GIỚI THIỆU",
   },
   {
-    key: '2',
-    label: 'CHI TIẾT SẢN PHẨM',
-
+    key: "2",
+    label: "CHI TIẾT SẢN PHẨM",
   },
   {
-    key: '3',
-    label: 'BẢO QUẢN',
-
+    key: "3",
+    label: "BẢO QUẢN",
   },
-]
-
+];
 
 type Props = {
-  product: ProductType
-}
+  product: ProductType;
+};
 
 export default function DetailProduct({ product }: Props) {
-
-  const [colorActive, setColorActive] = useState<string>('')
+  const router = useRouter();
+  const [colorActive, setColorActive] = useState<string>("");
 
   const handleCheckColor = (color: string) => {
-    setColorActive(color)
-  }
+    setColorActive(color);
+  };
 
   const onChange = (key: string) => {
-    console.log(key)
-  }
+    console.log(key);
+  };
 
   const addProductToCart = () => {
-
-    const cartItems = localStorage.getItem('cartItems');
+    const cartItems = localStorage.getItem("cartItems");
     if (!cartItems) {
-      localStorage.setItem('cartItems', JSON.stringify([product]))
-      return
+      localStorage.setItem("cartItems", JSON.stringify([product]));
+      return;
     }
     const cartItemsParse = JSON.parse(cartItems);
-    localStorage.setItem('cartItems', JSON.stringify([...cartItemsParse, product]));
-  }
+    localStorage.setItem(
+      "cartItems",
+      JSON.stringify([...cartItemsParse, product]),
+    );
+  };
 
   return (
     <div className="lg:w-5/12 md:w-6/12 w-full flex justify-start">
@@ -101,7 +100,7 @@ export default function DetailProduct({ product }: Props) {
           <RegisterButton onClick={addProductToCart}>
             <span className="uppercase">Thêm vào giỏ hàng</span>
           </RegisterButton>
-          <RegisterButton>
+          <RegisterButton onClick={() => router.push("/cart")}>
             <span className="uppercase">Mua hàng</span>
           </RegisterButton>
           <RegisterButton>
@@ -110,13 +109,9 @@ export default function DetailProduct({ product }: Props) {
         </div>
         <span className="mt-5 underline text-sm">Tìm tại cửa hàng</span>
         <div className="mt-6">
-          <Tabs
-            defaultActiveKey="1"
-            items={items}
-            onChange={onChange}
-          />
+          <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
         </div>
       </div>
     </div>
-  )
+  );
 }

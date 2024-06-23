@@ -11,9 +11,9 @@ export class Paging {
   @IsOptional()
   name?: string;
 
-  @IsNumber()
+  @IsString()
   @IsOptional()
-  category?: number;
+  category?: string;
 
   @IsNumber()
   @IsOptional()
@@ -34,9 +34,9 @@ export class PagingProduct extends Paging {
   @IsOptional()
   name?: string;
 
-  @IsNumber()
+  @IsString()
   @IsOptional()
-  category?: number;
+  category?: string;
 
   @IsString()
   @IsOptional()

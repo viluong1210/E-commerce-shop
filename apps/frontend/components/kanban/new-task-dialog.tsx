@@ -4,44 +4,71 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "../ui/textarea";
+import { toast } from "react-toastify";
 
-import { useTaskStore } from "@/lib/store";
+import { createCategorys, editCategorys } from "@/services/categoryService";
+import { useRouter } from "next/navigation";
 
-export default function NewTaskDialog() {
-  const addTask = useTaskStore((state) => state.addTask);
+type Props = {
+  data?: {
+    id: string;
+    name: string;
+  };
+  label?: string;
+};
+
+export default function NewTaskDialog({ data, label }: Props) {
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const { title, description } = Object.fromEntries(formData);
+    const { name } = Object.fromEntries(formData);
 
-    if (typeof title !== "string" || typeof description !== "string") return;
-    addTask(title, description);
+    if (!data) {
+      createCategorys({ name })
+        .then(() => {
+          router.refresh();
+          toast.success("Create categorys successfuly");
+        })
+        .catch((err) => {
+          toast.error(err?.response.data.message);
+        });
+    } else {
+      editCategorys({
+        params: {
+          name,
+        },
+        id: data.id,
+      })
+        .then(() => {
+          router.refresh();
+          toast.success("Edit categorys successfuly");
+        })
+        .catch((err) => {
+          toast.error(err?.response.data.message);
+        });
+    }
   };
 
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="secondary" size="sm">
-          ＋ Add New Todo
+          {label ? label : "＋ Add New Categorys"}
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Add New Todo</DialogTitle>
-          <DialogDescription>
-            What do you want to get done today?
-          </DialogDescription>
+          <DialogTitle> {label ? label : "Add New"} Categorys</DialogTitle>
         </DialogHeader>
         <form
           id="todo-form"
@@ -50,17 +77,11 @@ export default function NewTaskDialog() {
         >
           <div className="grid grid-cols-4 items-center gap-4">
             <Input
-              id="title"
-              name="title"
-              placeholder="Todo title..."
-              className="col-span-4"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Textarea
-              id="description"
-              name="description"
-              placeholder="Description..."
+              id="name"
+              name="name"
+              defaultValue={data?.name}
+              // value={data?.name}
+              placeholder="Categorys Name..."
               className="col-span-4"
             />
           </div>
@@ -68,7 +89,7 @@ export default function NewTaskDialog() {
         <DialogFooter>
           <DialogTrigger asChild>
             <Button type="submit" size="sm" form="todo-form">
-              Add Todo
+              {label ? label : "Add"} Categorys
             </Button>
           </DialogTrigger>
         </DialogFooter>

@@ -12,28 +12,30 @@ export class OrdersService extends BaseService<Orders> {
     super();
   }
 
-  async getAll(paging: Paging): Promise<any[]> {
-    const { skip, take, where } = createPaging(paging);
+  // async getAll(paging: Paging): Promise<any[]> {
+  //   const { skip, take, where } = createPaging(paging);
 
-    return this.prisma.orders.findMany({
-      where: where,
-      skip,
-      take,
-      include: {
-        orderItems: true,
-      },
-    });
-  }
+  //   return this.prisma.orders.findMany({
+  //     where: where,
+  //     skip,
+  //     take,
+  //     include: {
+  //       orderItems: true,
+  //       UserInformation: true,
+  //     },
+  //   });
+  // }
 
-  async getDetail(id: string) {
-    return this.prisma.orders.findFirst({
-      where: {
-        id,
-        isDeleted: false,
-      },
-      include: {
-        orderItems: true,
-      },
-    });
-  }
+  // async getDetail(id: string) {
+  //   return this.prisma.orders.findFirst({
+  //     where: {
+  //       id,
+  //       isDeleted: false,
+  //     },
+  //     include: {
+  //       orderItems: true,
+  //       UserInformation: true,
+  //     },
+  //   });
+  // }
 }
