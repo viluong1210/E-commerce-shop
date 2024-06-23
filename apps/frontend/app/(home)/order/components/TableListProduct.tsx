@@ -46,7 +46,7 @@ const columns: TableColumnsType<Products> = [
     width: 150,
     render: () => (
       <div className="flex justify-start items-start">
-        <div className="xl:min-w-4">
+        <div className=" flex xl:min-w-6">
           <button className="border flex items-center justify-center border-[#e7e8e9] rounded-tl-2xl rounded-br-2xl xl:text-[28px] xl:w-[48px] xl:h-[48px] text-xl w-[40px] h-[40px]">
             -
           </button>
