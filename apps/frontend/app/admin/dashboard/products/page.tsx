@@ -9,6 +9,7 @@ import { getAllProducts } from "@/services/productsService";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import { getAllCategorys } from "@/services/categoryService";
+import { ProductType } from "@/types";
 
 const breadcrumbItems = [
   { title: "Products", link: "/admin/dashboard/products" },
@@ -38,6 +39,13 @@ export default async function Page({ searchParams }: paramsProps) {
   const totalProducts = products?.count || 0;
   const pageCount = Math.ceil(totalProducts / pageLimit);
 
+  const formatProduct = products?.data.map((product: ProductType) => {
+    product.category =
+      categorys?.data.find((i) => i.id === product.category)?.name || "";
+
+    return product;
+  });
+
   return (
     <>
       <div className="flex-1 space-y-4  p-4 md:p-8 pt-6">
@@ -60,7 +68,7 @@ export default async function Page({ searchParams }: paramsProps) {
           pageNo={page}
           columns={columns}
           totalUsers={totalProducts}
-          data={products?.data || []}
+          data={formatProduct || []}
           pageCount={pageCount}
         />
       </div>

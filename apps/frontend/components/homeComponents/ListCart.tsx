@@ -1,11 +1,13 @@
 "use client";
 import React, { useMemo } from "react";
-import { listProduct } from "@/mock/productProps";
+
 import RegisterButton from "./RegisterButton";
 import { ProductType } from "@/types";
 import { listSize } from "@/containts";
+import { useRouter } from "next/navigation";
 
 const App: React.FC = () => {
+  const router = useRouter();
   const cart = localStorage.getItem("cartItems");
 
   const cartItems: ProductType[] = useMemo(() => {
@@ -40,7 +42,9 @@ const App: React.FC = () => {
                         <button className="border flex items-center justify-center border-[#e7e8e9] rounded-tl-2xl rounded-br-2xl text-base h-8 w-8">
                           -
                         </button>
-                        <button className="text-sm h-8 w-8">1</button>
+                        <button className="text-sm h-8 w-8">
+                          {record?.quantity || 1}{" "}
+                        </button>
                         <button className="border border-[#e7e8e9] rounded-tl-2xl rounded-br-2xl text-base h-8 w-8">
                           +
                         </button>
@@ -58,7 +62,7 @@ const App: React.FC = () => {
         })}
       </div>
       <div>
-        <RegisterButton>
+        <RegisterButton onClick={() => router.push("/cart")}>
           <span className="uppercase">Đặt hàng</span>
         </RegisterButton>
       </div>

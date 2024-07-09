@@ -1,5 +1,5 @@
 "use client";
-import * as z from "zod";
+
 import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { useParams, useRouter } from "next/navigation";
@@ -14,7 +14,11 @@ import {
   Select,
   UploadFile,
 } from "antd";
-import { createProducts, getdetailProducts } from "@/services/productsService";
+import {
+  createProducts,
+  editProducts,
+  getdetailProducts,
+} from "@/services/productsService";
 import UploadImages from "./UploadImages";
 import { storage } from "@/types/firebases/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -35,24 +39,23 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   const router = useRouter();
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [fileUrls, setFileUrls] = useState<Image[]>([]);
+
   useEffect(() => {
     if (id) {
       // form.setFieldsValue(state);
       getdetailProducts(id).then((data: ProductType) => {
         form.setFieldsValue(data);
 
-        console.log('data.imagesdata.images',data.images);
-        
         setFileUrls(data.images);
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
-  const onFinish = async (values: any) => {
+  const uploadImages = async (files) => {
     const imgRef = ref(storage, `files/${uuid()}`);
 
-    const imgs = await fileList.map(async (i: any) =>
+    const imgs = await files.map(async (i: any) =>
       uploadBytes(imgRef, i?.originFileObj).then((snapshot) => {
         return getDownloadURL(snapshot.ref);
       }),
@@ -60,17 +63,45 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
     const listImg = await Promise.all(imgs).then((x) => x);
 
-    const dataForPayLoad = { ...values, images: listImg };
+    return listImg;
+  };
 
-    await createProducts(dataForPayLoad)
-      .then(() => {
-        toast.success("Create successfuly");
-        router.refresh();
-        router.push(`/admin/dashboard/products`);
-      })
-      .catch((err) => {
-        toast.error(JSON.stringify(err));
-      });
+  const onFinish = async (values: any) => {
+    if (id) {
+      const newImages = fileList.filter((i) => i?.originFileObj);
+      const oldImages = fileList.filter((i) => !i?.originFileObj);
+
+      const listImg = await uploadImages(newImages);
+
+      const dataForPayLoad = {
+        ...values,
+        images: [...listImg, ...oldImages.map((i) => i.url)],
+      };
+
+      await editProducts({ params: dataForPayLoad, id })
+        .then(() => {
+          toast.success("Update successfuly");
+          router.refresh();
+          router.push(`/admin/dashboard/products`);
+        })
+        .catch((err) => {
+          toast.error(JSON.stringify(err));
+        });
+    } else {
+      const listImg = await uploadImages(fileList);
+
+      const dataForPayLoad = { ...values, images: listImg };
+
+      await createProducts(dataForPayLoad)
+        .then(() => {
+          toast.success("Create successfuly");
+          router.refresh();
+          router.push(`/admin/dashboard/products`);
+        })
+        .catch((err) => {
+          toast.error(JSON.stringify(err));
+        });
+    }
   };
 
   return (
@@ -143,8 +174,12 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             </Form.Item>
           </Col>
         </Row>
-        <UploadImages fileUrls={fileUrls} setFileList={setFileList} fileList={fileList} />
-        <Form.Item>
+        <UploadImages
+          fileUrls={fileUrls}
+          setFileList={setFileList}
+          fileList={fileList}
+        />
+        <Form.Item style={{ marginTop: 24 }}>
           <Button htmlType="submit" className="login-form-button">
             Submit
           </Button>

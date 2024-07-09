@@ -1,4 +1,14 @@
-import { Controller, Get, Param, Post, Put, Body, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Post,
+  Put,
+  Body,
+  Query,
+  HttpCode,
+  HttpStatus,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto, DeleteUserDto, UpdateUserDto } from './users.dto';
 import { Public } from 'src/contans';
@@ -41,7 +51,31 @@ export class UsersController {
   @Public()
   @Post('/register')
   async create(@Body() createUserDto: CreateUserDto) {
-    const res = await this.userService.create(createUserDto);
+    const { passWord, ...other } = createUserDto;
+
+    const user = await this.prisma.users.findFirst({
+      where: {
+        phone: createUserDto.phone,
+      },
+    });
+
+    if (user) {
+      return new ErrorException(
+        'Phone Number was used!!',
+        HttpStatus.BAD_GATEWAY,
+        'BAD_GATEWAY',
+      );
+    }
+
+    const inforMation = await this.prisma.userInformation.create({
+      data: other,
+    });
+
+    const res = await this.userService.create({
+      informationId: inforMation.id,
+      phone: createUserDto.phone,
+      passWord,
+    });
 
     if (res instanceof ErrorException) {
       throw res;

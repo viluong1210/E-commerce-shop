@@ -8,43 +8,40 @@ datasource db {
 }
 
 model Users {
-  id        String   @id @default(uuid())
-  isDeleted Boolean  @default(false)
-  isAdmin   Boolean  @default(false)
-  passWord  String
-  name      String
-  email     String   @unique
-  phone     String
-  birthday  String
-  sex       Sex
-  regionId  Int
-  cityId    Int
-  vnwardId  Int
-  address   String
-  createdAt DateTime @default(now())
-  // Orders    Orders[]
-  Carts     Carts[]
+  id            String          @id @default(uuid())
+  isDeleted     Boolean         @default(false)
+  isAdmin       Boolean         @default(false)
+  passWord      String
+  phone         String          @unique
+  createdAt     DateTime        @default(now())
+  Carts         Carts[]
+  information   UserInformation @relation(fields: [informationId], references: [id])
+  informationId String
 }
 
 model UserInformation {
-  id       Int      @id @default(autoincrement())
-  name     String
-  phone    String
-  regionId Int
-  cityId   Int
-  vnwardId Int
-  address  String
-  Orders   Orders[]
+  id         String   @id @default(uuid())
+  name       String
+  phone      String
+  email      String?
+  provinceId String
+  wardId     String
+  districtId String
+  sex        Sex
+  birthday   DateTime
+  address    String
+  Orders     Orders[]
+  Users      Users[]
 }
 
 model Orders {
-  id                String          @id @default(uuid())
-  isDeleted         Boolean         @default(false)
-  status            OrderStatus     @default(Pending)
-  createdAt         DateTime        @default(now())
-  UserInformation   UserInformation @relation(fields: [userInformationId], references: [id])
+  id                String           @id @default(uuid())
+  isDeleted         Boolean          @default(false)
+  status            OrderStatus      @default(Pending)
+  createdAt         DateTime         @default(now())
+  UserInformation   UserInformation? @relation(fields: [userInformationId], references: [id])
   orderItems        OrderItems[]
-  userInformationId Int
+  userInformationId String?
 }
 
 model OrderItems {
@@ -63,7 +60,7 @@ model Products {
   id          String       @id @default(uuid())
   name        String
   price       Float
-  description String
+  description String       @db.LongText
   isDeleted   Boolean      @default(false)
   category    String
   createdAt   DateTime     @default(now())

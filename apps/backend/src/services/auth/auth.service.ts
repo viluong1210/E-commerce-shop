@@ -17,10 +17,10 @@ export class AuthService {
       throw new UnauthorizedException();
     }
     const { passWord, ...result } = user;
-    const payload = { sub: user.id, username: user.name };
+    // const payload = { sub: user.id, phone: user.phone };
     const expiresIn = 3600 * 24 * 30; // seconds
     return {
-      access_token: await this.jwtService.signAsync(payload, {
+      access_token: await this.jwtService.signAsync(result, {
         expiresIn,
       }),
     };

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Modal, Upload } from "antd";
 import type { RcFile, UploadProps } from "antd/es/upload";
@@ -19,7 +19,11 @@ type Props = {
   fileUrls: any[];
 };
 
-export default function UploadImages({ setFileList, fileList,fileUrls }: Props) {
+export default function UploadImages({
+  setFileList,
+  fileList,
+  fileUrls,
+}: Props) {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
   const [previewTitle, setPreviewTitle] = useState("");
@@ -27,16 +31,19 @@ export default function UploadImages({ setFileList, fileList,fileUrls }: Props) 
   const handleCancel = () => setPreviewOpen(false);
 
   const fileUrlsMemo = useMemo(() => {
-    
-    const filsFromEdit =fileUrls.map((item, index)=> ({
+    if (!fileUrls) {
+      return fileList;
+    }
+
+    const filesFromEdit = fileUrls.map((item, index) => ({
       uid: item.id,
       name: `Image ${index + 1}`,
-      status: 'done',
-      url: item.url
-  }))
+      status: "done",
+      url: item.url,
+    }));
 
-    return fileUrls? [...filsFromEdit,fileList] : fileList
-  },[fileUrls,fileList])
+    return fileList && fileList.length > 0 ? fileList : filesFromEdit;
+  }, [fileUrls, fileList]);
 
   const handlePreview = async (file: UploadFile) => {
     if (!file.url && !file.preview) {
@@ -51,6 +58,8 @@ export default function UploadImages({ setFileList, fileList,fileUrls }: Props) 
   };
 
   const beforeUpload = (file) => {
+    if (!file) return true;
+
     const isJpgOrPng =
       file.type === "image/jpeg" ||
       file.type === "image/png" ||
@@ -85,11 +94,12 @@ export default function UploadImages({ setFileList, fileList,fileUrls }: Props) 
       <div style={{ marginTop: 8 }}>Upload</div>
     </div>
   );
+
   return (
     <>
       <Upload
         listType="picture-card"
-        fileList={ fileList}
+        fileList={fileUrlsMemo}
         onPreview={handlePreview}
         onChange={handleChange}
         beforeUpload={() => false}

@@ -32,23 +32,6 @@ const Navigate: React.FC = () => {
     setOpen(false);
   };
 
-  const changePage = (key: number) => {
-    let url;
-    switch (key) {
-      case 2:
-        url = "/cart";
-        break;
-      case 3:
-        url = "/contact";
-        break;
-      default:
-        url = "/product";
-        break;
-    }
-
-    // navigate(url)
-  };
-
   const renderLogo = () => {
     return (
       <div style={{ cursor: "pointer" }} onClick={() => router.push("/")}>

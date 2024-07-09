@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import RegisterButton from "@/components/homeComponents/RegisterButton";
 import { useRouter } from "next/navigation";

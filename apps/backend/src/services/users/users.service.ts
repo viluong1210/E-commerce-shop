@@ -9,10 +9,13 @@ export class UsersService extends BaseService<Users> {
     super();
   }
 
-  async findOne(email: string): Promise<any> {
+  async findOne(phone: string): Promise<any> {
     return this.prisma.users.findFirst({
       where: {
-        email,
+        phone,
+      },
+      include: {
+        information: true,
       },
     });
   }

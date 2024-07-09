@@ -8,7 +8,8 @@ import { ProductType } from "@/types";
 import { HeartOutlined } from "@ant-design/icons";
 import { Rate, Tabs, TabsProps } from "antd";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+import { toast } from "react-toastify";
 
 const items: TabsProps["items"] = [
   {
@@ -32,6 +33,7 @@ type Props = {
 export default function DetailProduct({ product }: Props) {
   const router = useRouter();
   const [colorActive, setColorActive] = useState<string>("");
+  const [numberOfProduct, setNumberOfProduct] = useState(1);
 
   const handleCheckColor = (color: string) => {
     setColorActive(color);
@@ -42,16 +44,39 @@ export default function DetailProduct({ product }: Props) {
   };
 
   const addProductToCart = () => {
-    const cartItems = localStorage.getItem("cartItems");
-    if (!cartItems) {
-      localStorage.setItem("cartItems", JSON.stringify([product]));
-      return;
+    try {
+      const cartItems = localStorage.getItem("cartItems");
+      if (!cartItems) {
+        localStorage.setItem(
+          "cartItems",
+          JSON.stringify([{ quantity: numberOfProduct, ...product }]),
+        );
+        toast.success("Thêm vào giỏ hàng thành công!!!");
+        return;
+      }
+      const cartItemsParse = JSON.parse(cartItems);
+      localStorage.setItem(
+        "cartItems",
+        JSON.stringify([...cartItemsParse, product]),
+      );
+
+      toast.success("Thêm vào giỏ hàng thành công!!!");
+    } catch (error) {
+      toast.error(JSON.stringify(error));
     }
-    const cartItemsParse = JSON.parse(cartItems);
-    localStorage.setItem(
-      "cartItems",
-      JSON.stringify([...cartItemsParse, product]),
-    );
+  };
+
+  const formattedText = useMemo(() => {
+    return product?.description.split("\n").map((item, index) => (
+      <React.Fragment key={index}>
+        {item}
+        <br />
+      </React.Fragment>
+    ));
+  }, [product?.description]);
+
+  const handleChangeNumber = (num = 1) => {
+    setNumberOfProduct((pre) => (pre += num));
   };
 
   return (
@@ -87,11 +112,20 @@ export default function DetailProduct({ product }: Props) {
         <div className="count flex justify-center items-center">
           <span>Số lượng</span>
           <div className="border-t flex border-b border-t-[#e7e8e9] mt-5 ml-3">
-            <button className="border flex items-center justify-center border-[#e7e8e9] rounded-tl-2xl rounded-br-2xl text-[28px]  w-[48px] h-[48px]">
+            <button
+              onClick={() => handleChangeNumber(-1)}
+              disabled={numberOfProduct <= 1}
+              className="border flex items-center justify-center border-[#e7e8e9] rounded-tl-2xl rounded-br-2xl text-[28px]  w-[48px] h-[48px]"
+            >
               -
             </button>
-            <button className="text-sm w-[48px] h-[48px]">1</button>
-            <button className="border border-[#e7e8e9] rounded-tl-2xl rounded-br-2xl text-[28px]  w-[48px] h-[48px]">
+            <button className="text-sm w-[48px] h-[48px]">
+              {numberOfProduct}
+            </button>
+            <button
+              onClick={() => handleChangeNumber()}
+              className="border border-[#e7e8e9] rounded-tl-2xl rounded-br-2xl text-[28px]  w-[48px] h-[48px]"
+            >
               +
             </button>
           </div>
@@ -110,6 +144,15 @@ export default function DetailProduct({ product }: Props) {
         <span className="mt-5 underline text-sm">Tìm tại cửa hàng</span>
         <div className="mt-6">
           <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+
+          <span
+            style={{
+              fontSize: 14,
+              color: "#3e3e3f",
+            }}
+          >
+            {formattedText}
+          </span>
         </div>
       </div>
     </div>

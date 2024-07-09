@@ -5,18 +5,34 @@ import Footer from "@/components/homeComponents/navbarEnd";
 import { Checkbox, Form } from "antd";
 import { InputBox } from "@/components/homeComponents/InputBox";
 import RegisterButton from "@/components/homeComponents/RegisterButton";
-import { FormDatePicker } from "@/components/homeComponents/FormDatePicker";
-import { FormSelect } from "@/components/homeComponents/FormSelect";
+
 import RegisterForm from "@/components/homeComponents/RegisterForm";
+import { registerApi } from "@/services/authService";
+import { CreateUserType } from "@/types/authType";
+import { toast } from "react-toastify";
 
 export default function Register() {
   const onFinish = (values: any) => {
-    console.log("Success:", values);
+    const { recheckPassword, ...other } = values;
+
+    if (recheckPassword !== other.passWord) {
+      toast.error("Mặt khẩu không trùng khớp vui lòng nhập lại");
+      return;
+    }
+
+    registerApi(other)
+      .then(() => {
+        toast.success("Đăng Ký thành công");
+      })
+      .catch(() => {
+        toast.error("Có vài lỗi xảy ra, vui lòng thử lại");
+      });
   };
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
-  };
+  // const onFinishFailed = (errorInfo: any) => {
+  //   console.log("Failed:", errorInfo);
+  // };
+
   return (
     <div className="w-full h-full flex justify-center bg-[#FFF]">
       <div className="lg:w-full h-full w-full px-4 lg:px-6 pb-5">
@@ -25,12 +41,12 @@ export default function Register() {
           <h5 className="text-[#221f20] uppercase text-2xl font-semibold cursor-pointe mt-5">
             Đăng ký
           </h5>
-          <Form
+          <Form<CreateUserType>
             layout="vertical"
             name="basic"
             initialValues={{ remember: true }}
             onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
+            // onFinishFailed={onFinishFailed}
             autoComplete="off"
             className="w-full px-10"
           >
@@ -54,7 +70,7 @@ export default function Register() {
                   </div>
                   <div className="w-full">
                     <Form.Item
-                      name="password"
+                      name="passWord"
                       className="w-ful"
                       label={
                         <span className="text-[#6C6D70] font-montserrat text-base">
@@ -75,7 +91,7 @@ export default function Register() {
                       />
                     </Form.Item>
                     <Form.Item
-                      name="username"
+                      name="recheckPassword"
                       className="w-full"
                       label={
                         <span className="text-[#6C6D70] font-montserrat text-base">
@@ -95,36 +111,10 @@ export default function Register() {
                         width="500px"
                       />
                     </Form.Item>
-                    <Form.Item
-                      name="username"
-                      className="w-full"
-                      label={
-                        <span className="text-[#6C6D70] font-montserrat text-base">
-                          Mời nhập các ký tự trong hình vào ô sau
-                        </span>
-                      }
-                      rules={[
-                        {
-                          required: true,
-                          message: "Please input your username!",
-                        },
-                      ]}
-                    >
-                      <InputBox
-                        className="w-full"
-                        placeholder={
-                          "Mời nhập các ký tự trong hình vào ô sau..."
-                        }
-                        width="500px"
-                      />
-                    </Form.Item>
                   </div>
                   <div className="flex flex-col mb-6 gap-5 justify-center">
                     <Checkbox className="border flex items-center border-[#faf9f9] h-[18px] text-base font-montserrat w-max">
                       Đồng ý với các điều khoản của IVY
-                    </Checkbox>
-                    <Checkbox className="border border-[#faf9f9] h-[18px] text-base font-montserrat w-max items-center">
-                      Đăng ký nhận bản tin
                     </Checkbox>
                   </div>
                   <RegisterButton>Đăng Ký </RegisterButton>

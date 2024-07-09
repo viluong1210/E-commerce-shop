@@ -63,7 +63,7 @@ export default function Cart() {
                   TP Hồ Chí Minh để nhận hàng trước Tết.
                 </p>
                 <div className="w-full h-[1px] bg-[#E7E8E9] my-6"></div>
-                <RegisterButton>
+                <RegisterButton onClick={() => router.push("/payment")}>
                   <span className="uppercase">Đặt hàng</span>
                 </RegisterButton>
               </div>

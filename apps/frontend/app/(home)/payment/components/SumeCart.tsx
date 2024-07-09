@@ -7,14 +7,51 @@ import RegisterButton from "@/components/homeComponents/RegisterButton";
 import { Form } from "antd";
 import { FormSelect } from "@/components/homeComponents/FormSelect";
 import { InputBox } from "@/components/homeComponents/InputBox";
+import { useMemo } from "react";
 
 export default function SumeCart() {
-  const totalCart = [
-    { title: "Tổng sản phẩm", count: "3" },
-    { title: "Tổng tiền hàng", count: "5.570.000đ" },
-    { title: "Thành tiền", count: "2.785.000đ" },
-    { title: "Tạm tính", count: "2.785.000đ" },
+  // const total = [
+  //   { title: "Tổng sản phẩm", count: "3" },
+  //   { title: "Tổng tiền hàng", count: "5.570.000đ" },
+  //   { title: "Thành tiền", count: "2.785.000đ" },
+  //   { title: "Tạm tính", count: "2.785.000đ" },
+  // ];
+
+  const total = [
+    { title: "Tổng sản phẩm" },
+    { title: "Tổng tiền hàng" },
+    { title: "Thành tiền" },
+    { title: "Tạm tính" },
   ];
+
+  const cart = localStorage.getItem("cartItems");
+
+  const totalCart = useMemo(() => {
+    if (cart) JSON.parse(cart);
+
+    const cardItems = cart ? JSON.parse(cart) : [];
+
+    const productCount = cardItems.reduce((pre, curr) => {
+      console.log("preprepre", pre);
+
+      console.log("currcurr", curr);
+
+      return (pre += curr.quantity);
+    }, 0);
+
+    const totals = items.reduce(
+      (acc, item) => {
+        acc.totalQuantity += item.quantity;
+        acc.totalPrice += item.quantity * item.price;
+        return acc;
+      },
+      { totalQuantity: 0, totalPrice: 0 },
+    );
+
+    console.log("productCount", productCount);
+
+    return [];
+  }, [cart]);
 
   return (
     <div className="bg-[rgba(247,248,249,0.5)]py-5">

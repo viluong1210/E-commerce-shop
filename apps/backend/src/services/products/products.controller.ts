@@ -73,11 +73,32 @@ export class ProductsController {
     @Param('id') id: string,
     @Body() updateProductDto: UpdateProductDto,
   ) {
-    const res = await this.productService.update(id, updateProductDto);
+    const { images, ...other } = updateProductDto;
+
+    const res = await this.productService.update(id, other);
 
     if (res instanceof ErrorException) {
       throw res;
     }
+
+    const createdAt = new Date();
+
+    const imgs = images.map((i) => ({
+      url: i,
+      parentId: res.id,
+      createdAt,
+    }));
+
+    await Promise.all([
+      this.prisma.images.deleteMany({
+        where: {
+          parentId: id,
+        },
+      }),
+      this.prisma.images.createMany({
+        data: imgs,
+      }),
+    ]);
 
     return res;
   }

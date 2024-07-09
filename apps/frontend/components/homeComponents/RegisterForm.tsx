@@ -1,4 +1,4 @@
-import { Form } from "antd";
+import { Col, Form, Row } from "antd";
 import { InputBox } from "./InputBox";
 import { FormSelect } from "./FormSelect";
 import { FormDatePicker } from "./FormDatePicker";
@@ -8,6 +8,33 @@ import { useEffect, useMemo, useState } from "react";
 import { Districts, Province, Wards } from "@/types/productType";
 import TextArea from "antd/es/input/TextArea";
 
+const SexOptions = [
+  {
+    value: "male",
+    label: "Nam",
+  },
+  {
+    value: "female",
+    label: "Nữ",
+  },
+  {
+    value: "other",
+    label: "Khác",
+  },
+];
+
+interface User {
+  name: string;
+  email: string;
+  passWord: string;
+  phone: string;
+  sex: string;
+  regionId: number;
+  cityId: number;
+  vnwardId: number;
+  address: string;
+  birthday: Date;
+}
 const RegisterForm = () => {
   const [districts, setDistricts] = useState<Districts[] | undefined>([]);
   const [districtsOptions, setDistrictsOptions] = useState<
@@ -52,22 +79,7 @@ const RegisterForm = () => {
     <div>
       <div className="gap-5 flex">
         <Form.Item
-          name="firstName"
-          className="justify-center flex  flex-col items-center"
-          label={
-            <span className="text-[#6C6D70] font-montserrat text-base">Họ</span>
-          }
-          rules={[
-            {
-              required: true,
-              message: "Please input your username!",
-            },
-          ]}
-        >
-          <InputBox placeholder={"Họ..."} type="text" />
-        </Form.Item>
-        <Form.Item
-          name="lastName"
+          name="name"
           className="justify-center flex  flex-col items-center"
           label={
             <span className="text-[#6C6D70] font-montserrat text-base">
@@ -77,30 +89,11 @@ const RegisterForm = () => {
           rules={[
             {
               required: true,
-              message: "Please input your username!",
+              message: "vui lòng nhập họ tên!",
             },
           ]}
         >
-          <InputBox placeholder={"Tên..."} type="text" />
-        </Form.Item>
-      </div>
-      <div className="gap-5 flex">
-        <Form.Item
-          name="mail"
-          className="justify-center flex  flex-col items-center"
-          label={
-            <span className="text-[#6C6D70] font-montserrat text-base">
-              Email
-            </span>
-          }
-          rules={[
-            {
-              required: true,
-              message: "Please input your username!",
-            },
-          ]}
-        >
-          <InputBox placeholder={"Email..."} type="email" />
+          <InputBox placeholder={"Họ và tên..."} type="text" />
         </Form.Item>
         <Form.Item
           name="phone"
@@ -118,6 +111,42 @@ const RegisterForm = () => {
           ]}
         >
           <InputBox placeholder={"Điện thoại..."} type="text" />
+        </Form.Item>
+      </div>
+      <div className="gap-5 flex">
+        <Form.Item
+          name="email"
+          className="justify-center flex  flex-col items-center"
+          label={
+            <span className="text-[#6C6D70] font-montserrat text-base">
+              Email
+            </span>
+          }
+          rules={[
+            {
+              required: true,
+              message: "Please input your username!",
+            },
+          ]}
+        >
+          <InputBox placeholder={"Email..."} type="email" />
+        </Form.Item>
+        <Form.Item
+          name="birthday"
+          className="justify-center mt-3 flex flex-col items-center"
+          label={
+            <span className="text-[#6C6D70] font-montserrat text-base">
+              Ngày sinh
+            </span>
+          }
+          rules={[
+            {
+              required: true,
+              message: "Please input your birthday!",
+            },
+          ]}
+        >
+          <FormDatePicker placeholder={"Ngày sinh..."} />
         </Form.Item>
       </div>
       <div className="gap-5 flex items-center">
@@ -139,26 +168,7 @@ const RegisterForm = () => {
           <FormDatePicker placeholder={"Ngày sinh..."} />
         </Form.Item>
         <Form.Item
-          name="sex"
-          className="justify-center flex flex-col items-center"
-          label={
-            <span className="text-[#6C6D70] font-montserrat text-base">
-              Giới tính
-            </span>
-          }
-          rules={[
-            {
-              required: true,
-              message: "Please input your sex!",
-            },
-          ]}
-        >
-          <FormSelect placeholder={"Giới tính..."} sizes={"360px"} />
-        </Form.Item>
-      </div>
-      <div className="gap-5 flex">
-        <Form.Item
-          name="province"
+          name="provinceId"
           className="justify-center flex  flex-col items-center"
           label={
             <span className="text-[#6C6D70] font-montserrat text-base">
@@ -179,8 +189,10 @@ const RegisterForm = () => {
             onChange={handleChangeProvince}
           />
         </Form.Item>
+      </div>
+      <div className="gap-5 flex">
         <Form.Item
-          name="districts"
+          name="districtId"
           className="justify-center flex flex-col items-center"
           label={
             <span className="text-[#6C6D70] font-montserrat text-base">
@@ -201,10 +213,8 @@ const RegisterForm = () => {
             onChange={handleChangeDistricts}
           />
         </Form.Item>
-      </div>
-      <div className="gap-5 flex w-full">
         <Form.Item
-          name="ward"
+          name="wardId"
           className=" w-full"
           label={
             <span className="text-[#6C6D70] font-montserrat text-base">
@@ -226,15 +236,16 @@ const RegisterForm = () => {
           />
         </Form.Item>
       </div>
+
       <div className="gap-5 flex w-full">
         <Form.Item
           name="address"
           className=" w-full"
-          label={
-            <span className="text-[#6C6D70] font-montserrat text-base">
-              Địa chỉ
-            </span>
-          }
+          // label={
+          //   <span className="text-[#6C6D70] font-montserrat text-base">
+          //     Địa chỉ
+          //   </span>
+          // }
           rules={[
             {
               required: true,
@@ -242,7 +253,7 @@ const RegisterForm = () => {
             },
           ]}
         >
-          <TextArea rows={3} placeholder={"Địa chỉ..."} />
+          <TextArea rows={3} placeholder={"Địa chỉ cụ thể..."} />
         </Form.Item>
       </div>
     </div>

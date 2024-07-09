@@ -4,11 +4,11 @@ export type CreateUserType = {
   passWord: string;
   phone: string;
   sex: string;
-  regionId: number;
-  cityId: number;
-  vnwardId: number;
+  provinceId: string;
+  districtId: string;
+  wardId: string;
   address: string;
-  birthday: string;
+  birthday: Date;
 };
 
 export type LoginType = {

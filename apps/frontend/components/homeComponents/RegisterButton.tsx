@@ -22,7 +22,8 @@ const RegisterButton = ({
       <Button
         htmlType="submit"
         onClick={onClick}
-        className={`h-max py-3 bg-[${bgColor}] border border-[${hoverColor}] hover:bg-[${hoverBg}] text-[${color}] mb-[20px] w-full font-semibold lg:text-base text-xs`}
+        className="h-max py-3 bg-[#221F20] border border-[#221F20] hover:bg-white text-[#F7F8F9] mb-[20px] w-full font-semibold lg:text-base text-xs"
+        // className={`h-max py-3 bg-[${bgColor}] border border-[${hoverColor}] hover:bg-[${hoverBg}] text-[${color}] mb-[20px] w-full font-semibold lg:text-base text-xs`}
       >
         {children}
       </Button>

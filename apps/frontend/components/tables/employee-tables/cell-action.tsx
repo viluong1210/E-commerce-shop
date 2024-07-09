@@ -8,13 +8,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Employee } from "@/constants/data";
+
+import { deleteProducts } from "@/services/productsService";
+import { ProductType } from "@/types";
 import { Edit, MoreHorizontal, Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
-
+import { toast } from "react-toastify";
 interface CellActionProps {
-  data: Employee;
+  data: ProductType;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
@@ -22,7 +24,18 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
-  const onConfirm = async () => {};
+  const onConfirm = async () => {
+    // day
+
+    await deleteProducts([data.id])
+      .then(() => {
+        toast.success("Delete successfuly");
+        router.refresh();
+      })
+      .catch((err) => {
+        toast.error(JSON.stringify(err));
+      });
+  };
 
   return (
     <>
@@ -43,7 +56,9 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
 
           <DropdownMenuItem
-            onClick={() => router.push(`/admin/dashboard/products/edit/${data.id}`)}
+            onClick={() =>
+              router.push(`/admin/dashboard/products/edit/${data.id}`)
+            }
           >
             <Edit className="mr-2 h-4 w-4" /> Update
           </DropdownMenuItem>

@@ -1,6 +1,7 @@
-import { IsArray, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { Sex } from '@prisma/client';
+import { IsArray, IsDate, IsNotEmpty, IsString } from 'class-validator';
 
-export class CreateUserDto {
+export class InforMationUserDto {
   @IsString()
   @IsNotEmpty()
   name: string;
@@ -11,35 +12,36 @@ export class CreateUserDto {
 
   @IsString()
   @IsNotEmpty()
-  passWord: string;
-
-  @IsString()
-  @IsNotEmpty()
   phone: string;
 
   @IsString()
   @IsNotEmpty()
-  sex: string;
+  sex: Sex;
 
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  regionId: number;
+  provinceId: string;
 
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  cityId: number;
+  wardId: string;
 
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  vnwardId: number;
+  districtId: string;
 
   @IsString()
   @IsNotEmpty()
   address: string;
 
+  @IsDate()
+  @IsNotEmpty()
+  birthday: Date;
+}
+export class CreateUserDto extends InforMationUserDto {
   @IsString()
   @IsNotEmpty()
-  birthday: string;
+  passWord: string;
 }
 
 export class UpdateUserDto {
@@ -59,13 +61,13 @@ export class UpdateUserDto {
   sex?: string;
 
   @IsString()
-  regionId?: number;
+  provinceId?: number;
 
   @IsString()
-  cityId?: number;
+  wardId?: number;
 
   @IsString()
-  vnwardId?: number;
+  districtId?: number;
 
   @IsString()
   address?: string;
