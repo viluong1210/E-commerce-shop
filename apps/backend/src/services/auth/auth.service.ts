@@ -24,6 +24,5 @@ export class AuthService {
         expiresIn,
       }),
     };
-    // return result;
   }
 }

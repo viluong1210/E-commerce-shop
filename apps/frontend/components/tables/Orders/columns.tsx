@@ -3,6 +3,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Employee } from "@/constants/data";
 import { ColumnDef } from "@tanstack/react-table";
 import { CellAction } from "./cell-action";
+import dayjs from "dayjs";
 
 export const columns = [
   {
@@ -29,22 +30,13 @@ export const columns = [
     header: "status",
   },
   {
-    accessorKey: "User Name",
-    header: "userName",
-    // cell: ({ row }) => {
-    //   console.log("rowrow", row);
+    accessorKey: "createdAt",
+    header: "Order Date",
+    cell: ({ row }) => (
+      <> {dayjs(row.original.createdAt).format("DD/MM/YYYY")}</>
+    ),
+  },
 
-    //   return <>{row.UserInformation?.name} </>;
-    // },
-  },
-  {
-    accessorKey: "description",
-    header: "Description",
-  },
-  {
-    accessorKey: "category",
-    header: "Category",
-  },
   {
     id: "actions",
     cell: ({ row }) => <CellAction data={row.original} />,

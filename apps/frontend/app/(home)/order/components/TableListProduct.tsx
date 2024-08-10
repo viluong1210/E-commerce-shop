@@ -29,10 +29,10 @@ const columns: TableColumnsType<Products> = [
     width: 80,
     render: (_, record) => (
       <div className="flex flex-col justify-start items-start">
-        <span className="text-[#6c6d70] xl:text-base text-xs font-normal font-montserrat">
+        {/* <span className="text-[#6c6d70] xl:text-base text-xs font-normal font-montserrat">
           {" "}
           {record.infoProduct.priceProduct.originPrice}
-        </span>
+        </span> */}
         <span className="text-sm text-[#d73831] font-montserrat font-bold">
           {" "}
           ( -{record.infoProduct.voucher})

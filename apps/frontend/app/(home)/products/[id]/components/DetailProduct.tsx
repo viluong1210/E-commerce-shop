@@ -86,20 +86,20 @@ export default function DetailProduct({ product }: Props) {
         <div className="lg:flex-row flex flex-col xl:gap-5 lg:gap-2 lg:items-center items-start text-[#6c6d70] mb-4">
           <div className="flex gap-3">
             <span>{productDetail.id}</span>
-            <Rate defaultValue={5} disabled />
+            {/* <Rate defaultValue={5} disabled /> */}
           </div>
-          <span>(0 đánh giá)</span>
+          {/* <span>(0 đánh giá)</span> */}
         </div>
         <div className="flex justify-start relative items-end mt-4">
           <span className="text-[#221f20] text-2xl font-semibold">
             {product.price}
           </span>
-          <span className="text-[#a8a9ad] text-base ml-1 line-through">
+          {/* <span className="text-[#a8a9ad] text-base ml-1 line-through">
             {productDetail.priceProduct.originPrice}
           </span>
           <button className="bg-[#dc633a] text-sm font-semibold text-[#f7f8f9] px-3 py-[2px] absolute bottom-4 -right-16">
             -{productDetail.voucher}
-          </button>
+          </button> */}
         </div>
         <span className="text-[#221f20] text-2xl font-semibold my-5">
           Màu sắc: Đen
@@ -141,7 +141,7 @@ export default function DetailProduct({ product }: Props) {
             <HeartOutlined />
           </RegisterButton>
         </div>
-        <span className="mt-5 underline text-sm">Tìm tại cửa hàng</span>
+        {/* <span className="mt-5 underline text-sm">Tìm tại cửa hàng</span> */}
         <div className="mt-6">
           <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
 

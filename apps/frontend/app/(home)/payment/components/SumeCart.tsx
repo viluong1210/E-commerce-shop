@@ -39,14 +39,14 @@ export default function SumeCart() {
       return (pre += curr.quantity);
     }, 0);
 
-    const totals = items.reduce(
-      (acc, item) => {
-        acc.totalQuantity += item.quantity;
-        acc.totalPrice += item.quantity * item.price;
-        return acc;
-      },
-      { totalQuantity: 0, totalPrice: 0 },
-    );
+    // const totals = items.reduce(
+    //   (acc, item) => {
+    //     acc.totalQuantity += item.quantity;
+    //     acc.totalPrice += item.quantity * item.price;
+    //     return acc;
+    //   },
+    //   { totalQuantity: 0, totalPrice: 0 },
+    // );
 
     console.log("productCount", productCount);
 

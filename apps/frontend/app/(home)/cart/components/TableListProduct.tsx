@@ -37,10 +37,10 @@ const columns: TableColumnsType<ProductType> = [
           {" "}
           {record.price}
         </span>
-        <span className="text-sm text-[#d73831] font-montserrat font-bold">
+        {/* <span className="text-sm text-[#d73831] font-montserrat font-bold">
           {" "}
           ( -50%)
-        </span>
+        </span> */}
       </div>
     ),
   },

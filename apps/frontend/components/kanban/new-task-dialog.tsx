@@ -62,10 +62,11 @@ export default function NewTaskDialog({ data, label }: Props) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="secondary" size="sm">
+        <Button style={{ width: 160 }} variant="secondary" size="sm">
           {label ? label : "＋ Add New Categorys"}
         </Button>
       </DialogTrigger>
+
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle> {label ? label : "Add New"} Categorys</DialogTitle>

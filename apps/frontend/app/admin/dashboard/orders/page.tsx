@@ -1,18 +1,13 @@
 import BreadCrumb from "@/components/breadcrumb";
 
 import { CommonTable } from "@/components/tables/employee-tables/commonTable";
-import { buttonVariants } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
-import { Plus } from "lucide-react";
-import Link from "next/link";
-import { getAllOrder } from "@/services/productsService copy";
-import { columns } from "@/components/tables/Orders/columns";
 
-const breadcrumbItems = [
-  { title: "Products", link: "/admin/dashboard/products" },
-];
+import { columns } from "@/components/tables/Orders/columns";
+import { getAllOrder } from "@/services/ordersService";
+
+const breadcrumbItems = [{ title: "Orders", link: "/admin/dashboard/orders" }];
 
 type paramsProps = {
   searchParams: {
@@ -34,8 +29,8 @@ export default async function Page({ searchParams }: paramsProps) {
 
   const [orders] = await Promise.all(apis);
 
-  const totalProducts = orders?.count || 0;
-  const pageCount = Math.ceil(totalProducts / pageLimit);
+  const totalOrders = orders?.count || 0;
+  const pageCount = Math.ceil(totalOrders / pageLimit);
 
   return (
     <>
@@ -43,14 +38,7 @@ export default async function Page({ searchParams }: paramsProps) {
         <BreadCrumb items={breadcrumbItems} />
 
         <div className="flex items-start justify-between">
-          <Heading title={`Products (${totalProducts})`} />
-
-          <Link
-            href={"/admin/dashboard/products/new"}
-            className={cn(buttonVariants({ variant: "default" }))}
-          >
-            <Plus className="mr-2 h-4 w-4" /> Add New
-          </Link>
+          <Heading title={`Orders (${totalOrders})`} />
         </div>
         <Separator />
 
@@ -58,7 +46,7 @@ export default async function Page({ searchParams }: paramsProps) {
           searchKey="name"
           pageNo={page}
           columns={columns}
-          totalUsers={totalProducts}
+          totalUsers={totalOrders}
           data={orders?.data || []}
           pageCount={pageCount}
         />

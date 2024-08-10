@@ -3,6 +3,11 @@ import { NavbarMenu } from "@/types/productType";
 
 export const navbarMenu: NavbarMenu[] = [
   {
+    label: "Trang Chủ",
+    key: "",
+    url: "/",
+  },
+  {
     label: "Sản Phẩm",
     key: "product",
     url: "/products",

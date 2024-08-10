@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Employee } from "@/constants/data";
-import { Edit, MoreHorizontal, Trash } from "lucide-react";
+import { Edit, MoreHorizontal, Trash, View } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -47,7 +47,8 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
               router.push(`/admin/dashboard/order/edit/${data.id}`)
             }
           >
-            <Edit className="mr-2 h-4 w-4" /> Update
+            <View className="mr-2 h-4 w-4" />
+            View Detail
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => setOpen(true)}>
             <Trash className="mr-2 h-4 w-4" /> Delete

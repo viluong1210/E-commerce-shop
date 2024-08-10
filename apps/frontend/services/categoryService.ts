@@ -29,7 +29,7 @@ const editCategorys = ({ params, id }: any) => {
   return httpRequest.put(obj);
 };
 
-const deleteCategorys = (ids: number[]) => {
+const deleteCategorys = (ids: string[]) => {
   const obj = {
     url: `${API_ENDPOINT}/delete`,
     options: {
