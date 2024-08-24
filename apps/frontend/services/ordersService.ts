@@ -41,7 +41,7 @@ const editOrder = ({ params, id }: any) => {
   return httpRequest.put(obj);
 };
 
-const deleteOrder = (ids: number[]) => {
+const deleteOrder = (ids: number) => {
   const obj = {
     url: `${API_ENDPOINT}/delete`,
     options: {

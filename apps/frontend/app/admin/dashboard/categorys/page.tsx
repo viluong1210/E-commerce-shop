@@ -1,6 +1,5 @@
 import BreadCrumb from "@/components/breadcrumb";
 import CategogyForm from "@/components/categorys/CategogyForm";
-import { KanbanBoard } from "@/components/kanban/kanban-board";
 import NewTaskDialog from "@/components/kanban/new-task-dialog";
 import { Heading } from "@/components/ui/heading";
 import { getAllCategorys } from "@/services/categoryService";
@@ -19,6 +18,7 @@ export default async function page() {
           <Heading title={`Categorys`} description="Manage Categorys" />
           <NewTaskDialog />
         </div>
+
         {categorys?.data.map((i, index) => {
           return <CategogyForm data={i} key={index} />;
         })}

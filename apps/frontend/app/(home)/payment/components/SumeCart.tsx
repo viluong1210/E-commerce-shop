@@ -1,64 +1,67 @@
 "use client";
 
-import Navigate from "@/components/homeComponents/navigate";
-import Footer from "@/components/homeComponents/navbarEnd";
-import { ArrowLeftOutlined, WarningOutlined } from "@ant-design/icons";
 import RegisterButton from "@/components/homeComponents/RegisterButton";
-import { Form } from "antd";
+import { Form, FormInstance } from "antd";
 import { FormSelect } from "@/components/homeComponents/FormSelect";
 import { InputBox } from "@/components/homeComponents/InputBox";
-import { useMemo } from "react";
+import { createOrder } from "@/services/ordersService";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
-export default function SumeCart() {
-  // const total = [
-  //   { title: "Tổng sản phẩm", count: "3" },
-  //   { title: "Tổng tiền hàng", count: "5.570.000đ" },
-  //   { title: "Thành tiền", count: "2.785.000đ" },
-  //   { title: "Tạm tính", count: "2.785.000đ" },
-  // ];
+type Props = {
+  form: FormInstance;
+};
+
+export default function SumeCart({ form }: Props) {
+  const router = useRouter();
 
   const total = [
-    { title: "Tổng sản phẩm" },
-    { title: "Tổng tiền hàng" },
-    { title: "Thành tiền" },
-    { title: "Tạm tính" },
+    { title: "Tổng sản phẩm", count: "3" },
+    { title: "Tổng tiền hàng", count: "5.570.000đ" },
+    { title: "Thành tiền", count: "2.785.000đ" },
+    { title: "Tạm tính", count: "2.785.000đ" },
   ];
 
-  const cart = localStorage.getItem("cartItems");
+  const handleSubmit = () => {
+    const datas = form.getFieldsValue();
+    const cart = localStorage.getItem("cartItems");
 
-  const totalCart = useMemo(() => {
-    if (cart) JSON.parse(cart);
+    let cartParse = [];
 
-    const cardItems = cart ? JSON.parse(cart) : [];
+    if (cart) {
+      cartParse = JSON.parse(cart);
+    }
 
-    const productCount = cardItems.reduce((pre, curr) => {
-      console.log("preprepre", pre);
+    console.log("cartParse", cartParse);
 
-      console.log("currcurr", curr);
+    const formatdata = {
+      ...datas,
+      orderItems: cartParse.map((i) => ({
+        productId: i.id,
+        quantity: i.quantity,
+        price: i.price,
+      })),
+    };
 
-      return (pre += curr.quantity);
-    }, 0);
+    createOrder(formatdata)
+      .then(() => {
+        toast.success("Đặt hàng thành công!");
+        router.push("/");
+        localStorage.setItem("cartItems", JSON.stringify([]));
+      })
+      .catch((res) => {
+        console.log("resresresres", res);
 
-    // const totals = items.reduce(
-    //   (acc, item) => {
-    //     acc.totalQuantity += item.quantity;
-    //     acc.totalPrice += item.quantity * item.price;
-    //     return acc;
-    //   },
-    //   { totalQuantity: 0, totalPrice: 0 },
-    // );
-
-    console.log("productCount", productCount);
-
-    return [];
-  }, [cart]);
+        toast.error("Gặp vấn đề khi đặt hàng");
+      });
+  };
 
   return (
     <div className="bg-[rgba(247,248,249,0.5)]py-5">
-      <h5 className="text-[#221f20] text-xl mb-[18px] font-medium">
+      <h5 className="text-[#221f20] text-xl mb-[18px] font-medium w-full ">
         Tổng tiền giỏ hàng
       </h5>
-      {totalCart.map((item: any, index) => {
+      {total.map((item: any, index) => {
         return (
           <div key={index} className="flex justify-between mb-4">
             <span className="text-[#57585a] text-sm">{item.title}</span>
@@ -97,7 +100,7 @@ export default function SumeCart() {
           />
         </Form.Item>
       </div>
-      <RegisterButton>
+      <RegisterButton onClick={handleSubmit}>
         <span className="uppercase">Hoàn Thành</span>
       </RegisterButton>
     </div>

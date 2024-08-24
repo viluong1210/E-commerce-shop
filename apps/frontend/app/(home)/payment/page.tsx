@@ -12,14 +12,10 @@ import {
 import RegisterButton from "@/components/homeComponents/RegisterButton";
 import SumeCart from "./components/SumeCart";
 import RegisterForm from "@/components/homeComponents/RegisterForm";
+import { useForm } from "antd/es/form/Form";
 
 export default function Cart() {
-  const totalCart = [
-    { title: "Tổng sản phẩm", count: "3" },
-    { title: "Tổng tiền hàng", count: "5.570.000đ" },
-    { title: "Thành tiền", count: "2.785.000đ" },
-    { title: "Tạm tính", count: "2.785.000đ" },
-  ];
+  const [form] = useForm();
 
   return (
     <div className="w-full h-full flex justify-center cart-product bg-[#FFF]">
@@ -32,11 +28,12 @@ export default function Cart() {
               <div className=" h-[1px] bg-[#E7E8E9] my-6"></div>
               <div className="flex w-full gap-5 mt-5">
                 <div className="w-1/2">
-                  <div className="w-full">
+                  <div className="w-full flex ">
                     <span className="text-[#221f20] text-xl font-medium">
-                      Địa chỉ giao hàng
+                      Thông tin giao hàng
                     </span>
-                    <div className="flex mt-5 justify-between w-full">
+
+                    {/* <div className="flex mt-5 justify-between w-full">
                       <RegisterButton>
                         <span className="uppercase px-5">Đăng nhập</span>
                       </RegisterButton>
@@ -47,23 +44,24 @@ export default function Cart() {
                     <span className="text-[#221f20] text-xs">
                       Đăng nhập/ Đăng ký tài khoản để được tích điểm và nhận
                       thêm nhiều ưu đãi từ IVY moda.
-                    </span>
+                    </span> */}
+
+                    {/* <div className="w-1/2">
+                      <span className="text-[#221f20] text-xl font-medium mb-5">
+                        Phương thức giao hàng
+                      </span>
+                      <div className="w-11/12 mt-5 flex py-10 justify-center items-center border rounded-tl-3xl rounded-br-3xl border-[#e7e8e9]">
+                        <div className="flex gap-5">
+                          <CheckCircleOutlined className="text-black" />
+                          <span className="text-[#221f20] text-base font-medium">
+                            Chuyển phát nhanh
+                          </span>
+                        </div>
+                      </div>
+                    </div> */}
                   </div>
                   <div className="w-full">
-                    <RegisterForm />
-                  </div>
-                </div>
-                <div className="w-1/2">
-                  <span className="text-[#221f20] text-xl font-medium mb-5">
-                    Phương thức giao hàng
-                  </span>
-                  <div className="w-11/12 mt-5 flex py-10 justify-center items-center border rounded-tl-3xl rounded-br-3xl border-[#e7e8e9]">
-                    <div className="flex gap-5">
-                      <CheckCircleOutlined className="text-black" />
-                      <span className="text-[#221f20] text-base font-medium">
-                        Chuyển phát nhanh
-                      </span>
-                    </div>
+                    <RegisterForm form={form} />
                   </div>
                 </div>
               </div>
@@ -76,7 +74,7 @@ export default function Cart() {
             </div>
             <div className="lg:w-1/3 w-10/12 px-4 ml-2">
               <div className="flex lg:flex-row flex-col justify-center lg:items-start items-center bg-[rgba(247,248,249,0.5)] px-4">
-                <SumeCart />
+                <SumeCart form={form} />
               </div>
             </div>
           </div>

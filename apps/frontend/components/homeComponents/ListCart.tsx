@@ -1,6 +1,6 @@
 "use client";
 import React, { useMemo } from "react";
-
+import { v4 as uuid } from "uuid";
 import RegisterButton from "./RegisterButton";
 import { ProductType } from "@/types";
 import { listSize } from "@/containts";
@@ -23,7 +23,7 @@ const App: React.FC = () => {
           return (
             <div
               className="flex flex-col justify-start py-5 border-b"
-              key={record.id}
+              key={uuid()}
             >
               <div className="flex">
                 <img className="w-24" src={record.images[0].url} />

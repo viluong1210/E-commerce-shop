@@ -39,7 +39,7 @@ export const ListProduct = ({ data, categorys }: Props) => {
   return (
     <div className="text-center product-list flex flex-col">
       <div className="flex justify-between">
-        <CategoryLabel label={"NEW ARRIVAL"} />
+        <CategoryLabel label={"Sản Phẩm"} />
         <Select
           className="filter-product-item lg:w-[240px]"
           placeholder="Categorys"

@@ -19,7 +19,7 @@ export default function CategogyForm({ data }: Props) {
   const router = useRouter();
 
   const deleteCategory = () => {
-    deleteCategorys([data.id])
+    deleteCategorys(data.id)
       .then(() => {
         router.refresh();
         toast.success("Delete categorys successfuly");
@@ -40,14 +40,14 @@ export default function CategogyForm({ data }: Props) {
       />
       <NewTaskDialog data={data} label="Edit" />
 
-      {/* <Button
+      <Button
         onClick={deleteCategory}
         style={{ width: 160 }}
         variant="destructive"
         size="sm"
       >
         Delete
-      </Button> */}
+      </Button>
     </div>
   );
 }
