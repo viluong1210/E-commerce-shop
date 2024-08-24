@@ -12,6 +12,6 @@ export class UpdateCategorysDto {
 }
 
 export class DeleteCategorysDto {
-  @IsArray()
-  ids: string[];
+  @IsString()
+  id: string;
 }

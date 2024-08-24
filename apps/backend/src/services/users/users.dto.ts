@@ -7,7 +7,6 @@ export class InforMationUserDto {
   name: string;
 
   @IsString()
-  @IsNotEmpty()
   email: string;
 
   @IsString()
@@ -18,17 +17,17 @@ export class InforMationUserDto {
   @IsNotEmpty()
   sex: Sex;
 
-  @IsString()
-  @IsNotEmpty()
-  provinceId: string;
+  // @IsString()
+  // @IsNotEmpty()
+  // provinceId: string;
 
-  @IsString()
-  @IsNotEmpty()
-  wardId: string;
+  // @IsString()
+  // @IsNotEmpty()
+  // wardId: string;
 
-  @IsString()
-  @IsNotEmpty()
-  districtId: string;
+  // @IsString()
+  // @IsNotEmpty()
+  // districtId: string;
 
   @IsString()
   @IsNotEmpty()

@@ -16,11 +16,15 @@ import {
 } from './categorys.dto';
 import { Public } from 'src/contans';
 import { ErrorException } from 'src/exceptions/error-exception';
-import { Paging, RespondsType } from 'src/dto/paging.dto';
+import { Paging } from 'src/dto/paging.dto';
+import { PrismaService } from 'src/prisma.service';
 
 @Controller('categorys')
 export class CategorysController {
-  constructor(private readonly service: CategorysService) {}
+  constructor(
+    private readonly service: CategorysService,
+    private readonly prisma: PrismaService,
+  ) {}
 
   @Get()
   @Public()
@@ -74,12 +78,38 @@ export class CategorysController {
 
   @Post('/delete')
   @Public()
-  async remove(@Body() { ids }: DeleteCategorysDto) {
-    const res = await this.service.delete(ids);
+  async remove(@Body() { id }: DeleteCategorysDto) {
+    const res = await this.service.delete([id]);
 
     if (res instanceof ErrorException) {
       throw new BadRequestException(res);
     }
+
+    const products = await this.prisma.products.findMany({
+      where: {
+        category: id,
+      },
+      select: {
+        id: true,
+      },
+    });
+
+    await Promise.all([
+      this.prisma.products.deleteMany({
+        where: {
+          category: {
+            equals: id,
+          },
+        },
+      }),
+      this.prisma.images.deleteMany({
+        where: {
+          parentId: {
+            in: products.map((i) => i.id),
+          },
+        },
+      }),
+    ]);
 
     return res;
   }

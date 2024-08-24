@@ -20,18 +20,18 @@ model Users {
 }
 
 model UserInformation {
-  id         String   @id @default(uuid())
-  name       String
-  phone      String
-  email      String?
-  provinceId String
-  wardId     String
-  districtId String
-  sex        Sex
-  birthday   DateTime
-  address    String
-  Orders     Orders[]
-  Users      Users[]
+  id       String   @id @default(uuid())
+  name     String
+  phone    String
+  email    String?
+  // provinceId String
+  // wardId     String
+  // districtId String
+  sex      Sex
+  birthday DateTime
+  address  String
+  Orders   Orders[]
+  Users    Users[]
 }
 
 model Orders {

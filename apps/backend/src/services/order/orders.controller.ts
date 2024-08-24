@@ -78,7 +78,9 @@ export class OrdersController {
       .createMany({
         data: orderItemsData,
       })
-      .catch(() => {
+      .catch((res) => {
+        console.log('hehehehe', res);
+
         this.orderService.delete([res.id]);
         throw res;
       });

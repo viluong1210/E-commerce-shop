@@ -61,15 +61,15 @@ export class BaseService<T> {
 
   async delete(ids: string[]): Promise<T | ErrorException> {
     try {
-      return this.prisma[this.model].updateMany({
+      return this.prisma[this.model].deleteMany({
         where: {
           id: {
             in: ids,
           },
         },
-        data: {
-          isDeleted: true,
-        },
+        // data: {
+        //   isDeleted: true,
+        // },
       });
     } catch (error) {
       return new ErrorException(error);
