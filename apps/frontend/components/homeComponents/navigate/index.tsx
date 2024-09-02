@@ -2,11 +2,12 @@
 
 import React, { useState } from "react";
 import "@/styles/component/navbar.css";
-import { Badge, Collapse, Drawer, Space } from "antd";
+import { Badge, Collapse, Drawer, Select, Space } from "antd";
 import { collapseItems, navbarMenu } from "@/mock/menuProps";
 import SearchInput from "@/components/homeComponents/SearchInput";
 import {
   CloseOutlined,
+  DownOutlined,
   MenuOutlined,
   MinusOutlined,
   PlusOutlined,
@@ -56,6 +57,20 @@ const Navigate: React.FC = () => {
       </>
     );
   };
+
+  const handleChange = () => {};
+
+  const languageOptions = [
+    {
+      label: "English",
+      value: "eng",
+    },
+    {
+      label: "Japanese",
+      value: "jp",
+    },
+  ];
+
   return (
     <div className="w-full navbar relative">
       <div className="w-11/12 bg-white fixed z-50 top-0 xl:left-20 left-5 responsive-screen-laptop hidden lg:flex flex-col justify-between items-center h-max pt-4">
@@ -97,6 +112,13 @@ const Navigate: React.FC = () => {
             })}
           </div>
           <div>{renderLogo()}</div>
+          <Select
+            className="filter-product-item lg:w-[240px]"
+            placeholder="Categorys"
+            onChange={handleChange}
+            options={languageOptions}
+            suffixIcon={<DownOutlined className="text-sm" />}
+          />
           <div className="search-component w-1/4 flex flex-row items-center h-full gap-5">
             <SearchInput />
             <Space>

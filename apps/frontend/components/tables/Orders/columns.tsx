@@ -30,9 +30,24 @@ export const columns = [
     header: "status",
   },
   {
+    accessorKey: "userName",
+    header: "User Name",
+    cell: ({ row }: any) => <> {row.original.UserInformation.name}</>,
+  },
+  {
+    accessorKey: "phone",
+    header: "Phone",
+    cell: ({ row }: any) => <> {row.original.UserInformation.phone}</>,
+  },
+  {
+    accessorKey: "email",
+    header: "Email",
+    cell: ({ row }: any) => <> {row.original.UserInformation.email}</>,
+  },
+  {
     accessorKey: "createdAt",
     header: "Order Date",
-    cell: ({ row }) => (
+    cell: ({ row }: any) => (
       <> {dayjs(row.original.createdAt).format("DD/MM/YYYY")}</>
     ),
   },

@@ -11,7 +11,7 @@ import {
 
 import { deleteProducts } from "@/services/productsService";
 import { ProductType } from "@/types";
-import { Edit, MoreHorizontal, Trash } from "lucide-react";
+import { Edit, MoreHorizontal, Trash, View } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -61,6 +61,14 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
             }
           >
             <Edit className="mr-2 h-4 w-4" /> Update
+          </DropdownMenuItem>
+
+          <DropdownMenuItem
+            onClick={() =>
+              router.push(`/admin/dashboard/products/detail/${data.id}`)
+            }
+          >
+            <View className="mr-2 h-4 w-4" /> Detail
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => setOpen(true)}>
             <Trash className="mr-2 h-4 w-4" /> Delete

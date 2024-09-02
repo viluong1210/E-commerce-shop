@@ -69,8 +69,6 @@ export function CommonTable<TData, TValue>({
   const perPageAsNumber = Number(per_page);
   const fallbackPerPage = isNaN(perPageAsNumber) ? 10 : perPageAsNumber;
 
-  
-
   // Create query string
   const createQueryString = React.useCallback(
     (params: Record<string, string | number | null>) => {
@@ -109,9 +107,6 @@ export function CommonTable<TData, TValue>({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageIndex, pageSize]);
 
- 
-  
-
   const table = useReactTable({
     data,
     columns,
@@ -129,7 +124,6 @@ export function CommonTable<TData, TValue>({
 
   const searchValue = table.getColumn(searchKey)?.getFilterValue() as string;
 
-  
   React.useEffect(() => {
     if (searchValue?.length > 0) {
       router.push(

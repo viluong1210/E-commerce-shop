@@ -28,11 +28,13 @@ import { Image, ProductType } from "@/types";
 interface ProductFormProps {
   initialData: any | null;
   categories: any;
+  disable?: boolean;
 }
 
 export const ProductForm: React.FC<ProductFormProps> = ({
   initialData,
   categories,
+  disable = false,
 }) => {
   const { id } = useParams();
   const [form] = useForm();
@@ -109,6 +111,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
       <Form
         name="normal_login"
         form={form}
+        disabled={disable}
         className="login-form"
         initialValues={{ remember: true }}
         onFinish={onFinish}
