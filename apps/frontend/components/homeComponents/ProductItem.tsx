@@ -1,26 +1,28 @@
-import '@/styles/component/productItem.css'
-import {  useState } from 'react'
-import { HeartOutlined, ShoppingOutlined } from '@ant-design/icons'
-import { Button, Rate } from 'antd'
-import { ColorDot } from './ColorDot'
-import { ProductType } from '@/types'
-import { listColor,  } from '@/containts'
-import { useRouter } from 'next/navigation'
+import "@/styles/component/productItem.css";
+import { useState } from "react";
+import { HeartOutlined, ShoppingOutlined } from "@ant-design/icons";
+import { Button, Rate } from "antd";
+import { ColorDot } from "./ColorDot";
+import { ProductType } from "@/types";
+import { listColor } from "@/containts";
+import { useRouter } from "next/navigation";
 
 type IProps = {
-  itemProduct: ProductType
-}
+  itemProduct: ProductType;
+};
 export const ProductItem = ({ itemProduct }: IProps) => {
-  const [colorActive, setColorActive] = useState<string>('')
-  const router = useRouter()
+  const [colorActive, setColorActive] = useState<string>("");
+  const router = useRouter();
 
   const handleCheckColor = (color: string) => {
-    setColorActive(color)
-  } 
- 
+    setColorActive(color);
+  };
+
   return (
-    
-    <div onClick={() => router.push(`/products/${itemProduct.id}`)} className="product-item relative">
+    <div
+      onClick={() => router.push(`/products/${itemProduct.id}`)}
+      className="product-item relative"
+    >
       <div className="container">
         <img
           src={itemProduct?.images?.[0]?.url}
@@ -68,5 +70,5 @@ export const ProductItem = ({ itemProduct }: IProps) => {
         />
       </div>
     </div>
-  )
-}
+  );
+};

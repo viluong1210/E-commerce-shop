@@ -66,7 +66,7 @@ interface ProductType {
   quantity?: number;
   description: string;
   isDeleted: boolean;
-  category: number;
+  category: string;
   createdAt: string;
   images: Image[];
 }

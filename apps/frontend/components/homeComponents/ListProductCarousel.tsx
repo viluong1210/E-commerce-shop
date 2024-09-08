@@ -1,23 +1,25 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
-import 'swiper/css/effect-fade'
-import { ProductItem } from './ProductItem'
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/effect-fade";
+import { ProductItem } from "./ProductItem";
 
-import { Button } from 'antd'
-import { ProductType } from '@/types'
+import { Button } from "antd";
+import { ProductType } from "@/types";
 type IProps = {
-  products: ProductType[]
-}
-export const ListProductCarousel = ({ products }: IProps) => {
- 
-  
+  products: ProductType[];
+  disableViewsAll?: boolean;
+};
+export const ListProductCarousel = ({
+  products,
+  disableViewsAll = true,
+}: IProps) => {
   return (
     <div className="list-product w-full mb-7 slider-app">
       <Swiper
         slidesPerView={5}
-        effect={'creative'}
+        effect={"creative"}
         spaceBetween={10}
         loop={true}
         breakpoints={{
@@ -63,11 +65,13 @@ export const ListProductCarousel = ({ products }: IProps) => {
             </SwiperSlide>
           ))}
       </Swiper>
-      <div className="text-center w-full mt-7">
-        <Button className="bg-white h-max text-base text-[#221F20] hover:bg-[#221F20] py-[13px] px-8 border border-solid border-[#221F20] rounded-tl-3xl rounded-br-3xl">
-          Xem tất cả
-        </Button>
-      </div>
+      {disableViewsAll && (
+        <div className="text-center w-full mt-7">
+          <Button className="bg-white h-max text-base text-[#221F20] hover:bg-[#221F20] py-[13px] px-8 border border-solid border-[#221F20] rounded-tl-3xl rounded-br-3xl">
+            Xem tất cả
+          </Button>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
