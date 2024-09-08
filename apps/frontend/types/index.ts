@@ -60,7 +60,7 @@ interface Image {
 }
 
 interface ProductType {
-  id: number;
+  id: string;
   name: string;
   price: number;
   quantity?: number;

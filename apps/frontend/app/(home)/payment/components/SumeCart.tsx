@@ -32,8 +32,6 @@ export default function SumeCart({ form }: Props) {
       cartParse = JSON.parse(cart);
     }
 
-    console.log("cartParse", cartParse);
-
     const formatdata = {
       ...datas,
       orderItems: cartParse.map((i) => ({
@@ -50,8 +48,6 @@ export default function SumeCart({ form }: Props) {
         localStorage.setItem("cartItems", JSON.stringify([]));
       })
       .catch((res) => {
-        console.log("resresresres", res);
-
         toast.error("Gặp vấn đề khi đặt hàng");
       });
   };

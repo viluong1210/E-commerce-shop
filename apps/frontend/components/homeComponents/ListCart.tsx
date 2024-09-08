@@ -1,25 +1,53 @@
 "use client";
-import React, { useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import RegisterButton from "./RegisterButton";
-import { ProductType } from "@/types";
 import { listSize } from "@/containts";
 import { useRouter } from "next/navigation";
 
 const App: React.FC = () => {
+  const [cartItems, setCartItems] = useState([]);
   const router = useRouter();
   const cart = localStorage.getItem("cartItems");
 
-  const cartItems: ProductType[] = useMemo(() => {
-    if (cart) return JSON.parse(cart);
-
-    return [];
+  useEffect(() => {
+    if (cart) {
+      setCartItems(JSON.parse(cart));
+    }
   }, [cart]);
 
+  const reduceQuantityProduct = (productId: string) => {
+    if (!cart) return;
+    const cartItems = JSON.parse(cart);
+
+    cartItems.forEach((i) => {
+      if (i.id === productId) {
+        i.quantity = i.quantity - 1;
+      }
+    });
+
+    const cartFilter = cartItems.filter((i: any) => i.quantity > 0);
+
+    setCartItems(cartFilter);
+    localStorage.setItem("cartItems", JSON.stringify(cartFilter));
+  };
+
+  const incriseQuantityProduct = (productId: string) => {
+    if (!cart) return;
+    const cartItems = JSON.parse(cart);
+    cartItems.forEach((i: any) => {
+      if (i.id === productId) {
+        i.quantity = i.quantity + 1;
+      }
+    });
+
+    setCartItems(cartItems);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  };
   return (
     <div className="w-full h-full">
       <div className="h-6/10 overflow-y-auto px-2">
-        {cartItems.map((record) => {
+        {cartItems.map((record: any) => {
           return (
             <div
               className="flex flex-col justify-start py-5 border-b"
@@ -39,13 +67,19 @@ const App: React.FC = () => {
                   <div className="flex justify-between mt-3 gap-5">
                     <div className="flex justify-start items-start">
                       <div className="border-t flex border-b border-t-[#e7e8e9] xl:min-w-6 xl:min-w-4">
-                        <button className="border flex items-center justify-center border-[#e7e8e9] rounded-tl-2xl rounded-br-2xl text-base h-8 w-8">
+                        <button
+                          onClick={() => reduceQuantityProduct(record.id)}
+                          className="border flex items-center justify-center border-[#e7e8e9] rounded-tl-2xl rounded-br-2xl text-base h-8 w-8"
+                        >
                           -
                         </button>
                         <button className="text-sm h-8 w-8">
                           {record?.quantity || 1}{" "}
                         </button>
-                        <button className="border border-[#e7e8e9] rounded-tl-2xl rounded-br-2xl text-base h-8 w-8">
+                        <button
+                          onClick={() => incriseQuantityProduct(record.id)}
+                          className="border border-[#e7e8e9] rounded-tl-2xl rounded-br-2xl text-base h-8 w-8"
+                        >
                           +
                         </button>
                       </div>
