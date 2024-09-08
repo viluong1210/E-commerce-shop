@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "antd";
 import type { TableColumnsType, TableProps } from "antd";
 import { Products } from "@/types/productType";
@@ -90,13 +90,16 @@ const onChange: TableProps<Products>["onChange"] = (
 };
 
 const App: React.FC = () => {
-  const cart = localStorage.getItem("cartItems");
+  const [cartItems, setCartItems] = useState<ProductType[]>([]);
 
-  const cartItems: ProductType[] = useMemo(() => {
-    if (cart) return JSON.parse(cart);
-
-    return [];
-  }, [cart]);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const cart = localStorage.getItem("cartItems");
+      if (cart) {
+        setCartItems(JSON.parse(cart));
+      }
+    }
+  }, []);
 
   return (
     <div className="mt-5">
