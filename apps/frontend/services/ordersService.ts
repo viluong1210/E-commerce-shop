@@ -2,6 +2,7 @@ const API_ENDPOINT = "http://localhost:3001/orders";
 
 import { Paging } from "@/types/index";
 import httpRequest from "./httpRequest";
+import { OrderStatus } from "@/constants/data";
 
 const getAllOrder = (params: Paging) => {
   const obj = {
@@ -52,4 +53,22 @@ const deleteOrder = (ids: number) => {
   return httpRequest.post(obj);
 };
 
-export { getAllOrder, createOrder, editOrder, deleteOrder, getdetailOrder };
+const changeStatusOrder = (id: string, status: OrderStatus) => {
+  const obj = {
+    url: `${API_ENDPOINT}/${id}`,
+    options: {
+      status,
+    },
+  };
+
+  return httpRequest.post(obj);
+};
+
+export {
+  changeStatusOrder,
+  getAllOrder,
+  createOrder,
+  editOrder,
+  deleteOrder,
+  getdetailOrder,
+};

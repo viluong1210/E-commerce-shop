@@ -8,6 +8,11 @@ type Props = {
 export default function OrderItems({ data }: Props) {
   const columns = [
     {
+      title: "Product Id",
+      dataIndex: "productId",
+      key: "productId",
+    },
+    {
       title: "Quantity",
       dataIndex: "quantity",
       key: "quantity",

@@ -148,3 +148,11 @@ export const navItems: NavItem[] = [
     label: "login",
   },
 ];
+
+export const enum OrderStatus {
+  Pending = "Pending",
+  Confirm = "Confirm",
+  Completed = "Completed",
+  Shipped = "Shipped",
+  Cancelled = "Cancelled",
+}
