@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Table } from "antd";
-import type { TableColumnsType, TableProps } from "antd";
-import { Products } from "@/types/productType";
+import type { TableColumnsType } from "antd";
 import { ProductType } from "@/types";
 import { listSize } from "@/containts";
 
@@ -80,15 +79,6 @@ const columns: TableColumnsType<ProductType> = [
   },
 ];
 
-const onChange: TableProps<Products>["onChange"] = (
-  pagination,
-  filters,
-  sorter,
-  extra,
-) => {
-  console.log("params", pagination, filters, sorter, extra);
-};
-
 const App: React.FC = () => {
   const [cartItems, setCartItems] = useState<ProductType[]>([]);
 
@@ -106,7 +96,6 @@ const App: React.FC = () => {
       <Table
         columns={columns}
         dataSource={cartItems || []}
-        onChange={onChange}
         pagination={false}
         // scroll={{ x: 1200 }}
       />

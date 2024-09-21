@@ -7,6 +7,7 @@ import { InputBox } from "@/components/homeComponents/InputBox";
 import { createOrder } from "@/services/ordersService";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 type Props = {
   form: FormInstance;
@@ -15,12 +16,7 @@ type Props = {
 export default function SumeCart({ form }: Props) {
   const router = useRouter();
 
-  const total = [
-    { title: "Tổng sản phẩm", count: "3" },
-    { title: "Tổng tiền hàng", count: "5.570.000đ" },
-    { title: "Thành tiền", count: "2.785.000đ" },
-    { title: "Tạm tính", count: "2.785.000đ" },
-  ];
+  const [total, setTotal] = useState([]);
 
   const handleSubmit = () => {
     const datas = form.getFieldsValue();
@@ -34,7 +30,7 @@ export default function SumeCart({ form }: Props) {
 
     const formatdata = {
       ...datas,
-      orderItems: cartParse.map((i) => ({
+      orderItems: cartParse.map((i: any) => ({
         productId: i.id,
         quantity: i.quantity,
         price: i.price,
