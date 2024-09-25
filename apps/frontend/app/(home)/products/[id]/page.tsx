@@ -3,7 +3,6 @@ import "@/styles/page/detail.css";
 import Footer from "@/components/homeComponents/navbarEnd";
 import { Breadcrumb } from "@/components/homeComponents/Breadcrumb";
 import ImageDetailSlider from "./components/ImageDetailSlider";
-import SlickSlider from "@/components/homeComponents/SlickSlider";
 import DetailProduct from "./components/DetailProduct";
 
 import { GetServerSidePropsContext } from "next";
@@ -12,7 +11,7 @@ import { ProductType } from "@/types";
 import ProductsRelated from "./components/ProductsRelated";
 
 export default async function Page(context: GetServerSidePropsContext) {
-  const { id } = context.params;
+  const { id }: any = context.params;
   const product: ProductType = await getdetailProducts(id);
 
   const products = await getAllProducts({
@@ -36,7 +35,7 @@ export default async function Page(context: GetServerSidePropsContext) {
             <DetailProduct product={product} />
           </div>
         </div>
-        {/* <SlickSlider /> */}
+
         <ProductsRelated products={products?.data || []} />
         <Footer />
       </div>

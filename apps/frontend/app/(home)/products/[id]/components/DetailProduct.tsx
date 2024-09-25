@@ -6,7 +6,7 @@ import RegisterButton from "@/components/homeComponents/RegisterButton";
 import { productDetail } from "@/mock/productProps";
 import { ProductType } from "@/types";
 import { HeartOutlined } from "@ant-design/icons";
-import { Rate, Tabs, TabsProps } from "antd";
+import { Tabs, TabsProps } from "antd";
 import { useRouter } from "next/navigation";
 import React, { useMemo, useState } from "react";
 import { toast } from "react-toastify";
@@ -52,15 +52,20 @@ export default function DetailProduct({ product }: Props) {
           JSON.stringify([{ quantity: numberOfProduct, ...product }]),
         );
         toast.success("Thêm vào giỏ hàng thành công!!!");
+        setNumberOfProduct(1);
         return;
       }
       const cartItemsParse = JSON.parse(cartItems);
       localStorage.setItem(
         "cartItems",
-        JSON.stringify([...cartItemsParse, product]),
+        JSON.stringify([
+          ...cartItemsParse,
+          { quantity: numberOfProduct, ...product },
+        ]),
       );
 
       toast.success("Thêm vào giỏ hàng thành công!!!");
+      setNumberOfProduct(1);
     } catch (error) {
       toast.error(JSON.stringify(error));
     }

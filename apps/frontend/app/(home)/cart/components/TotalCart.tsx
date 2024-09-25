@@ -5,7 +5,12 @@ import { WarningOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function TotalCart() {
+type Props = {
+  style?: string;
+  isDisplay?: boolean;
+};
+
+export default function TotalCart({ style, isDisplay = false }: Props) {
   const [totalCart, setTotalCart] = useState([]);
   const router = useRouter();
 
@@ -37,7 +42,7 @@ export default function TotalCart() {
   }, []);
 
   return (
-    <div className="lg:w-1/3 w-10/12 px-4 ml-2">
+    <div className={style ? style : `lg:w-1/3 w-10/12 px-4 ml-2`}>
       <div className="bg-[rgba(247,248,249,0.5)]py-5">
         <h5 className="text-[#221f20] text-xl mb-[18px] font-medium">
           Tổng tiền giỏ hàng
@@ -62,9 +67,11 @@ export default function TotalCart() {
           Chí Minh để nhận hàng trước Tết.
         </p>
         <div className="w-full h-[1px] bg-[#E7E8E9] my-6"></div>
-        <RegisterButton onClick={() => router.push("/payment")}>
-          <span className="uppercase">Đặt hàng</span>
-        </RegisterButton>
+        {!isDisplay && (
+          <RegisterButton onClick={() => router.push("/payment")}>
+            <span className="uppercase">Đặt hàng</span>
+          </RegisterButton>
+        )}
       </div>
     </div>
   );

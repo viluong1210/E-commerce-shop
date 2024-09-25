@@ -44,24 +44,6 @@ type Props = {
 };
 
 const RegisterForm = ({ form }: Props) => {
-  const handleSubmitForm = () => {
-    const formatdata = {
-      name: "Lương Văn Vĩ",
-      phone: "0123456789",
-      email: "viluong@gmail.com",
-      sex: "male",
-      address: "253 hoang van thu",
-      birthday: "2024-07-06T01:29:39.983Z",
-      orderItems: [
-        {
-          productId: "4f88e335-eb96-4252-a19a-0062f5cef4c5",
-          quantity: 10,
-          price: 12000,
-        },
-      ],
-    };
-  };
-
   return (
     <Form form={form} layout="vertical">
       <div>
