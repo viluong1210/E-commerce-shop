@@ -1,14 +1,12 @@
 import { Task } from "@/lib/store";
 import { useDndContext, type UniqueIdentifier } from "@dnd-kit/core";
-import { SortableContext, useSortable } from "@dnd-kit/sortable";
+import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { cva } from "class-variance-authority";
 import { GripVertical } from "lucide-react";
-import { useMemo } from "react";
 import { Button } from "../ui/button";
-import { Card, CardContent, CardHeader } from "../ui/card";
+import { Card, CardHeader } from "../ui/card";
 import { ColumnActions } from "./column-action";
-import { TaskCard } from "./task-card";
 
 export interface Column {
   id: UniqueIdentifier;
@@ -29,52 +27,25 @@ interface BoardColumnProps {
 }
 
 export function BoardColumn({ column, tasks, isOverlay }: BoardColumnProps) {
-  const tasksIds = useMemo(() => {
-    return tasks.map((task) => task.id);
-  }, [tasks]);
-
-  const {
-    setNodeRef,
-    attributes,
-    listeners,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({
-    id: column.id,
-    data: {
-      type: "Column",
-      column,
-    } satisfies ColumnDragData,
-    attributes: {
-      roleDescription: `Column: ${column.title}`,
-    },
-  });
+  const { setNodeRef, attributes, listeners, transform, transition } =
+    useSortable({
+      id: column.id,
+      data: {
+        type: "Column",
+        column,
+      } satisfies ColumnDragData,
+      attributes: {
+        roleDescription: `Column: ${column.title}`,
+      },
+    });
 
   const style = {
     transition,
     transform: CSS.Translate.toString(transform),
   };
 
-  const variants = cva(
-    "h-[70vh] max-h-[70vh] w-[350px] max-w-full bg-secondary flex flex-col flex-shrink-0 snap-center",
-    {
-      variants: {
-        dragging: {
-          default: "border-2 border-transparent",
-          over: "ring-2 opacity-30",
-          overlay: "ring-2 ring-primary",
-        },
-      },
-    },
-  );
-
   return (
-    <Card
-      ref={setNodeRef}
-      style={style}
-     
-    >
+    <Card ref={setNodeRef} style={style}>
       <CardHeader className="p-4 font-semibold border-b-2 text-left flex flex-row space-between items-center">
         <Button
           variant={"ghost"}
@@ -85,10 +56,9 @@ export function BoardColumn({ column, tasks, isOverlay }: BoardColumnProps) {
           <span className="sr-only">{`Move column: ${column.title}`}</span>
           <GripVertical />
         </Button>
-     
+
         <ColumnActions id={column.id} title={column.title} />
       </CardHeader>
-      
     </Card>
   );
 }

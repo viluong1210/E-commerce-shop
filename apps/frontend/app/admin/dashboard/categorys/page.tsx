@@ -19,7 +19,7 @@ export default async function page() {
           <NewTaskDialog />
         </div>
 
-        {categorys?.data.map((i, index) => {
+        {categorys?.data.map((i: any, index: number) => {
           return <CategogyForm data={i} key={index} />;
         })}
 
