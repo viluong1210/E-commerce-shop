@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "@/styles/component/navbar.css";
 import { Badge, Collapse, Drawer, Select, Space } from "antd";
 import { collapseItems, navbarMenu } from "@/mock/menuProps";
@@ -22,8 +22,8 @@ import { useRouter } from "next/navigation";
 const Navigate: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [openNavbarMenu, setOpenNavbarMenu] = useState(false);
+  const [countCartItems, setCountCartItems] = useState(0);
   const router = useRouter();
-  // const navigate = useNavigate()
 
   const showDrawer = () => {
     setOpen(true);
@@ -43,11 +43,12 @@ const Navigate: React.FC = () => {
       </div>
     );
   };
-  const renderShoppingCard = () => {
+
+  const renderShoppingCard = useCallback(() => {
     return (
       <>
         <div onClick={showDrawer}>
-          <Badge count={5}>
+          <Badge count={countCartItems}>
             <ShoppingOutlined className="text-xl" />
           </Badge>
         </div>
@@ -56,7 +57,7 @@ const Navigate: React.FC = () => {
         </Drawer>
       </>
     );
-  };
+  }, [countCartItems, open]);
 
   const handleChange = () => {};
 
@@ -70,6 +71,15 @@ const Navigate: React.FC = () => {
       value: "jp",
     },
   ];
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const cart = localStorage.getItem("cartItems");
+      if (cart) {
+        setCountCartItems(JSON.parse(cart)?.length | 0);
+      }
+    }
+  }, []);
 
   return (
     <div className="w-full navbar relative">

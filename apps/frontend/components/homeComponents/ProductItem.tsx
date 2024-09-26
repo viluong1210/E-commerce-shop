@@ -6,6 +6,7 @@ import { ColorDot } from "./ColorDot";
 import { ProductType } from "@/types";
 import { listColor } from "@/containts";
 import { useRouter } from "next/navigation";
+import { formatToVND } from "@/lib/utils";
 
 type IProps = {
   itemProduct: ProductType;
@@ -56,10 +57,10 @@ export const ProductItem = ({ itemProduct }: IProps) => {
       <div className="flex justify-between cart-btn">
         <div className="flex gap-3 items-center">
           <span className="text-[#3E3E3F] font-semibold font-montserrat text-base">
-            {itemProduct.price}
+            {formatToVND(itemProduct.price)}
           </span>
           <span className="text-[#A8A9AD] font-semibold font-montserrat text-xs line-through">
-            {itemProduct.price}
+            {formatToVND(itemProduct.price)}
           </span>
         </div>
         <Button

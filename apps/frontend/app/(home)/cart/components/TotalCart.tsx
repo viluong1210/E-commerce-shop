@@ -4,6 +4,7 @@ import RegisterButton from "@/components/homeComponents/RegisterButton";
 import { WarningOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { formatToVND } from "@/lib/utils";
 
 type Props = {
   style?: string;
@@ -31,11 +32,11 @@ export default function TotalCart({ style, isDisplay = false }: Props) {
         return total + item.price * item.quantity;
       }, 0);
 
-      result.push({ title: "Tổng tiền hàng", count: `${totalPrice}đ` });
+      result.push({ title: "Tổng tiền hàng", count: formatToVND(totalPrice) });
 
-      result.push({ title: "Thành tiền", count: `${totalPrice}đ` });
+      result.push({ title: "Thành tiền", count: formatToVND(totalPrice) });
 
-      result.push({ title: "Tạm tính", count: `${totalPrice}đ` });
+      result.push({ title: "Tạm tính", count: formatToVND(totalPrice) });
 
       setTotalCart(result);
     }

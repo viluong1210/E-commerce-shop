@@ -30,7 +30,7 @@ export const ListProduct = ({ data, categorys }: Props) => {
     }));
   }, [categorys]);
 
-  const handleChange = (value: string) => {
+  const handleChange = (value: string | null) => {
     router.push(`${pathname}?${createQueryString({ category: value })}`, {
       scroll: false,
     });

@@ -3,6 +3,7 @@
 import { CategoryLabel } from "@/components/homeComponents/CategoryLabel";
 import { ColorDot } from "@/components/homeComponents/ColorDot";
 import RegisterButton from "@/components/homeComponents/RegisterButton";
+import { formatToVND } from "@/lib/utils";
 import { productDetail } from "@/mock/productProps";
 import { ProductType } from "@/types";
 import { HeartOutlined } from "@ant-design/icons";
@@ -97,7 +98,7 @@ export default function DetailProduct({ product }: Props) {
         </div>
         <div className="flex justify-start relative items-end mt-4">
           <span className="text-[#221f20] text-2xl font-semibold">
-            {product.price}
+            {formatToVND(product.price)}
           </span>
           {/* <span className="text-[#a8a9ad] text-base ml-1 line-through">
             {productDetail.priceProduct.originPrice}

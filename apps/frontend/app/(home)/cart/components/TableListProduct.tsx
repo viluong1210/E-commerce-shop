@@ -4,6 +4,7 @@ import { Table } from "antd";
 import type { TableColumnsType } from "antd";
 import { ProductType } from "@/types";
 import { listSize } from "@/containts";
+import { formatToVND } from "@/lib/utils";
 
 const columns: TableColumnsType<ProductType> = [
   {
@@ -34,7 +35,7 @@ const columns: TableColumnsType<ProductType> = [
       <div className="flex flex-col justify-start items-start">
         <span className="text-[#6c6d70] xl:text-base text-xs font-normal font-montserrat">
           {" "}
-          {record.price}
+          {formatToVND(record.price)}
         </span>
         {/* <span className="text-sm text-[#d73831] font-montserrat font-bold">
           {" "}
@@ -71,8 +72,9 @@ const columns: TableColumnsType<ProductType> = [
     render: (_, record) => (
       <div className="flex flex-col justify-start items-start">
         <span className="text-[#6c6d70] xl:text-base text-xs font-normal font-montserrat">
-          {" "}
-          {record?.quantity ? record.quantity * record.price : record.price} đ
+          {formatToVND(
+            record?.quantity ? record.quantity * record.price : record.price,
+          )}
         </span>
       </div>
     ),
