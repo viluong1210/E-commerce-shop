@@ -49,7 +49,7 @@ export const navbarMenu: NavbarMenu[] = [
 export const collapseItems: CollapseProps["items"] = [
   {
     key: "1",
-    label: "This is panel header 1",
+    label: "Sản Phẩm",
     children: <p>Trẻ em</p>,
   },
   {

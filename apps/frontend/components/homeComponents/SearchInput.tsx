@@ -23,7 +23,7 @@ const SearchInput: React.FC = () => {
 
   return (
     <InputBox
-      className="text-sm w-[358px] h-12 text-[#57585A]   font-montserrat"
+      className="text-sm w-[358px]] h-12 text-[#57585A] font-montserrat"
       onChange={(e) => setValueSeach(e.target.value)}
       value={valueSeach}
       addonAfter={<SearchOutlined onClick={onSearch} />}

@@ -55,7 +55,7 @@ export default function Footer() {
   return (
     <div className="w-full">
       <div className="bg-white my-4 w-full text-[#3E3E3F] border-t border-t-[#D1D2D4] border-b border-b-[#D1D2D4] py-14">
-        <div className="w-full flex xl:flex-row flex-col">
+        <div className="w-full flex xl:flex-row justify-between flex-col gap-5">
           <div className="xl:w-1/4 w-10/12 flex flex-col">
             {/* <div className="flex gap-4  items-center">
               <img
@@ -87,7 +87,7 @@ export default function Footer() {
           </div>
           {footerText2.map((item: FooterText2, index: number) => {
             return (
-              <div className="xl:w-1/5  w-10/12text-left ml-4" key={index}>
+              <div className="xl:w-1/5  w-10/12 text-left ml-4" key={index}>
                 <h5 className="text-2xl font-semibold break-keep w-max">
                   {item.title}
                 </h5>
@@ -99,7 +99,7 @@ export default function Footer() {
               </div>
             );
           })}
-          <div className="xl:w-1/4 w-10/12">
+          <div className="xl:w-[35%] w-10/12">
             <div className="rounded-tl-[56px] p-5 rounded-br-[56px] border-[#E7E8E9] border-[6px]">
               <p className="font-semibold text-xl">
                 Request For Quotation (RFQ)

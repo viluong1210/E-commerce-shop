@@ -9,6 +9,7 @@ import { GetServerSidePropsContext } from "next";
 import { getAllProducts, getdetailProducts } from "@/services/productsService";
 import { ProductType } from "@/types";
 import ProductsRelated from "./components/ProductsRelated";
+import { productDetail } from "@/mock/productProps";
 
 export default async function Page(context: GetServerSidePropsContext) {
   const { id }: any = context.params;
@@ -29,7 +30,7 @@ export default async function Page(context: GetServerSidePropsContext) {
           <div className="flex md:flex-row flex-col w-full justify-between mt-5">
             <div className="md:w-6/12 w-full">
               <ImageDetailSlider
-                listImage={product.images?.map((i) => i.url)}
+                listImage={products.listImage?.map((i) => i.url)}
               />
             </div>
             <DetailProduct product={product} />

@@ -47,7 +47,7 @@ const RegisterForm = ({ form }: Props) => {
   return (
     <Form form={form} layout="vertical">
       <div>
-        <div className="gap-5 flex">
+        <div className="gap-5 flex lg:flex-row flex-col items-center">
           <Form.Item
             name="name"
             className="justify-center flex  flex-col items-center"
@@ -83,7 +83,7 @@ const RegisterForm = ({ form }: Props) => {
             <InputBox placeholder={"Điện thoại..."} type="text" />
           </Form.Item>
         </div>
-        <div className="gap-5 flex">
+        <div className="gap-5 flex lg:flex-row flex-col items-center">
           <Form.Item
             name="email"
             className="justify-center flex  flex-col items-center"
@@ -119,10 +119,10 @@ const RegisterForm = ({ form }: Props) => {
             <FormDatePicker placeholder={"Ngày sinh..."} />
           </Form.Item>
         </div>
-        <div className="gap-5 flex items-center">
+        <div className="gap-5 flex lg:flex-row flex-col items-center">
           <Form.Item
             name="sex"
-            className=" w-full"
+            className="justify-center flex flex-col items-center"
             label={
               <span className="text-[#6C6D70] font-montserrat text-base">
                 Giới Tính

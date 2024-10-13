@@ -24,6 +24,7 @@ const Navigate: React.FC = () => {
   const [openNavbarMenu, setOpenNavbarMenu] = useState(false);
   const [countCartItems, setCountCartItems] = useState(0);
   const router = useRouter();
+  const [isActiveFilter, setIsActiveFilter] = useState(false);
 
   const showDrawer = () => {
     setOpen(true);
@@ -83,7 +84,7 @@ const Navigate: React.FC = () => {
 
   return (
     <div className="w-full navbar relative">
-      <div className="w-11/12 bg-white fixed z-50 top-0 xl:left-20 left-5 responsive-screen-laptop hidden lg:flex flex-col justify-between items-center h-max pt-4">
+      <div className="w-11/12 bg-white fixed z-50 top-0 xl:left-20 left-5 responsive-screen-laptop hidden xl:flex flex-col justify-between items-center h-max pt-4">
         <div className="lg:flex flex-row justify-between items-center w-full mb-4 pl-2">
           <div className="flex gap-5 justify-start">
             {navbarMenu?.map((item: NavbarMenu, index: number) => {
@@ -122,12 +123,20 @@ const Navigate: React.FC = () => {
             })}
           </div>
           <div>{renderLogo()}</div>
+
           <Select
             className="filter-product-item lg:w-[240px]"
-            placeholder="Categorys"
+            placeholder="Language"
             onChange={handleChange}
             options={languageOptions}
-            suffixIcon={<DownOutlined className="text-sm" />}
+            onClear={() => handleChange(null)}
+            suffixIcon={
+              <DownOutlined
+                className="text-sm"
+                rotate={isActiveFilter ? 180 : 0}
+              />
+            }
+            onClick={() => setIsActiveFilter(!isActiveFilter)}
           />
           <div className="search-component w-1/4 flex flex-row items-center h-full gap-5">
             <SearchInput />
@@ -142,10 +151,10 @@ const Navigate: React.FC = () => {
         </div>
         <div className="h-[1px] w-full bg-gray-200 px-6"></div>
       </div>
-      <div className="responsive-screen-mobile py-4 lg:hidden flex flex-row justify-between">
+      <div className="py-4 xl:hidden flex flex-row justify-between">
         <div>
           <div onClick={() => setOpenNavbarMenu(true)}>
-            <MenuOutlined />
+            <MenuOutlined className="block text-black" />
           </div>
           <Drawer
             title={<CloseOutlined onClick={() => setOpenNavbarMenu(false)} />}
@@ -163,7 +172,7 @@ const Navigate: React.FC = () => {
                 }
                 defaultActiveKey={["1"]}
                 ghost
-                items={collapseItems}
+                items={navbarMenu}
               />
             </div>
           </Drawer>
