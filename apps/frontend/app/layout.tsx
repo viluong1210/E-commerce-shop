@@ -26,7 +26,7 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} overflow-auto`}>
         <Providers session={session}>
-          <Loading />
+          {/* <Loading /> */}
           <ToastContainer />
           {children}
         </Providers>

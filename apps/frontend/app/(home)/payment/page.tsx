@@ -22,12 +22,12 @@ export default function Cart() {
       <div className="lg:w-11/12 px-4 lg:px-4 pb-5">
         <Navigate />
         <div className="w-full lg:mt-24">
-          <div className="flex w-full lg:flex-row flex-col justify-center lg:items-start items-center">
-            <div className="timeline-component lg:w-2/3 w-11/12">
+          <div className="flex w-full xl:flex-row flex-col justify-center xl:items-start items-center">
+            <div className="timeline-component xl:w-2/3 w-11/12">
               <TimeLine />
               <div className=" h-[1px] bg-[#E7E8E9] my-6"></div>
               <div className="flex w-full gap-5 mt-5">
-                <div className="w-1/2">
+                <div className="lg-w-3/2 w-full">
                   <div className="w-full flex ">
                     <span className="text-[#221f20] text-xl font-medium">
                       Thông tin giao hàng
@@ -72,7 +72,7 @@ export default function Cart() {
                 </RegisterButton>
               </div>
             </div>
-            <div className="lg:w-1/3 w-10/12 px-4 ml-2">
+            <div className="xl:w-1/3 w-10/12 px-4 ml-2">
               <div className="flex lg:flex-row flex-col justify-center lg:items-start items-center bg-[rgba(247,248,249,0.5)] px-4">
                 <SumeCart form={form} />
               </div>

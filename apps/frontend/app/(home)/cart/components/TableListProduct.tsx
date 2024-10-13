@@ -5,6 +5,7 @@ import type { TableColumnsType } from "antd";
 import { ProductType } from "@/types";
 import { listSize } from "@/containts";
 import { formatToVND } from "@/lib/utils";
+import { listProduct } from "@/mock/productProps";
 
 const columns: TableColumnsType<ProductType> = [
   {
@@ -51,11 +52,11 @@ const columns: TableColumnsType<ProductType> = [
     key: "quantity",
     render: (_, record) => (
       <div className="flex justify-start items-start">
-        <div className="flex   xl:min-w-6 xl:min-w-4">
+        <div className="flex xl:min-w-6 xl:min-w-4">
           <button className="border flex items-center justify-center border-[#e7e8e9] rounded-tl-2xl rounded-br-2xl xl:text-[28px] xl:w-[48px] xl:h-[48px] text-xl w-[40px] h-[40px]">
             -
           </button>
-          <button className="text-sm xl:text-[28px] xl:w-[48px] xl:h-[48px] w-[40px] h-[40px]">
+          <button className="text-sm xl:text-[20px] xl:w-[48px] xl:h-[48px] w-[40px] h-[40px]">
             {record?.quantity || 1}
           </button>
           <button className="border border-[#e7e8e9] rounded-tl-2xl rounded-br-2xl text-[28px] xl:text-[28px] xl:w-[48px] xl:h-[48px] text-xl w-[40px] h-[40px]">

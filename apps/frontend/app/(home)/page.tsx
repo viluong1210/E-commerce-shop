@@ -1,12 +1,12 @@
 "use client";
 
-import Navigate from '@/components/homeComponents/navigate'
-import { ButtonSale } from './components/ButtonSale'
-import Carousel from './components/Carousel'
-import SlickSlider from '@/components/homeComponents/SlickSlider'
-import { ListProduct } from './components/ListProduct'
-import '../../styles/page/home.css'
-import Footer from '@/components/homeComponents/navbarEnd'
+import Navigate from "@/components/homeComponents/navigate";
+import { ButtonSale } from "./components/ButtonSale";
+import Carousel from "./components/Carousel";
+import SlickSlider from "@/components/homeComponents/SlickSlider";
+import { ListProduct } from "./components/ListProduct";
+import "../../styles/page/home.css";
+import Footer from "@/components/homeComponents/navbarEnd";
 export default function Page() {
   return (
     <div className="w-full h-full flex justify-center bg-[#FFF]">
@@ -29,5 +29,5 @@ export default function Page() {
         <Footer />
       </div>
     </div>
-  )
+  );
 }

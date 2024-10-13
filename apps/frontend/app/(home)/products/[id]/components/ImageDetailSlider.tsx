@@ -33,7 +33,7 @@ export default function ImageDetailSlider({ listImage }: IProps) {
           {listImage?.length &&
             listImage.map((product: string, index: number) => (
               <SwiperSlide key={index}>
-                <div className="w-full overflow-hidden shadow-2xl border rounded-md">
+                <div className="overflow-hidden shadow-2xl border rounded-md xl:min-w-[482px] xl:min-h-[719px] flex flex-row justify-center items-center">
                   <ImageZoom
                     src={product}
                     zoom="200"

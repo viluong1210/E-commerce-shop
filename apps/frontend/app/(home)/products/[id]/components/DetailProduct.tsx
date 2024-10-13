@@ -73,7 +73,7 @@ export default function DetailProduct({ product }: Props) {
   };
 
   const formattedText = useMemo(() => {
-    return product?.description.split("\n").map((item, index) => (
+    return product?.description?.split("\n").map((item, index) => (
       <React.Fragment key={index}>
         {item}
         <br />
@@ -117,7 +117,7 @@ export default function DetailProduct({ product }: Props) {
         />
         <div className="count flex justify-center items-center">
           <span>Số lượng</span>
-          <div className="border-t flex border-b border-t-[#e7e8e9] mt-5 ml-3">
+          <div className="flex  border-t-[#e7e8e9] mt-5 ml-3">
             <button
               onClick={() => handleChangeNumber(-1)}
               disabled={numberOfProduct <= 1}

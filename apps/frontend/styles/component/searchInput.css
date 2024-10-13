@@ -1,4 +1,4 @@
-.ant-select-selector {
+.search-component .ant-select-selector {
   width: 100%;
   height: 40px !important;
   background: #fff;
@@ -15,11 +15,11 @@
   .ant-select-selector {
   border: 1px solid #e7e8e9;
 }
-.ant-select .ant-select-arrow {
+.search-component .ant-select .ant-select-arrow {
   font-size: 20px;
   top: 65%;
   color: #6c6d70 !important;
 }
-.ant-select-selection-placeholder {
+.search-component  .ant-select-selection-placeholder {
   color: #6c6d70 !important;
 }
